@@ -1,0 +1,234 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #f6ede7;
+  --color-cream-dark: #f0e4dc;
+  --color-ink: #161616;
+  --color-ink-soft: #1d1d1d;
+  --color-blush: #f3c9cf;
+  --color-blush-soft: #f7d7db;
+  --color-rose: #ec5b72;
+  --color-rose-deep: #e0445e;
+
+  --font-serif: "Fraunces", ui-serif, Georgia, serif;
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-script: "Dancing Script", cursive;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+body {
+  margin: 0;
+  overflow-x: clip;
+  font-family: var(--font-sans);
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-rose);
+  color: #fff;
+}
+
+.reveal {
+  opacity: 0;
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.reveal-up {
+  transform: translateY(36px);
+}
+
+.reveal-down {
+  transform: translateY(-36px);
+}
+
+.reveal-left {
+  transform: translateX(-56px);
+}
+
+.reveal-right {
+  transform: translateX(56px);
+}
+
+.reveal-fade {
+  transform: none;
+}
+
+.reveal-scale {
+  transform: scale(0.96);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translate(0) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ── Micro-interactions ── */
+
+.btn-interactive {
+  transition:
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.btn-interactive:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -8px rgba(236, 91, 114, 0.35);
+}
+
+.btn-interactive:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: none;
+}
+
+.link-underline {
+  position: relative;
+}
+
+.link-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--color-rose);
+  transition:
+    width 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    left 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.link-underline:hover::after,
+.link-underline.is-active::after {
+  width: 100%;
+  left: 0;
+}
+
+.arrow-slide {
+  display: inline-block;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.group:hover .arrow-slide,
+.btn-interactive:hover .arrow-slide {
+  transform: translateX(4px);
+}
+
+.card-lift {
+  transition:
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    ring-color 0.3s ease;
+}
+
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px -16px rgba(0, 0, 0, 0.25);
+}
+
+@keyframes float-gentle {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-float {
+  animation: float-gentle 4s ease-in-out infinite;
+}
+
+.animate-float-delay-1 {
+  animation: float-gentle 4.5s ease-in-out 0.6s infinite;
+}
+
+.animate-float-delay-2 {
+  animation: float-gentle 5s ease-in-out 1.2s infinite;
+}
+
+.animate-twinkle {
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2.5s ease-in-out infinite;
+}
+
+.is-visible .draw-underline-path {
+  stroke-dasharray: 120;
+  stroke-dashoffset: 120;
+  animation: draw-underline 1s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
+}
+
+@keyframes draw-underline {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-float-delay-1,
+  .animate-float-delay-2,
+  .animate-twinkle,
+  .animate-pulse-soft {
+    animation: none;
+  }
+
+  .btn-interactive:hover,
+  .btn-interactive:active,
+  .card-lift:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .is-visible .draw-underline-path {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}
