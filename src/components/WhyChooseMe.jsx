@@ -82,7 +82,7 @@ function StackCard({ card, index, x, scale, activeStep }) {
 
   return (
     <motion.div
-      className="absolute inset-x-0 w-full will-change-transform"
+      className="absolute inset-x-4 w-auto will-change-transform sm:inset-x-6 md:inset-x-8"
       style={{
         x,
         scale,
@@ -174,33 +174,33 @@ export default function WhyChooseMe() {
   });
 
   useMotionValueEvent(scrollYProgress, "change", (v) => {
-    if (v < 0.08) setActiveStep(0);
-    else if (v < 0.48) setActiveStep(1);
+    if (v < 0.1) setActiveStep(0);
+    else if (v < 0.54) setActiveStep(1);
     else setActiveStep(2);
   });
 
   const card1X = useTransform(scrollYProgress, [0, 1], ["0%", "0%"]);
-  const card2X = useTransform(scrollYProgress, [0.08, 0.42], ["-105%", "0%"]);
-  const card3X = useTransform(scrollYProgress, [0.48, 0.82], ["105%", "0%"]);
+  const card2X = useTransform(scrollYProgress, [0.06, 0.48], ["-105%", "0%"]);
+  const card3X = useTransform(scrollYProgress, [0.54, 0.9], ["105%", "0%"]);
 
-  const card1Scale = useTransform(scrollYProgress, [0.42, 0.52, 0.82, 0.92], [1, 0.91, 0.91, 0.86]);
-  const card2Scale = useTransform(scrollYProgress, [0.82, 0.92], [1, 0.91]);
+  const card1Scale = useTransform(scrollYProgress, [0.48, 0.6, 0.9, 0.97], [1, 0.91, 0.91, 0.86]);
+  const card2Scale = useTransform(scrollYProgress, [0.9, 0.97], [1, 0.91]);
 
   const xValues = [card1X, card2X, card3X];
   const scaleValues = [card1Scale, card2Scale, 1];
 
   return (
-    <section id="why-me" ref={containerRef} className="relative h-[300vh] text-cream">
+    <section id="why-me" ref={containerRef} className="relative h-[420vh] text-cream">
       <div className="sticky top-0 flex h-[100dvh] flex-col bg-[#121212] md:h-screen md:overflow-hidden">
         <SectionBackground />
 
-        <div className="relative mx-auto flex h-full w-full max-w-5xl flex-col px-4 pb-6 pt-16 sm:px-6 sm:pb-10 sm:pt-20 md:px-10 md:pb-16 md:pt-24">
+        <div className="relative mx-auto flex h-full w-full max-w-5xl flex-col px-4 pb-14 pt-16 sm:px-6 sm:pb-10 sm:pt-20 md:px-10 md:pb-16 md:pt-24">
           <div className="shrink-0">
             <SectionHeader activeStep={activeStep} />
           </div>
 
           <div className="relative mt-4 flex min-h-0 flex-1 flex-col overflow-x-clip overflow-y-visible sm:mt-6 md:mt-10">
-            <div className="relative w-full min-h-[460px] shrink-0 pt-3 pb-4 sm:min-h-[500px] sm:pt-4 md:min-h-[280px] md:pt-0 md:pb-0">
+            <div className="relative w-full min-h-[460px] shrink-0 pt-3 pb-10 sm:min-h-[500px] sm:pt-4 sm:pb-4 md:min-h-[280px] md:pt-0 md:pb-0">
               {cards.map((card, i) => (
                 <StackCard
                   key={card.left.title}

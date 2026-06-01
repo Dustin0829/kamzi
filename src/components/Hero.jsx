@@ -15,17 +15,21 @@ export default function Hero() {
   const textY = useTransform(scrollYProgress, [0, 1], [0, 40]);
 
   return (
-    <section id="home" ref={sectionRef} className="relative flex min-h-[80dvh] flex-col overflow-hidden bg-ink">
-      <div className="absolute inset-0 bg-linear-to-b from-rose-deep/40 via-ink to-ink" />
+    <section
+      id="home"
+      ref={sectionRef}
+      className="relative z-10 flex min-h-[92dvh] flex-col rounded-b-[2rem] bg-ink shadow-[0_32px_80px_-16px_rgba(0,0,0,0.55),0_12px_40px_-12px_rgba(236,91,114,0.15)] md:min-h-[95vh] md:rounded-b-[2.5rem]"
+    >
+      <div className="absolute inset-0 overflow-hidden rounded-b-[2rem] bg-linear-to-b from-rose-deep/40 via-ink to-ink md:rounded-b-[2.5rem]" />
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 overflow-hidden rounded-b-[2rem] md:rounded-b-[2.5rem]"
         style={{
           background:
             "radial-gradient(circle at 70% 40%, rgba(236,91,114,0.55), transparent 55%)",
         }}
       />
 
-      <div className="relative z-10 mx-auto grid w-full max-w-7xl flex-1 grid-cols-1 items-center gap-8 px-6 py-28 md:grid-cols-2 md:px-10 md:py-32">
+      <div className="relative z-10 mx-auto grid w-full max-w-7xl flex-1 grid-cols-1 items-center gap-8 px-6 py-32 md:grid-cols-2 md:px-10 md:py-34">
         <motion.div className="relative max-w-xl" style={{ y: textY }}>
           <CurveArrow className="animate-float absolute -left-4 -top-10 hidden h-12 w-12 text-rose md:block" />
 

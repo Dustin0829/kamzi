@@ -23,7 +23,7 @@ export default function About() {
         </Reveal>
 
         <Reveal direction="right" delay={120}>
-          <h2 className="font-serif text-4xl font-semibold md:text-5xl">about kamille</h2>
+          <h2 className="font-serif text-4xl font-semibold md:text-5xl">about <span className="text-rose">me</span></h2>
           <span className="mt-3 block h-[3px] w-40 rounded-full bg-rose" />
 
           <p className="mt-6 max-w-lg text-[15px] leading-relaxed text-ink/70">

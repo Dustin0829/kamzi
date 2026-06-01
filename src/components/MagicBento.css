@@ -161,22 +161,31 @@
   }
 }
 
+.magic-bento-card-reveal {
+  min-width: 0;
+  --reveal-duration: 1.35s;
+}
+
+.magic-bento-card-reveal .magic-bento-card {
+  height: 100%;
+}
+
 @media (min-width: 1024px) {
   .card-grid {
     grid-template-columns: repeat(4, 1fr);
   }
 
-  .magic-bento-card:nth-child(3) {
+  .card-grid > .magic-bento-card-reveal:nth-child(3) {
     grid-column: span 2;
     grid-row: span 2;
   }
 
-  .magic-bento-card:nth-child(4) {
+  .card-grid > .magic-bento-card-reveal:nth-child(4) {
     grid-column: 1 / span 2;
     grid-row: 2 / span 2;
   }
 
-  .magic-bento-card:nth-child(6) {
+  .card-grid > .magic-bento-card-reveal:nth-child(6) {
     grid-column: 4;
     grid-row: 3;
   }

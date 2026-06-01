@@ -15,6 +15,8 @@ const services = [
     numColor: "text-[#fff9c4]",
     iconSrc: "/snapchat-logo-2437_1024.png",
     iconAlt: "Snapchat",
+    revealDirection: "left",
+    revealDelay: 0,
   },
   {
     id: "tiktok",
@@ -26,6 +28,8 @@ const services = [
     numColor: "text-[#ede7f6]",
     iconSrc: "/tiktok-logo-4505_1024.png",
     iconAlt: "TikTok",
+    revealDirection: "left",
+    revealDelay: 120,
   },
   {
     id: "meta",
@@ -38,6 +42,8 @@ const services = [
     iconSrc: "/meta-12368_1024.png",
     iconAlt: "Meta",
     dashboard: <MetaAdsDashboardPreview />,
+    revealDirection: "right",
+    revealDelay: 0,
   },
   {
     id: "google",
@@ -50,6 +56,8 @@ const services = [
     iconSrc: "/google-ads-logo-24212_1024.png",
     iconAlt: "Google Ads",
     dashboard: <GoogleAdsDashboardPreview />,
+    revealDirection: "left",
+    revealDelay: 240,
   },
   {
     id: "pinterest",
@@ -64,6 +72,8 @@ const services = [
         <path d="M12 2a10 10 0 00-3.6 19.3c-.1-.8-.2-2 0-2.9.2-.8 1.1-4.8 1.1-4.8s-.3-.6-.3-1.4c0-1.3.8-2.3 1.7-2.3.8 0 1.2.6 1.2 1.4 0 .8-.5 2-.8 3.2-.2 1 .5 1.7 1.4 1.7 1.7 0 3-1.8 3-4.4 0-2.3-1.6-3.9-4-3.9-2.7 0-4.3 2-4.3 4.1 0 .8.3 1.7.7 2.2.1.1.1.2.1.3l-.3 1.1c0 .2-.2.2-.4.1-1.3-.6-2.1-2.5-2.1-4 0-3.3 2.4-6.3 6.9-6.3 3.6 0 6.4 2.6 6.4 6 0 3.6-2.3 6.5-5.4 6.5-1.1 0-2.1-.6-2.4-1.2l-.7 2.5c-.2.9-.9 2.1-1.4 2.8A10 10 0 1012 2z" />
       </svg>
     ),
+    revealDirection: "right",
+    revealDelay: 120,
   },
   {
     id: "social",
@@ -75,6 +85,8 @@ const services = [
     numColor: "text-[#e0f2f1]",
     iconSrc: "/instagram-logo-8869_1024.png",
     iconAlt: "Instagram",
+    revealDirection: "right",
+    revealDelay: 240,
   },
 ];
 
@@ -160,7 +172,7 @@ export default function WhatIDo() {
           </p>
         </Reveal>
 
-        <Reveal className="mt-14" delay={120} direction="up">
+        <div className="mt-14">
           <MagicBento
             cards={bentoCards}
             renderCard={(service) => <ServiceBentoCard service={service} />}
@@ -174,7 +186,7 @@ export default function WhatIDo() {
             enableMagnetism={false}
             clickEffect={false}
           />
-        </Reveal>
+        </div>
       </div>
     </section>
   );

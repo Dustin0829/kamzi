@@ -1,5 +1,6 @@
 import { useRef, useEffect, useCallback, useState } from "react";
 import { gsap } from "gsap";
+import Reveal from "./Reveal";
 import "./MagicBento.css";
 
 const DEFAULT_PARTICLE_COUNT = 12;
@@ -476,26 +477,20 @@ export default function MagicBento({
           };
           const content = renderCard ? renderCard(card, index) : <DefaultCardContent card={card} />;
 
-          if (enableStars) {
-            return (
-              <ParticleCard
-                key={card.id ?? index}
-                {...cardProps}
-                disableAnimations={shouldDisableAnimations}
-                particleCount={particleCount}
-                glowColor={glowColor}
-                enableTilt={enableTilt}
-                clickEffect={clickEffect}
-                enableMagnetism={enableMagnetism}
-              >
-                {content}
-              </ParticleCard>
-            );
-          }
-
-          return (
+          const cardElement = enableStars ? (
+            <ParticleCard
+              {...cardProps}
+              disableAnimations={shouldDisableAnimations}
+              particleCount={particleCount}
+              glowColor={glowColor}
+              enableTilt={enableTilt}
+              clickEffect={clickEffect}
+              enableMagnetism={enableMagnetism}
+            >
+              {content}
+            </ParticleCard>
+          ) : (
             <StaticBentoCard
-              key={card.id ?? index}
               {...cardProps}
               glowColor={glowColor}
               enableTilt={enableTilt}
@@ -505,6 +500,25 @@ export default function MagicBento({
             >
               {content}
             </StaticBentoCard>
+          );
+
+          if (card.revealDirection) {
+            return (
+              <Reveal
+                key={card.id ?? index}
+                direction={card.revealDirection}
+                delay={card.revealDelay ?? 0}
+                className="magic-bento-card-reveal"
+              >
+                {cardElement}
+              </Reveal>
+            );
+          }
+
+          return (
+            <div key={card.id ?? index} className="magic-bento-card-reveal">
+              {cardElement}
+            </div>
           );
         })}
       </BentoCardGrid>

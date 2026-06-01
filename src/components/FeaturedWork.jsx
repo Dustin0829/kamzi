@@ -128,7 +128,7 @@ function ProjectItem({ project, index }) {
 
 export default function FeaturedWork() {
   return (
-    <section id="work" className="relative bg-[#121212] py-20 text-cream md:py-28">
+    <section id="work" className="relative bg-[#121212] pt-28 pb-20 text-cream md:py-28">
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div
           className="absolute right-0 top-0 h-96 w-96 translate-x-1/4 rounded-full blur-3xl"
@@ -139,7 +139,7 @@ export default function FeaturedWork() {
           style={{ background: "radial-gradient(circle, rgba(236,91,114,0.2), transparent 70%)" }}
         />
 
-        <div className="absolute left-8 top-16 grid grid-cols-4 gap-2 md:left-14">
+        <div className="absolute left-8 top-16 hidden grid-cols-4 gap-2 md:grid md:left-14">
           {Array.from({ length: 16 }).map((_, i) => (
             <span key={i} className="h-1.5 w-1.5 rounded-full bg-rose/70" />
           ))}
@@ -149,7 +149,7 @@ export default function FeaturedWork() {
         <Star4 className="animate-float absolute bottom-32 left-10 h-4 w-4 text-rose/50" />
       </div>
 
-      <div className="relative mx-auto grid max-w-6xl items-start gap-12 px-6 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.4fr)] md:gap-16 md:px-10 lg:gap-20">
+      <div className="relative z-10 mx-auto grid max-w-6xl items-start gap-12 px-6 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.4fr)] md:gap-16 md:px-10 lg:gap-20">
         <div className="md:sticky md:top-28 md:self-start">
           <Reveal direction="left">
             <div className="flex items-stretch gap-6 md:gap-8">
