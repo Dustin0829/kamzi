@@ -207,12 +207,14 @@ export default function Hero() {
         </div>
 
         <div className="hero-scrapbook__portrait-wrap">
-          <img
-            src="/asd.png"
-            alt="Kamille, performance marketing strategist"
-            className="hero-scrapbook__portrait"
-            loading="eager"
-          />
+          <div className="hero-scrapbook__portrait-collage">
+            <img
+              src="/asd.png"
+              alt="Kamille, performance marketing strategist"
+              className="hero-scrapbook__portrait"
+              loading="eager"
+            />
+          </div>
         </div>
       </div>
     </section>
