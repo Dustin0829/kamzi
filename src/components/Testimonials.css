@@ -1,0 +1,306 @@
+.testimonials {
+  --scrapbook-red: #98030b;
+  --scrapbook-paper: #f2f0ed;
+  --scrapbook-pink: #ed7fc2;
+  --scrapbook-ink: #2c2420;
+  background-color: var(--scrapbook-paper);
+  background-image:
+    radial-gradient(ellipse 120% 80% at 80% 15%, rgba(255, 255, 255, 0.45), transparent 52%),
+    radial-gradient(ellipse 100% 70% at 15% 90%, rgba(160, 130, 120, 0.08), transparent 48%),
+    url("/bg-paper.jpg");
+  background-repeat: no-repeat, no-repeat, repeat;
+  background-size: auto, auto, 760px auto;
+  color: var(--scrapbook-ink);
+}
+
+.testimonials__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: clamp(0.75rem, 1.2vw, 0.875rem);
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--scrapbook-red);
+}
+
+.testimonials__badge-icon {
+  font-size: 1rem;
+  color: var(--scrapbook-pink);
+}
+
+.testimonials__headline {
+  position: relative;
+  margin-top: 1.25rem;
+  width: fit-content;
+}
+
+.testimonials__title-script {
+  display: block;
+  font-family: "Dancing Script", cursive;
+  font-weight: 700;
+  font-size: clamp(2.75rem, 6vw, 4.75rem);
+  line-height: 0.95;
+  color: var(--scrapbook-red);
+  text-shadow: 0 2px 10px rgba(152, 3, 11, 0.12);
+}
+
+.testimonials__title-display {
+  display: block;
+  margin-top: -0.1rem;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-size: clamp(4rem, 10vw, 7rem);
+  line-height: 0.85;
+  letter-spacing: 0.02em;
+  color: var(--scrapbook-red);
+  text-shadow: 0 4px 14px rgba(152, 3, 11, 0.14);
+}
+
+.testimonials__desc {
+  margin-top: 1.5rem;
+  max-width: 22rem;
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+  line-height: 1.7;
+  color: #5a4338;
+}
+
+.testimonials__stats {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.625rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 640px) {
+  .testimonials__stats {
+    gap: 0.75rem;
+  }
+}
+
+.testimonials__stat {
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #fff;
+  padding: 0.85rem 0.5rem;
+  text-align: center;
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, 0.1),
+    0 1px 0 rgba(255, 255, 255, 0.9) inset;
+  transform: rotate(-1deg);
+}
+
+.testimonials__stat:nth-child(2) {
+  transform: rotate(1.25deg);
+}
+
+.testimonials__stat:nth-child(3) {
+  transform: rotate(-0.75deg);
+}
+
+.testimonials__stat-value {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(1.35rem, 3.2vw, 1.85rem);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: var(--scrapbook-red);
+}
+
+.testimonials__stat-label {
+  margin-top: 0.35rem;
+  font-size: clamp(0.55rem, 1.4vw, 0.65rem);
+  line-height: 1.3;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(90, 67, 56, 0.75);
+}
+
+.testimonials__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.testimonials__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  padding: 0.8rem 1.4rem;
+  font-size: clamp(0.68rem, 1vw, 0.75rem);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: lowercase;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.testimonials__btn--outline {
+  border: 1.5px solid var(--scrapbook-red);
+  color: var(--scrapbook-red);
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.testimonials__btn--outline:hover {
+  background: rgba(152, 3, 11, 0.08);
+  transform: translateY(-1px);
+}
+
+.testimonials__btn--primary {
+  border: none;
+  color: #fff;
+  background: var(--scrapbook-pink);
+  box-shadow: 0 6px 20px rgba(237, 127, 194, 0.4);
+}
+
+.testimonials__btn--primary:hover {
+  background: #e56bb5;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(237, 127, 194, 0.55);
+}
+
+.testimonials__card {
+  position: relative;
+  background: #fff;
+  padding: 0.75rem 0.75rem 1.35rem;
+  box-shadow:
+    0 14px 36px rgba(0, 0, 0, 0.14),
+    0 2px 0 rgba(255, 255, 255, 0.85) inset;
+  transform-origin: center center;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.testimonials__card:hover {
+  box-shadow:
+    0 18px 42px rgba(0, 0, 0, 0.18),
+    0 2px 0 rgba(255, 255, 255, 0.85) inset;
+}
+
+.testimonials__card--0 {
+  transform: rotate(-1.5deg);
+}
+
+.testimonials__card--1 {
+  transform: rotate(1.25deg);
+}
+
+.testimonials__card--2 {
+  transform: rotate(-0.75deg);
+}
+
+.testimonials__card--3 {
+  transform: rotate(1deg);
+}
+
+.testimonials__card:hover.testimonials__card--0,
+.testimonials__card:hover.testimonials__card--1,
+.testimonials__card:hover.testimonials__card--2,
+.testimonials__card:hover.testimonials__card--3 {
+  transform: rotate(0deg) translateY(-2px);
+}
+
+.testimonials__card-paper {
+  border-radius: 2px;
+  background:
+    repeating-linear-gradient(
+      transparent,
+      transparent 22px,
+      rgba(110, 110, 110, 0.16) 22px,
+      rgba(110, 110, 110, 0.16) 23px
+    ),
+    #fff;
+  padding: 1rem 1rem 1.15rem;
+}
+
+.testimonials__card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.testimonials__avatar {
+  display: flex;
+  height: 2.75rem;
+  width: 2.75rem;
+  shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.testimonials__card-name {
+  font-family: "Caveat", cursive;
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--scrapbook-ink);
+}
+
+.testimonials__card-role {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(90, 67, 56, 0.65);
+}
+
+.testimonials__rating {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-left: auto;
+  border-radius: 9999px;
+  background: rgba(152, 3, 11, 0.06);
+  padding: 0.25rem 0.55rem;
+}
+
+.testimonials__rating-value {
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: var(--scrapbook-red);
+}
+
+.testimonials__stars {
+  display: flex;
+  gap: 0.1rem;
+}
+
+.testimonials__star {
+  height: 0.75rem;
+  width: 0.75rem;
+  fill: #d4a017;
+}
+
+.testimonials__quote {
+  margin-top: 0.85rem;
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: #4a3d36;
+}
+
+.testimonials__quote-mark {
+  font-family: "Fraunces", serif;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--scrapbook-pink);
+}
+
+.testimonials__tape {
+  position: absolute;
+  top: -0.55rem;
+  left: 50%;
+  height: 1.1rem;
+  width: 3.5rem;
+  transform: translateX(-50%) rotate(-2deg);
+  background: rgba(237, 127, 194, 0.35);
+  border: 1px solid rgba(237, 127, 194, 0.25);
+  opacity: 0.85;
+}

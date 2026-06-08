@@ -1,14 +1,12 @@
-import { Heart, Flower, Star4 } from "./Doodles";
 import Reveal from "./Reveal";
+import SectionBgDecor from "./SectionBgDecor";
 
 export default function About() {
   return (
     <section id="about" className="relative overflow-hidden bg-cream py-20">
-      <Heart className="animate-float absolute left-16 top-12 h-9 w-9 text-rose" filled={false} />
-      <Star4 className="animate-twinkle absolute left-8 top-40 h-4 w-4 text-rose/60" />
-      <Flower className="animate-float-delay-1 absolute right-16 bottom-24 h-9 w-9 text-ink" />
+      <SectionBgDecor variant="about" />
 
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 md:grid-cols-[0.9fr_1.1fr] md:px-10">
+      <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 px-6 md:grid-cols-[0.9fr_1.1fr] md:px-10">
         <Reveal className="relative mx-auto w-full max-w-xs" direction="left">
           <span className="absolute -top-3 left-1/2 z-20 h-7 w-24 -translate-x-1/2 -rotate-2 bg-blush/80" />
           <div className="card-lift rotate-[-2deg] bg-white p-3 pb-12 shadow-xl transition-transform duration-500 hover:rotate-0">

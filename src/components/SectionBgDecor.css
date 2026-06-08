@@ -1,0 +1,449 @@
+.section-bg-decor {
+  --decor-kraft: #c89a6a;
+  --decor-pink: #f3a9c4;
+  --decor-red: #c11722;
+  --decor-rose: #ec5b72;
+
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.section-bg-decor--hero {
+  z-index: 1;
+}
+
+.section-bg-decor__line {
+  position: absolute;
+  color: var(--decor-kraft);
+}
+
+.section-bg-decor__line--a {
+  width: 5.5rem;
+  opacity: 0.32;
+}
+
+.section-bg-decor__line--b {
+  width: 7rem;
+  opacity: 0.26;
+}
+
+.section-bg-decor__heart {
+  position: absolute;
+  color: var(--decor-pink);
+}
+
+.section-bg-decor__heart--a {
+  width: 1.15rem;
+  height: 1.15rem;
+  opacity: 0.38;
+}
+
+.section-bg-decor__heart--b {
+  width: 0.85rem;
+  height: 0.85rem;
+  color: var(--decor-kraft);
+  opacity: 0.34;
+}
+
+.section-bg-decor__star {
+  position: absolute;
+  color: var(--decor-red);
+}
+
+.section-bg-decor__star--a {
+  width: 0.6rem;
+  height: 0.6rem;
+  opacity: 0.36;
+}
+
+.section-bg-decor__star--b {
+  width: 0.55rem;
+  height: 0.55rem;
+  color: var(--decor-pink);
+  opacity: 0.42;
+}
+
+.section-bg-decor__star--c {
+  width: 0.7rem;
+  height: 0.7rem;
+  color: var(--decor-kraft);
+  opacity: 0.3;
+}
+
+/* Hero */
+.section-bg-decor--hero .section-bg-decor__line--a {
+  top: 16%;
+  left: 4%;
+  transform: rotate(-6deg);
+}
+
+.section-bg-decor--hero .section-bg-decor__line--b {
+  bottom: 20%;
+  left: 34%;
+  transform: rotate(8deg);
+}
+
+.section-bg-decor--hero .section-bg-decor__heart--a {
+  top: 26%;
+  left: 40%;
+}
+
+.section-bg-decor--hero .section-bg-decor__heart--b {
+  bottom: 16%;
+  left: 10%;
+}
+
+.section-bg-decor--hero .section-bg-decor__star--a {
+  top: 11%;
+  left: 20%;
+}
+
+.section-bg-decor--hero .section-bg-decor__star--b {
+  top: 38%;
+  right: 32%;
+}
+
+.section-bg-decor--hero .section-bg-decor__star--c {
+  bottom: 24%;
+  right: 38%;
+}
+
+/* Services */
+.section-bg-decor--services .section-bg-decor__line--a {
+  top: 14%;
+  right: 6%;
+  width: 6rem;
+  transform: rotate(10deg);
+}
+
+.section-bg-decor--services .section-bg-decor__line--b {
+  bottom: 18%;
+  left: 5%;
+  transform: rotate(-12deg);
+}
+
+.section-bg-decor--services .section-bg-decor__heart--a {
+  top: 22%;
+  left: 8%;
+}
+
+.section-bg-decor--services .section-bg-decor__heart--b {
+  bottom: 14%;
+  right: 10%;
+}
+
+.section-bg-decor--services .section-bg-decor__star--a {
+  top: 10%;
+  left: 18%;
+  color: #7e57c2;
+  opacity: 0.4;
+}
+
+.section-bg-decor--services .section-bg-decor__star--b {
+  top: 32%;
+  right: 14%;
+  color: var(--decor-rose);
+}
+
+.section-bg-decor--services .section-bg-decor__star--c {
+  bottom: 28%;
+  left: 14%;
+  color: #42a5f5;
+  opacity: 0.35;
+}
+
+/* About */
+.section-bg-decor--about .section-bg-decor__line--a {
+  top: 12%;
+  right: 8%;
+  width: 6.5rem;
+  transform: rotate(6deg);
+}
+
+.section-bg-decor--about .section-bg-decor__line--b {
+  bottom: 22%;
+  left: 6%;
+  width: 5rem;
+  transform: rotate(-8deg);
+}
+
+.section-bg-decor--about .section-bg-decor__heart--a {
+  top: 18%;
+  left: 12%;
+  color: var(--decor-rose);
+}
+
+.section-bg-decor--about .section-bg-decor__heart--b {
+  bottom: 20%;
+  right: 14%;
+}
+
+.section-bg-decor--about .section-bg-decor__star--a {
+  top: 36%;
+  left: 6%;
+  color: var(--decor-rose);
+  opacity: 0.45;
+}
+
+.section-bg-decor--about .section-bg-decor__star--b {
+  top: 14%;
+  right: 22%;
+}
+
+.section-bg-decor--about .section-bg-decor__star--c {
+  bottom: 12%;
+  left: 28%;
+}
+
+/* Why me */
+.section-bg-decor--why-me .section-bg-decor__line--a {
+  top: 8%;
+  left: 10%;
+  transform: rotate(-4deg);
+}
+
+.section-bg-decor--why-me .section-bg-decor__line--b {
+  bottom: 12%;
+  right: 8%;
+  transform: rotate(14deg);
+}
+
+.section-bg-decor--why-me .section-bg-decor__heart--a {
+  top: 20%;
+  right: 12%;
+}
+
+.section-bg-decor--why-me .section-bg-decor__heart--b {
+  bottom: 28%;
+  left: 8%;
+}
+
+.section-bg-decor--why-me .section-bg-decor__star--a {
+  top: 14%;
+  left: 24%;
+  opacity: 0.4;
+}
+
+.section-bg-decor--why-me .section-bg-decor__star--b {
+  top: 42%;
+  right: 6%;
+  color: #ed7fc2;
+}
+
+.section-bg-decor--why-me .section-bg-decor__star--c {
+  bottom: 18%;
+  left: 18%;
+}
+
+/* Featured work */
+.section-bg-decor--work .section-bg-decor__line--a {
+  top: 18%;
+  left: 5%;
+  transform: rotate(-10deg);
+}
+
+.section-bg-decor--work .section-bg-decor__line--b {
+  bottom: 16%;
+  right: 6%;
+  width: 6rem;
+  transform: rotate(6deg);
+}
+
+.section-bg-decor--work .section-bg-decor__heart--a {
+  top: 10%;
+  right: 18%;
+}
+
+.section-bg-decor--work .section-bg-decor__heart--b {
+  bottom: 24%;
+  left: 10%;
+}
+
+.section-bg-decor--work .section-bg-decor__star--a {
+  top: 22%;
+  right: 10%;
+  opacity: 0.45;
+}
+
+.section-bg-decor--work .section-bg-decor__star--b {
+  bottom: 32%;
+  left: 6%;
+  opacity: 0.35;
+}
+
+.section-bg-decor--work .section-bg-decor__star--c {
+  top: 48%;
+  right: 4%;
+  color: #ed7fc2;
+  opacity: 0.38;
+}
+
+/* What's in my bag */
+.section-bg-decor--bag {
+  --decor-kraft: #b89acb;
+  --decor-pink: #e8b4d4;
+}
+
+.section-bg-decor--bag .section-bg-decor__line--a {
+  top: 16%;
+  left: 8%;
+  transform: rotate(-8deg);
+}
+
+.section-bg-decor--bag .section-bg-decor__line--b {
+  bottom: 20%;
+  right: 10%;
+  transform: rotate(10deg);
+}
+
+.section-bg-decor--bag .section-bg-decor__heart--a {
+  top: 12%;
+  right: 14%;
+  color: var(--decor-rose);
+}
+
+.section-bg-decor--bag .section-bg-decor__heart--b {
+  bottom: 14%;
+  left: 12%;
+}
+
+.section-bg-decor--bag .section-bg-decor__star--a {
+  top: 28%;
+  left: 6%;
+  color: #7e57c2;
+  opacity: 0.4;
+}
+
+.section-bg-decor--bag .section-bg-decor__star--b {
+  bottom: 30%;
+  right: 6%;
+}
+
+.section-bg-decor--bag .section-bg-decor__star--c {
+  top: 8%;
+  left: 42%;
+  opacity: 0.32;
+}
+
+/* Testimonials */
+.section-bg-decor--testimonials .section-bg-decor__line--a {
+  top: 10%;
+  right: 10%;
+  transform: rotate(8deg);
+}
+
+.section-bg-decor--testimonials .section-bg-decor__line--b {
+  bottom: 14%;
+  left: 8%;
+  width: 5.5rem;
+  transform: rotate(-6deg);
+}
+
+.section-bg-decor--testimonials .section-bg-decor__heart--a {
+  top: 24%;
+  left: 4%;
+  color: var(--decor-rose);
+}
+
+.section-bg-decor--testimonials .section-bg-decor__heart--b {
+  bottom: 20%;
+  right: 6%;
+}
+
+.section-bg-decor--testimonials .section-bg-decor__star--a {
+  top: 16%;
+  left: 22%;
+}
+
+.section-bg-decor--testimonials .section-bg-decor__star--b {
+  top: 52%;
+  right: 8%;
+  color: #ed7fc2;
+}
+
+.section-bg-decor--testimonials .section-bg-decor__star--c {
+  bottom: 8%;
+  left: 30%;
+}
+
+/* Contact */
+.section-bg-decor--contact .section-bg-decor__line--a {
+  top: 14%;
+  left: 6%;
+  transform: rotate(-6deg);
+}
+
+.section-bg-decor--contact .section-bg-decor__line--b {
+  bottom: 18%;
+  right: 8%;
+  transform: rotate(12deg);
+}
+
+.section-bg-decor--contact .section-bg-decor__heart--a {
+  top: 8%;
+  right: 12%;
+  color: var(--decor-rose);
+}
+
+.section-bg-decor--contact .section-bg-decor__heart--b {
+  bottom: 10%;
+  left: 14%;
+}
+
+.section-bg-decor--contact .section-bg-decor__star--a {
+  top: 32%;
+  right: 4%;
+}
+
+.section-bg-decor--contact .section-bg-decor__star--b {
+  bottom: 32%;
+  left: 4%;
+  color: #ed7fc2;
+}
+
+.section-bg-decor--contact .section-bg-decor__star--c {
+  top: 20%;
+  left: 38%;
+  opacity: 0.28;
+}
+
+/* Footer — minimal */
+.section-bg-decor--footer .section-bg-decor__line--b,
+.section-bg-decor--footer .section-bg-decor__heart--a,
+.section-bg-decor--footer .section-bg-decor__heart--b,
+.section-bg-decor--footer .section-bg-decor__star--b,
+.section-bg-decor--footer .section-bg-decor__star--c {
+  display: none;
+}
+
+.section-bg-decor--footer .section-bg-decor__line--a {
+  top: 50%;
+  left: 8%;
+  width: 4rem;
+  opacity: 0.22;
+  transform: translateY(-50%) rotate(-4deg);
+}
+
+.section-bg-decor--footer .section-bg-decor__star--a {
+  top: 50%;
+  right: 10%;
+  transform: translateY(-50%);
+  opacity: 0.3;
+}
+
+@media (max-width: 767px) {
+  .section-bg-decor .section-bg-decor__line--b,
+  .section-bg-decor .section-bg-decor__heart--b,
+  .section-bg-decor .section-bg-decor__star--b,
+  .section-bg-decor .section-bg-decor__star--c {
+    display: none;
+  }
+
+  .section-bg-decor--work .section-bg-decor__heart--a,
+  .section-bg-decor--contact .section-bg-decor__heart--a {
+    display: none;
+  }
+}

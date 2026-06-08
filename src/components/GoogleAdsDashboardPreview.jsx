@@ -23,7 +23,26 @@ const stats = [
   { label: "Spend", value: "₱1.3M", trend: "+31%" },
 ];
 
-export default function GoogleAdsDashboardPreview() {
+export default function GoogleAdsDashboardPreview({ variant = "default" }) {
+  if (variant === "polaroid") {
+    return (
+      <div className="hero-polaroid-dashboard hero-polaroid-dashboard--google">
+        <p className="hero-polaroid-dashboard__title">Google Ads · Overview</p>
+        <div className="hero-polaroid-dashboard__stats">
+          {stats.map((stat) => (
+            <div key={stat.label} className="hero-polaroid-dashboard__stat">
+              <p className="hero-polaroid-dashboard__label">{stat.label}</p>
+              <p className="hero-polaroid-dashboard__value">{stat.value}</p>
+              <p className={`hero-polaroid-dashboard__trend ${stat.trend.startsWith("↓") ? "hero-polaroid-dashboard__trend--down" : "hero-polaroid-dashboard__trend--up"}`}>
+                {stat.trend}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="flex h-full min-h-[120px] flex-col overflow-hidden rounded-xl bg-[#f8f9fb] p-2.5 text-[#3c4043]">
       <div className="mb-1 flex items-center justify-between gap-2">

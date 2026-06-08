@@ -1,8 +1,8 @@
 import MagicBento from "./MagicBento";
 import GoogleAdsDashboardPreview from "./GoogleAdsDashboardPreview";
 import MetaAdsDashboardPreview from "./MetaAdsDashboardPreview";
-import { Sparkle } from "./Doodles";
 import Reveal from "./Reveal";
+import SectionBgDecor from "./SectionBgDecor";
 
 const services = [
   {
@@ -129,7 +129,9 @@ export default function WhatIDo() {
   }));
 
   return (
-    <section className="relative overflow-hidden bg-[#faf7f4] py-20 md:py-28">
+    <section id="services" className="relative overflow-hidden bg-[#faf7f4] py-20 md:py-28">
+      <SectionBgDecor variant="services" />
+
       <div
         className="pointer-events-none absolute inset-0 opacity-40"
         style={{
@@ -142,11 +144,6 @@ export default function WhatIDo() {
         className="pointer-events-none absolute -right-20 -top-20 h-80 w-80 rounded-full blur-3xl"
         style={{ background: "radial-gradient(circle, rgba(236,91,114,0.25), transparent 70%)" }}
       />
-
-      <Sparkle className="animate-twinkle absolute left-[8%] top-[18%] h-5 w-5 text-[#7e57c2]/60" />
-      <Sparkle className="animate-twinkle absolute right-[12%] top-[22%] h-4 w-4 text-[#ec5b72]/50" />
-      <Sparkle className="animate-float absolute left-[15%] bottom-[20%] h-3.5 w-3.5 text-[#42a5f5]/50" />
-      <Sparkle className="animate-float-delay-1 absolute right-[8%] bottom-[30%] h-5 w-5 text-[#f9a825]/50" />
 
       <div className="relative mx-auto max-w-6xl px-6 md:px-10">
         <Reveal className="text-center" direction="up">

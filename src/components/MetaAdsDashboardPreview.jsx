@@ -23,7 +23,24 @@ const stats = [
   { label: "CTR", value: "2.4%", trend: "+18%" },
 ];
 
-export default function MetaAdsDashboardPreview() {
+export default function MetaAdsDashboardPreview({ variant = "default" }) {
+  if (variant === "polaroid") {
+    return (
+      <div className="hero-polaroid-dashboard hero-polaroid-dashboard--meta">
+        <p className="hero-polaroid-dashboard__title">Meta Ads · Performance</p>
+        <div className="hero-polaroid-dashboard__stats">
+          {stats.map((stat) => (
+            <div key={stat.label} className="hero-polaroid-dashboard__stat">
+              <p className="hero-polaroid-dashboard__label">{stat.label}</p>
+              <p className="hero-polaroid-dashboard__value">{stat.value}</p>
+              <p className="hero-polaroid-dashboard__trend hero-polaroid-dashboard__trend--up">{stat.trend}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="flex h-full min-h-[120px] flex-col overflow-hidden rounded-xl bg-[#f0f2f5] p-2.5 text-[#1c1e21]">
       <div className="mb-1 flex items-center justify-between gap-2">

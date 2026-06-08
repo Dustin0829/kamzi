@@ -1,34 +1,41 @@
 import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
 import { useRef, useState } from "react";
-import { Star4 } from "./Doodles";
+import SectionBgDecor from "./SectionBgDecor";
+import "./WhyChooseMe.css";
 
 const cards = [
   {
     left: {
+      icon: "genz",
       title: "Gen Z Perspective",
       body: "I understand what's currently working online — scroll-stopping creatives, platform-native content, and campaigns that actually connect with today's audience.",
     },
     right: {
+      icon: "experience",
       title: "4+ Years of Real Experience",
       body: "With years of hands-on experience, I don't just run ads — I know what works, what converts, and how to avoid costly marketing mistakes.",
     },
   },
   {
     left: {
+      icon: "conversion",
       title: "Conversion-Focused Campaigns",
       body: "Every ad, funnel, and creative is built with one goal: turning attention into action. I design for clicks, leads, and sales — not just impressions.",
     },
     right: {
+      icon: "support",
       title: "Client-Centered & Stress-Free Process",
       body: "Clear communication, transparent reporting, and a smooth workflow from strategy to launch — so you always know what's happening and why.",
     },
   },
   {
     left: {
+      icon: "funnel",
       title: "Full-Funnel Strategy",
       body: "From awareness to retargeting, I build cohesive campaigns across Meta, TikTok, Google, and more — so every touchpoint works together.",
     },
     right: {
+      icon: "results",
       title: "Results You Can Measure",
       body: "ROAS, CPA, revenue growth — I track what matters and optimize relentlessly so your ad spend keeps working harder over time.",
     },
@@ -37,39 +44,77 @@ const cards = [
 
 const STACK_STEP = 18;
 
-function ColumnIcon({ variant }) {
+const ICONS = {
+  genz: (
+    <svg viewBox="0 0 24 24" className="why-choose-me__icon-svg" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+      <rect x="7" y="3" width="10" height="18" rx="2" />
+      <path d="M10 18h4" strokeLinecap="round" />
+      <path d="M9 7h6M9 10h4" strokeLinecap="round" />
+      <path d="M16 6l2-1.5M18 10l2 .5" strokeLinecap="round" />
+    </svg>
+  ),
+  experience: (
+    <svg viewBox="0 0 24 24" className="why-choose-me__icon-svg" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+      <path d="M8 4h8l1 4H7l1-4z" strokeLinejoin="round" />
+      <path d="M6 8v10a2 2 0 002 2h8a2 2 0 002-2V8" strokeLinejoin="round" />
+      <path d="M9 12h6M9 15h4" strokeLinecap="round" />
+      <circle cx="17" cy="5" r="2.5" />
+      <path d="M17 3.5v3M15.5 5h3" strokeLinecap="round" />
+    </svg>
+  ),
+  conversion: (
+    <svg viewBox="0 0 24 24" className="why-choose-me__icon-svg" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+      <circle cx="12" cy="12" r="8" />
+      <circle cx="12" cy="12" r="4.5" />
+      <circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none" />
+      <path d="M12 4V2M12 22v-2M4 12H2M22 12h-2" strokeLinecap="round" />
+    </svg>
+  ),
+  support: (
+    <svg viewBox="0 0 24 24" className="why-choose-me__icon-svg" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+      <path d="M6 6.5h12a2 2 0 012 2v6a2 2 0 01-2 2h-4.5L9 19v-2.5H6a2 2 0 01-2-2v-6a2 2 0 012-2z" strokeLinejoin="round" />
+      <path d="M8.5 10.5h7M8.5 13.5h4.5" strokeLinecap="round" />
+    </svg>
+  ),
+  funnel: (
+    <svg viewBox="0 0 24 24" className="why-choose-me__icon-svg" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+      <path d="M4 5h16l-6 7v6l-4 2v-8L4 5z" strokeLinejoin="round" />
+      <path d="M9 14h6" strokeLinecap="round" />
+    </svg>
+  ),
+  results: (
+    <svg viewBox="0 0 24 24" className="why-choose-me__icon-svg" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+      <path d="M4 19V5" strokeLinecap="round" />
+      <path d="M4 19h16" strokeLinecap="round" />
+      <path d="M8 15l3-4 3 2 4-6" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M18 7h2v2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  ),
+};
+
+function ColumnIcon({ name }) {
   return (
-    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/5 ring-1 ring-white/10">
-      {variant === "check" ? (
-        <svg viewBox="0 0 24 24" className="h-4 w-4 text-cream/80" fill="none" stroke="currentColor" strokeWidth="2">
-          <path d="M5 12l4 4 10-10" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      ) : (
-        <svg viewBox="0 0 24 24" className="h-4 w-4 text-cream/80" fill="none" stroke="currentColor" strokeWidth="2">
-          <path d="M12 5v14M5 12h14" strokeLinecap="round" />
-        </svg>
-      )}
+    <span className={`why-choose-me__icon why-choose-me__icon--${name}`}>
+      {ICONS[name]}
     </span>
   );
 }
 
 function CardContent({ card }) {
   return (
-    <article className="overflow-hidden rounded-[1.25rem] bg-[#141414] shadow-[0_-8px_40px_rgba(0,0,0,0.45)] ring-1 ring-white/6 sm:rounded-[1.75rem]">
-      <div className="grid md:grid-cols-2">
-        <div className="border-b border-white/6 p-5 sm:p-6 md:border-b-0 md:border-r md:p-10">
-          <ColumnIcon variant="check" />
-          <h3 className="mt-3 font-serif text-lg font-semibold text-cream sm:mt-5 sm:text-xl md:text-2xl">
-            {card.left.title}
-          </h3>
-          <p className="mt-2 text-xs leading-relaxed text-cream/50 sm:mt-3 sm:text-sm">{card.left.body}</p>
+    <article className="why-choose-me__card relative">
+      <span className="why-choose-me__tape" aria-hidden="true" />
+
+      <div className="why-choose-me__card-grid">
+        <div className="why-choose-me__card-col why-choose-me__card-col--left">
+          <ColumnIcon name={card.left.icon} />
+          <h3 className="why-choose-me__card-title">{card.left.title}</h3>
+          <p className="why-choose-me__card-body">{card.left.body}</p>
         </div>
-        <div className="p-5 sm:p-6 md:p-10">
-          <ColumnIcon variant="plus" />
-          <h3 className="mt-3 font-serif text-lg font-semibold text-cream sm:mt-5 sm:text-xl md:text-2xl">
-            {card.right.title}
-          </h3>
-          <p className="mt-2 text-xs leading-relaxed text-cream/50 sm:mt-3 sm:text-sm">{card.right.body}</p>
+        <div className="why-choose-me__card-col">
+          <ColumnIcon name={card.right.icon} />
+          <h3 className="why-choose-me__card-title">{card.right.title}</h3>
+          <p className="why-choose-me__card-body">{card.right.body}</p>
         </div>
       </div>
     </article>
@@ -100,25 +145,13 @@ function StackCard({ card, index, x, scale, activeStep }) {
 function SectionBackground() {
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden">
-      <div
-        className="absolute right-0 top-0 h-96 w-96 translate-x-1/4 rounded-full blur-3xl"
-        style={{ background: "radial-gradient(circle, rgba(236,91,114,0.35), transparent 70%)" }}
-      />
-      <div
-        className="absolute bottom-0 left-0 h-80 w-80 -translate-x-1/4 translate-y-1/4 rounded-full blur-3xl"
-        style={{ background: "radial-gradient(circle, rgba(236,91,114,0.2), transparent 70%)" }}
-      />
-
       <div className="absolute left-8 top-16 grid grid-cols-4 gap-2 md:left-14">
         {Array.from({ length: 16 }).map((_, i) => (
-          <span key={i} className="h-1.5 w-1.5 rounded-full bg-rose/70" />
+          <span key={i} className="why-choose-me__dot" />
         ))}
       </div>
 
-      <Star4 className="animate-twinkle absolute left-28 top-24 h-4 w-4 text-rose/60" />
-      <Star4 className="animate-float absolute right-16 top-20 h-5 w-5 text-rose/70" />
-      <Star4 className="animate-float-delay-1 absolute right-6 top-1/2 h-4 w-4 text-rose/50" />
-      <Star4 className="animate-twinkle absolute bottom-32 left-10 h-4 w-4 text-rose/50" />
+      <SectionBgDecor variant="why-me" />
     </div>
   );
 }
@@ -126,36 +159,42 @@ function SectionBackground() {
 function SectionHeader({ activeStep }) {
   return (
     <div className="text-center">
-      <span className="inline-flex items-center gap-2 rounded-full bg-white/5 px-4 py-1.5 text-[11px] font-medium tracking-wide text-cream/70 ring-1 ring-white/10">
-        <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 text-rose" fill="none" stroke="currentColor" strokeWidth="2">
+      <span className="why-choose-me__badge">
+        <svg
+          viewBox="0 0 24 24"
+          className="why-choose-me__badge-icon"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          aria-hidden="true"
+        >
           <circle cx="12" cy="12" r="3" />
           <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
         </svg>
         Why choose me
       </span>
 
-      <h2 className="mt-4 font-serif text-[1.65rem] font-semibold leading-tight sm:mt-6 sm:text-4xl md:text-5xl">
-        <span className="bg-linear-to-b from-cream to-cream/50 bg-clip-text text-transparent">
-          why me as your
-        </span>
-        <br />
-        <span className="text-cream">marketing partner</span>
-      </h2>
+      <div className="why-choose-me__headline">
+        <h2>
+          <span className="why-choose-me__title-script">why me as your</span>
+          <span className="why-choose-me__title-display">marketing partner</span>
+        </h2>
+      </div>
 
-      <p className="mx-auto mt-3 max-w-md text-xs text-cream/45 sm:mt-4 sm:text-sm">
+      <p className="why-choose-me__subtitle">
         Why partner with me for marketing that drives real growth
       </p>
 
-      <div className="mt-4 flex items-center justify-center gap-2 sm:mt-5">
+      <div className="why-choose-me__progress">
         {[0, 1, 2].map((step) => (
           <span
             key={step}
-            className={`h-1.5 rounded-full transition-all duration-300 ${
+            className={`why-choose-me__progress-dot ${
               activeStep === step
-                ? "w-6 bg-rose"
+                ? "why-choose-me__progress-dot--active"
                 : activeStep > step
-                  ? "w-3 bg-rose/50"
-                  : "w-3 bg-white/15"
+                  ? "why-choose-me__progress-dot--done"
+                  : "why-choose-me__progress-dot--idle"
             }`}
           />
         ))}
@@ -190,8 +229,8 @@ export default function WhyChooseMe() {
   const scaleValues = [card1Scale, card2Scale, 1];
 
   return (
-    <section id="why-me" ref={containerRef} className="relative h-[420vh] text-cream">
-      <div className="sticky top-0 flex h-[100dvh] flex-col bg-[#121212] md:h-screen md:overflow-hidden">
+    <section id="why-me" ref={containerRef} className="why-choose-me relative h-[420vh]">
+      <div className="why-choose-me__sticky sticky top-0 flex h-[100dvh] flex-col md:h-screen md:overflow-hidden">
         <SectionBackground />
 
         <div className="relative mx-auto flex h-full w-full max-w-5xl flex-col px-4 pb-14 pt-16 sm:px-6 sm:pb-10 sm:pt-20 md:px-10 md:pb-16 md:pt-24">

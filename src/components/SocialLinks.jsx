@@ -40,8 +40,21 @@ function SocialIcon({ id, className = "h-4 w-4" }) {
   return null;
 }
 
-export default function SocialLinks({ className = "", iconClassName = "h-4 w-4", size = "md" }) {
+export default function SocialLinks({
+  className = "",
+  iconClassName = "h-4 w-4",
+  size = "md",
+  variant = "dark",
+}) {
   const buttonSize = size === "sm" ? "h-8 w-8" : "h-10 w-10";
+  const buttonClass =
+    variant === "scrapbook"
+      ? `group relative flex ${buttonSize} items-center justify-center rounded-full bg-white text-[#98030b] shadow-[0_4px_14px_rgba(0,0,0,0.08)] ring-1 ring-[rgba(152,3,11,0.12)] transition-all duration-300 hover:scale-110 hover:bg-[#98030b] hover:text-white active:scale-95`
+      : `group relative flex ${buttonSize} items-center justify-center rounded-full bg-white/10 text-cream/80 transition-all duration-300 hover:scale-110 hover:bg-rose/20 hover:text-rose active:scale-95`;
+  const tooltipClass =
+    variant === "scrapbook"
+      ? "pointer-events-none absolute -top-9 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-[#98030b] px-2.5 py-1 text-[10px] font-medium text-white opacity-0 shadow-lg transition-all duration-200 group-hover:-translate-y-0.5 group-hover:opacity-100"
+      : "pointer-events-none absolute -top-9 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-ink px-2.5 py-1 text-[10px] font-medium text-cream opacity-0 shadow-lg transition-all duration-200 group-hover:-translate-y-0.5 group-hover:opacity-100";
 
   return (
     <div className={`flex items-center gap-3 ${className}`}>
@@ -52,10 +65,10 @@ export default function SocialLinks({ className = "", iconClassName = "h-4 w-4",
           aria-label={link.label}
           target="_blank"
           rel="noopener noreferrer"
-          className={`group relative flex ${buttonSize} items-center justify-center rounded-full bg-white/10 text-cream/80 transition-all duration-300 hover:scale-110 hover:bg-rose/20 hover:text-rose active:scale-95`}
+          className={buttonClass}
         >
           <SocialIcon id={link.id} className={iconClassName} />
-          <span className="pointer-events-none absolute -top-9 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-ink px-2.5 py-1 text-[10px] font-medium text-cream opacity-0 shadow-lg transition-all duration-200 group-hover:-translate-y-0.5 group-hover:opacity-100">
+          <span className={tooltipClass}>
             {link.label}
           </span>
         </a>

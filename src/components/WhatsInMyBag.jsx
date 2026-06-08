@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Reveal from "./Reveal";
+import SectionBgDecor from "./SectionBgDecor";
 
 const icons = [
   { id: "meta", label: "Meta Ads", top: "19%", left: "28%", z: 30, delay: 0, src: "/meta-12368_1024.png", size: "h-14 sm:h-16" },
@@ -86,7 +87,9 @@ export default function WhatsInMyBag() {
 
   return (
     <section className="relative overflow-hidden bg-linear-to-b from-[#efe7f3] to-[#e3d7ee] py-12 md:py-16">
-      <div className="mx-auto max-w-3xl px-6 text-center md:px-8">
+      <SectionBgDecor variant="bag" />
+
+      <div className="relative z-10 mx-auto max-w-3xl px-6 text-center md:px-8">
         <Reveal direction="up">
           <h2 className="font-serif text-4xl font-medium md:text-[2.75rem]">what's in my bag</h2>
           <span className="mx-auto mt-2 block h-[3px] w-36 rounded-full bg-rose/80" />

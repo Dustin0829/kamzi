@@ -1,0 +1,37 @@
+.footer {
+  --scrapbook-red: #98030b;
+  --scrapbook-paper: #f2f0ed;
+  --scrapbook-pink: #ed7fc2;
+  --scrapbook-ink: #2c2420;
+  position: relative;
+  z-index: 20;
+  background-color: var(--scrapbook-paper);
+  background-image:
+    radial-gradient(ellipse 80% 100% at 50% 100%, rgba(237, 127, 194, 0.06), transparent 60%);
+  border-top: 1px solid rgba(152, 3, 11, 0.18);
+  color: var(--scrapbook-ink);
+}
+
+.footer__text {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  padding: 0 1.5rem;
+  text-align: center;
+  font-size: clamp(0.72rem, 1.2vw, 0.82rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--scrapbook-ink);
+}
+
+.footer__brand {
+  color: var(--scrapbook-red);
+}
+
+.footer__heart {
+  display: inline-block;
+  margin-inline: 0.35rem;
+  color: var(--scrapbook-pink);
+  vertical-align: middle;
+}
