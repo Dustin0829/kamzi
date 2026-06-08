@@ -76,5 +76,3 @@ export default function SocialLinks({
     </div>
   );
 }
-
-export { socialLinks };

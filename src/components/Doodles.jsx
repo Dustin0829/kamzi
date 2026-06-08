@@ -38,12 +38,3 @@ export function Star4({ className = "" }) {
     </svg>
   );
 }
-
-export function Flower({ className = "" }) {
-  return (
-    <svg viewBox="0 0 40 40" className={className} fill="currentColor">
-      <path d="M20 4c3 0 4.5 3 3.5 6.5C27 9 30 10.5 30 13.5S27 18 23.5 16.5C25 20 23.5 23 20.5 23S16 20 17.5 16.5C14 18 11 16.5 11 13.5S14 9 17.5 10.5C16.5 7 18 4 20 4z" />
-      <path d="M20 18a5 5 0 100 10 5 5 0 000-10z" />
-    </svg>
-  );
-}

@@ -12,6 +12,8 @@ const icons = [
   { id: "facebook", label: "Facebook", top: "70%", left: "22%", z: 30, delay: 400, src: "/facebook-5221_1024.png", size: "h-14 sm:h-16" },
   { id: "apple-notes", label: "Apple Notes", top: "48%", left: "70%", z: 30, delay: 480, src: "/apple-notes-22354_1024.png", size: "h-14 sm:h-16" },
   { id: "google-ads", label: "Google Ads", top: "67%", left: "85%", z: 30, delay: 560, src: "/google-ads-logo-24212_1024.png", size: "h-14 sm:h-16" },
+  { id: "claude", label: "Claude", top: "88%", left: "22%", z: 30, delay: 640, labelBelow: true, src: "/claude-logo-symbol-28055_1024.png", size: "h-14 sm:h-16" },
+  { id: "google-docs", label: "Google Docs", top: "86%", left: "85%", z: 30, delay: 720, labelBelow: true, src: "/google-docs-blue-logo-24175_1024.png", size: "h-14 sm:h-16" },
 ];
 
 function BagIcon({ icon, open, active, onSelect }) {
@@ -102,7 +104,7 @@ export default function WhatsInMyBag() {
           </p>
         </Reveal>
 
-        <Reveal className="relative mx-auto mt-6 h-[340px] w-full max-w-lg overflow-visible sm:h-[380px] md:h-[460px]" delay={120} direction="scale">
+        <Reveal className="relative mx-auto mt-6 h-[380px] w-full max-w-lg overflow-visible sm:h-[420px] md:h-[500px]" delay={120} direction="scale">
           <div
             className={`pointer-events-none absolute inset-x-0 bottom-[18%] mx-auto h-16 w-48 rounded-full blur-2xl transition-opacity duration-500 ${
               open ? "opacity-0" : "bg-rose/25 opacity-100"

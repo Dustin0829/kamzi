@@ -105,10 +105,6 @@ function ServiceBentoCard({ service }) {
       </div>
       {service.dashboard ? (
         <div className="magic-bento-card__dashboard">{service.dashboard}</div>
-      ) : service.dashboardSrc ? (
-        <div className="magic-bento-card__dashboard">
-          <img src={service.dashboardSrc} alt={service.dashboardAlt ?? ""} loading="lazy" />
-        </div>
       ) : null}
       <div className="magic-bento-card__content">
         <h2 className="magic-bento-card__title">{service.title}</h2>

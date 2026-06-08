@@ -54,7 +54,7 @@ export default function Navbar() {
           : "bg-ink/85 py-4 shadow-lg backdrop-blur-md"
       }`}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-start px-6 md:justify-between md:px-10">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 md:px-10">
         <button
           type="button"
           className={`flex md:hidden ${iconClass} transition-colors hover:opacity-80`}
@@ -68,7 +68,7 @@ export default function Navbar() {
         <Reveal direction="down" delay={0}>
           <a
             href="#home"
-            className={`hidden font-['Allura',cursive] text-[2.65rem] leading-none tracking-[0.02em] transition-transform duration-300 hover:scale-[1.02] md:inline-flex md:text-[3.15rem] ${
+            className={`inline-flex font-['Allura',cursive] text-[2.35rem] leading-none tracking-[0.02em] transition-transform duration-300 hover:scale-[1.02] md:text-[3.15rem] ${
               onHero ? "text-ink" : "text-cream"
             }`}
           >
