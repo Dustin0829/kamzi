@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Reveal from "./Reveal";
 import { useScrollSpy, useScrolled } from "../hooks/useScrollSpy";
 
@@ -8,10 +9,42 @@ const links = [
   { label: "Contact", href: "#contact", id: "contact" },
 ];
 
+function HamburgerIcon({ open }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className="h-6 w-6"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      aria-hidden="true"
+    >
+      {open ? (
+        <>
+          <path d="M6 6l12 12M18 6L6 18" />
+        </>
+      ) : (
+        <>
+          <path d="M4 7h16M4 12h16M4 17h16" />
+        </>
+      )}
+    </svg>
+  );
+}
+
 export default function Navbar() {
   const scrolled = useScrolled(80);
   const active = useScrollSpy(links.map((l) => l.id));
   const onHero = !scrolled;
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const linkClass = (isActive) =>
+    onHero
+      ? `hover:text-[#b91c1c] ${isActive ? "text-[#b91c1c]" : "text-ink"}`
+      : `link-underline hover:text-rose ${isActive ? "is-active text-rose" : "text-cream/80"}`;
+
+  const iconClass = onHero ? "text-[#b91c1c]" : "text-cream";
 
   return (
     <header
@@ -21,27 +54,25 @@ export default function Navbar() {
           : "bg-ink/85 py-4 shadow-lg backdrop-blur-md"
       }`}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 md:px-10">
+      <nav className="mx-auto flex max-w-7xl items-center justify-start px-6 md:justify-between md:px-10">
+        <button
+          type="button"
+          className={`flex md:hidden ${iconClass} transition-colors hover:opacity-80`}
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          <HamburgerIcon open={menuOpen} />
+        </button>
+
         <Reveal direction="down" delay={0}>
           <a
             href="#home"
-            className={`group inline-flex items-center gap-1.5 font-['Bebas_Neue',sans-serif] text-3xl tracking-wide transition-transform duration-300 hover:scale-[1.02] md:text-4xl ${
-              onHero ? "text-[#b91c1c]" : "text-rose"
+            className={`hidden font-['Allura',cursive] text-[2.65rem] leading-none tracking-[0.02em] transition-transform duration-300 hover:scale-[1.02] md:inline-flex md:text-[3.15rem] ${
+              onHero ? "text-ink" : "text-cream"
             }`}
           >
-            KAMZI
-            <svg
-              viewBox="0 0 24 24"
-              className="h-4 w-4 transition-transform duration-300 group-hover:scale-110 md:h-5 md:w-5"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M12 20.5C6.5 16.5 3 13.2 3 9.3 3 6.6 5.1 4.7 7.6 4.7c1.6 0 3.2.9 4.4 2.6C13.2 5.6 14.8 4.7 16.4 4.7 18.9 4.7 21 6.6 21 9.3c0 3.9-3.5 7.2-9 11.2z" />
-            </svg>
+            Kamille
           </a>
         </Reveal>
 
@@ -52,11 +83,7 @@ export default function Navbar() {
               <li key={l.label}>
                 <a
                   href={l.href}
-                  className={`text-sm font-medium transition-colors ${
-                    onHero
-                      ? `hover:text-[#b91c1c] ${isActive ? "text-[#b91c1c]" : "text-ink"}`
-                      : `link-underline hover:text-rose ${isActive ? "is-active text-rose" : "text-cream/80"}`
-                  }`}
+                  className={`text-sm font-medium transition-colors ${linkClass(isActive)}`}
                 >
                   {l.label}
                 </a>
@@ -65,6 +92,31 @@ export default function Navbar() {
           })}
         </Reveal>
       </nav>
+
+      {menuOpen && (
+        <div
+          className={`md:hidden border-t ${
+            onHero ? "border-ink/10 bg-cream/95" : "border-cream/10 bg-ink/95 backdrop-blur-md"
+          }`}
+        >
+          <ul className="mx-auto flex max-w-7xl flex-col gap-1 px-6 py-4">
+            {links.map((l) => {
+              const isActive = active === l.id;
+              return (
+                <li key={l.label}>
+                  <a
+                    href={l.href}
+                    className={`block py-3 text-base font-medium transition-colors ${linkClass(isActive)}`}
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {l.label}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      )}
     </header>
   );
 }

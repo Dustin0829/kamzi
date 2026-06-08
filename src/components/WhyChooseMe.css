@@ -3,6 +3,7 @@
   --scrapbook-paper: #f2f0ed;
   --scrapbook-pink: #ed7fc2;
   --scrapbook-ink: #2c2420;
+  height: 420vh;
 }
 
 .why-choose-me__sticky {
@@ -108,16 +109,23 @@
 
 .why-choose-me__card-grid {
   display: grid;
+  min-width: 0;
 }
 
 @media (min-width: 768px) {
   .why-choose-me__card-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .why-choose-me__stack-card {
+    left: 2rem;
+    right: 2rem;
+  }
 }
 
 .why-choose-me__card-col {
   position: relative;
+  min-width: 0;
   padding: 1.25rem 1.35rem 1.5rem;
   background:
     repeating-linear-gradient(
@@ -215,6 +223,7 @@
   font-size: clamp(0.8rem, 1.3vw, 0.9rem);
   line-height: 1.65;
   color: #5a4338;
+  overflow-wrap: anywhere;
 }
 
 @media (min-width: 768px) {
@@ -241,4 +250,158 @@
   background: rgba(237, 127, 194, 0.38);
   border: 1px solid rgba(237, 127, 194, 0.22);
   pointer-events: none;
+}
+
+.why-choose-me__stack-card {
+  left: 1rem;
+  right: 1rem;
+  width: auto;
+}
+
+.why-choose-me__cards-wrap {
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
+.why-choose-me__cards-stage {
+  min-height: 280px;
+  padding-top: 0.75rem;
+  padding-bottom: 1rem;
+}
+
+@media (min-width: 640px) {
+  .why-choose-me__stack-card {
+    left: 1.5rem;
+    right: 1.5rem;
+  }
+
+  .why-choose-me__cards-stage {
+    min-height: 500px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .why-choose-me__stack-card {
+    left: 2rem;
+    right: 2rem;
+  }
+
+  .why-choose-me__cards-stage {
+    min-height: 280px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .why-choose-me {
+    height: 520vh;
+  }
+
+  .why-choose-me__sticky {
+    height: 100dvh;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .why-choose-me__inner {
+    padding-top: 2.25rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .why-choose-me__header {
+    flex-shrink: 0;
+  }
+
+  .why-choose-me__cards-wrap {
+    overflow: hidden;
+    flex: 1 1 0;
+    min-height: 0;
+    margin-top: 0.25rem;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .why-choose-me__stack-card {
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100%;
+    height: max-content;
+  }
+
+  .why-choose-me__cards-stage {
+    flex: 1 1 auto;
+    height: calc(100dvh - 8.25rem);
+    min-height: calc(100dvh - 8.25rem);
+    max-height: calc(100dvh - 8.25rem);
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    isolation: isolate;
+  }
+
+  .why-choose-me__card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .why-choose-me__card-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .why-choose-me__card-col {
+    padding: 1.05rem 1rem 1.35rem;
+  }
+
+  .why-choose-me__card-col--left {
+    border-bottom: 1px solid rgba(152, 3, 11, 0.12);
+    border-right: none;
+  }
+
+  .why-choose-me__card-col:last-child {
+    padding-bottom: 1.65rem;
+  }
+
+  .why-choose-me__headline {
+    margin-top: 0.35rem;
+  }
+
+  .why-choose-me__title-display {
+    font-size: clamp(2rem, 9.5vw, 2.65rem);
+    line-height: 0.9;
+  }
+
+  .why-choose-me__title-script {
+    font-size: clamp(1.45rem, 6.5vw, 1.85rem);
+  }
+
+  .why-choose-me__subtitle {
+    margin-top: 0.35rem;
+    padding-inline: 0.25rem;
+    font-size: 0.75rem;
+    line-height: 1.45;
+  }
+
+  .why-choose-me__progress {
+    margin-top: 0.45rem;
+  }
+
+  .why-choose-me__badge {
+    font-size: 0.62rem;
+  }
+
+  .why-choose-me__card-title {
+    margin-top: 0.7rem;
+    font-size: clamp(1.25rem, 5.5vw, 1.5rem);
+  }
+
+  .why-choose-me__card-body {
+    font-size: 0.84rem;
+    line-height: 1.6;
+  }
 }

@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import SectionBgDecor from "./SectionBgDecor";
 import "./WhyChooseMe.css";
 
@@ -43,6 +43,7 @@ const cards = [
 ];
 
 const STACK_STEP = 18;
+const MOBILE_STACK_STEP = 12;
 
 const ICONS = {
   genz: (
@@ -121,17 +122,19 @@ function CardContent({ card }) {
   );
 }
 
-function StackCard({ card, index, x, scale, activeStep }) {
+function StackCard({ card, index, x, y, scale, activeStep, isMobile }) {
   const isStacked = index <= activeStep;
   const isSlidingIn = index === activeStep + 1;
+  const stackStep = isMobile ? MOBILE_STACK_STEP : STACK_STEP;
 
   return (
     <motion.div
-      className="absolute inset-x-4 w-auto will-change-transform sm:inset-x-6 md:inset-x-8"
+      className="why-choose-me__stack-card absolute will-change-transform"
       style={{
-        x,
+        x: isMobile ? 0 : x,
+        y: isMobile ? y : 0,
         scale,
-        top: index * STACK_STEP,
+        top: index * stackStep,
         zIndex: isSlidingIn ? 10 : isStacked ? index + 1 : 0,
         transformOrigin: "top center",
         visibility: isStacked || isSlidingIn ? "visible" : "hidden",
@@ -203,9 +206,24 @@ function SectionHeader({ activeStep }) {
   );
 }
 
+function useIsMobile(breakpoint = 767) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia(`(max-width: ${breakpoint}px)`);
+    const update = () => setIsMobile(mediaQuery.matches);
+    update();
+    mediaQuery.addEventListener("change", update);
+    return () => mediaQuery.removeEventListener("change", update);
+  }, [breakpoint]);
+
+  return isMobile;
+}
+
 export default function WhyChooseMe() {
   const containerRef = useRef(null);
   const [activeStep, setActiveStep] = useState(0);
+  const isMobile = useIsMobile();
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -213,6 +231,14 @@ export default function WhyChooseMe() {
   });
 
   useMotionValueEvent(scrollYProgress, "change", (v) => {
+    const mobile = window.innerWidth <= 767;
+    if (mobile) {
+      if (v < 0.18) setActiveStep(0);
+      else if (v < 0.58) setActiveStep(1);
+      else setActiveStep(2);
+      return;
+    }
+
     if (v < 0.1) setActiveStep(0);
     else if (v < 0.54) setActiveStep(1);
     else setActiveStep(2);
@@ -222,32 +248,73 @@ export default function WhyChooseMe() {
   const card2X = useTransform(scrollYProgress, [0.06, 0.48], ["-105%", "0%"]);
   const card3X = useTransform(scrollYProgress, [0.54, 0.9], ["105%", "0%"]);
 
-  const card1Scale = useTransform(scrollYProgress, [0.48, 0.6, 0.9, 0.97], [1, 0.91, 0.91, 0.86]);
-  const card2Scale = useTransform(scrollYProgress, [0.9, 0.97], [1, 0.91]);
+  const card1Y = useTransform(scrollYProgress, [0, 1], ["0%", "0%"]);
+  const card2Y = useTransform(scrollYProgress, (v) => {
+    if (window.innerWidth > 767) return "0%";
+    const start = 0.18;
+    const end = 0.48;
+    if (v <= start) return "108%";
+    if (v >= end) return "0%";
+    const t = (v - start) / (end - start);
+    return `${108 - t * 108}%`;
+  });
+  const card3Y = useTransform(scrollYProgress, (v) => {
+    if (window.innerWidth > 767) return "0%";
+    const start = 0.58;
+    const end = 0.88;
+    if (v <= start) return "108%";
+    if (v >= end) return "0%";
+    const t = (v - start) / (end - start);
+    return `${108 - t * 108}%`;
+  });
+
+  const card1Scale = useTransform(scrollYProgress, (v) => {
+    if (window.innerWidth <= 767) return 1;
+    if (v < 0.48) return 1;
+    if (v < 0.6) return 1 - ((v - 0.48) / 0.12) * 0.09;
+    if (v < 0.9) return 0.91;
+    if (v < 0.97) return 0.91 - ((v - 0.9) / 0.07) * 0.05;
+    return 0.86;
+  });
+
+  const card2Scale = useTransform(scrollYProgress, (v) => {
+    if (window.innerWidth <= 767) return 1;
+    if (v < 0.9) return 1;
+    if (v < 0.97) return 1 - ((v - 0.9) / 0.07) * 0.09;
+    return 0.91;
+  });
+
+  const card3Scale = useTransform(scrollYProgress, (v) => {
+    if (window.innerWidth <= 767) return 1;
+    return 1;
+  });
 
   const xValues = [card1X, card2X, card3X];
-  const scaleValues = [card1Scale, card2Scale, 1];
+  const yValues = [card1Y, card2Y, card3Y];
+  const scaleValues = [card1Scale, card2Scale, card3Scale];
 
   return (
-    <section id="why-me" ref={containerRef} className="why-choose-me relative h-[420vh]">
+    <section id="why-me" ref={containerRef} className="why-choose-me relative">
       <div className="why-choose-me__sticky sticky top-0 flex h-[100dvh] flex-col md:h-screen md:overflow-hidden">
         <SectionBackground />
 
-        <div className="relative mx-auto flex h-full w-full max-w-5xl flex-col px-4 pb-14 pt-16 sm:px-6 sm:pb-10 sm:pt-20 md:px-10 md:pb-16 md:pt-24">
-          <div className="shrink-0">
+        <div className="why-choose-me__inner relative mx-auto flex h-full w-full max-w-5xl flex-col px-4 pb-14 pt-16 sm:px-6 sm:pb-10 sm:pt-20 md:px-10 md:pb-16 md:pt-24">
+          <div className="why-choose-me__header shrink-0">
             <SectionHeader activeStep={activeStep} />
           </div>
 
-          <div className="relative mt-4 flex min-h-0 flex-1 flex-col overflow-x-clip overflow-y-visible sm:mt-6 md:mt-10">
-            <div className="relative w-full min-h-[460px] shrink-0 pt-3 pb-10 sm:min-h-[500px] sm:pt-4 sm:pb-4 md:min-h-[280px] md:pt-0 md:pb-0">
+          <div className="why-choose-me__cards-wrap relative mt-4 flex min-h-0 flex-1 flex-col sm:mt-6 md:mt-10">
+            <div className="why-choose-me__cards-stage relative w-full min-h-0 flex-1 md:flex-none md:shrink-0">
               {cards.map((card, i) => (
                 <StackCard
                   key={card.left.title}
                   card={card}
                   index={i}
                   x={xValues[i]}
+                  y={yValues[i]}
                   scale={scaleValues[i]}
                   activeStep={activeStep}
+                  isMobile={isMobile}
                 />
               ))}
             </div>

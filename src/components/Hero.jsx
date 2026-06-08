@@ -151,18 +151,6 @@ export default function Hero() {
                 <EmphasisMarks className="hero-scrapbook__marks--money" />
               </span>
             </h1>
-
-            <a
-              href={CALENDLY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hero-scrapbook__cta hero-scrapbook__cta--mobile"
-            >
-              Work with me
-              <span className="hero-scrapbook__cta-arrow" aria-hidden="true">
-                ↗
-              </span>
-            </a>
           </Reveal>
 
           <Reveal delay={140}>

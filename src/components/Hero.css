@@ -245,6 +245,7 @@
   line-height: 1.2;
   text-transform: uppercase;
   color: #65676b;
+  overflow-wrap: anywhere;
 }
 
 .hero-polaroid-dashboard--google .hero-polaroid-dashboard__label {
@@ -569,10 +570,6 @@
   font-size: 0.95rem;
 }
 
-.hero-scrapbook__cta--mobile {
-  display: none;
-}
-
 .hero-scrapbook__marks--cta {
   position: absolute;
   right: -1.75rem;
@@ -607,14 +604,14 @@
     flex-direction: column;
     min-height: auto;
     overflow: visible;
-    padding-bottom: 2.5rem;
+    padding-bottom: 3rem;
   }
 
   .hero-scrapbook__inner {
     position: relative;
     z-index: 20;
     min-height: auto;
-    padding: 5.25rem 1.25rem 0.75rem;
+    padding: 5.25rem 1.25rem 1rem;
     pointer-events: auto;
   }
 
@@ -629,30 +626,33 @@
   .hero-scrapbook__headline {
     margin-inline: auto;
     width: 100%;
-    max-width: 20rem;
+    max-width: 24rem;
   }
 
   .hero-scrapbook__script--plain {
     transform: rotate(-1deg);
+    font-size: clamp(2.5rem, 11vw, 3.35rem);
   }
 
   .hero-scrapbook__box--white {
     margin-inline: auto;
     width: fit-content;
+    padding: 0.2rem 1.6rem;
   }
 
   .hero-scrapbook__box--bottom {
     margin-left: 0;
-    margin-top: 0.15rem;
+    margin-top: 0.2rem;
     transform: rotate(-1deg);
+    padding: 0.4rem 1.35rem;
   }
 
   .hero-scrapbook__display {
-    font-size: clamp(3.75rem, 16vw, 5.5rem);
+    font-size: clamp(4.5rem, 21vw, 6.75rem);
   }
 
-  .hero-scrapbook__script {
-    font-size: clamp(2rem, 8.5vw, 2.75rem);
+  .hero-scrapbook__box--bottom .hero-scrapbook__script {
+    font-size: clamp(2.35rem, 10.5vw, 3.15rem);
   }
 
   .hero-scrapbook__marks--headline {
@@ -664,38 +664,84 @@
   }
 
   .hero-scrapbook__note-block {
+    width: 100%;
+    max-width: 21rem;
+    margin-top: 1.25rem;
+    margin-inline: auto;
+  }
+
+  .hero-scrapbook__note-arrow {
     display: none;
   }
 
-  .hero-scrapbook__cta--mobile {
-    display: inline-flex;
-    margin-top: 1.15rem;
+  .hero-scrapbook__notebook {
+    margin-left: 0;
+    max-width: 100%;
+    width: 100%;
+    transform: rotate(-1.5deg);
+  }
+
+  .hero-scrapbook__notebook-paper {
+    padding: 1.45rem 1.35rem 1.35rem 2.85rem;
+  }
+
+  .hero-scrapbook__notebook-paper::before {
+    left: 2rem;
+  }
+
+  .hero-scrapbook__paperclip {
+    left: 1.25rem;
+  }
+
+  .hero-scrapbook__handwritten {
+    max-width: none;
+    text-align: left;
+    font-size: clamp(1.2rem, 5.2vw, 1.5rem);
+  }
+
+  .hero-scrapbook__cta {
+    margin-top: 1rem;
+  }
+
+  .hero-scrapbook__marks--cta {
+    display: block;
+    right: -1.5rem;
+    width: 1.35rem;
   }
 
   .hero-scrapbook__visual {
     position: relative;
     z-index: 10;
     width: 100%;
-    min-height: clamp(28rem, 92vw, 38rem);
-    margin-top: 0.25rem;
+    min-height: clamp(36rem, 112vw, 48rem);
+    margin-top: 0.5rem;
     overflow: visible;
     pointer-events: none;
   }
 
+  .hero-scrapbook__cards-col,
+  .hero-scrapbook__cards-stack.reveal {
+    display: contents;
+  }
+
   .hero-scrapbook__portrait-wrap {
     position: absolute;
-    inset: auto 0 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: auto;
     z-index: 10;
     display: flex;
-    min-height: clamp(26rem, 88vw, 34rem);
-    align-items: flex-end;
+    min-height: 0;
+    align-items: flex-start;
     justify-content: center;
     pointer-events: none;
   }
 
   .hero-scrapbook__portrait {
-    height: clamp(24rem, 78vw, 32rem);
-    max-width: min(92vw, 26rem);
+    height: clamp(32rem, 98vw, 42rem);
+    max-width: min(98vw, 34rem);
+    margin-top: -0.5rem;
     pointer-events: auto;
   }
 
@@ -703,70 +749,96 @@
     transform: rotate(-2deg) scale(1.01);
   }
 
-  .hero-scrapbook__cards-col {
-    position: absolute;
-    inset: 0;
-    z-index: auto;
-    display: block;
-    width: 100%;
-    padding: 0;
-    pointer-events: none;
-  }
-
-  .hero-scrapbook__cards-stack {
-    position: absolute;
-    inset: 0;
-    display: block;
-    width: 100%;
-    max-width: none;
-    pointer-events: none;
-  }
-
   .hero-scrapbook__polaroid-item {
     position: absolute;
-    width: clamp(9.5rem, 44vw, 13rem);
+    width: clamp(11.5rem, 54vw, 16rem);
     pointer-events: auto;
   }
 
+  /* Meta — top right, behind portrait */
   .hero-scrapbook__polaroid-item--top {
-    top: 10%;
-    left: -3%;
-    z-index: 14;
+    top: 2%;
+    right: -4%;
+    left: auto;
+    bottom: auto;
+    z-index: 6;
     margin: 0;
-    transform: rotate(-11deg);
+    transform: rotate(8deg);
   }
 
   .hero-scrapbook__polaroid-item--top:hover {
-    transform: rotate(-14deg) translateY(-2px);
+    transform: rotate(11deg) translateY(-2px);
   }
 
+  /* Google — bottom left, in front of portrait */
   .hero-scrapbook__polaroid-item--bottom {
-    top: 26%;
-    right: -5%;
-    left: auto;
-    z-index: 6;
+    top: auto;
+    bottom: 0;
+    left: -5%;
+    right: auto;
+    z-index: 14;
     margin: 0;
-    transform: rotate(9deg);
+    transform: rotate(-9deg);
   }
 
   .hero-scrapbook__polaroid-item--bottom:hover {
-    transform: rotate(12deg) translateY(-2px);
+    transform: rotate(-12deg) translateY(-2px);
+  }
+
+  .hero-scrapbook__polaroid-window {
+    top: 10.5%;
+    left: 12%;
+    right: 12%;
+    bottom: 20%;
+  }
+
+  .hero-scrapbook__polaroid-caption {
+    display: none;
+  }
+
+  .hero-scrapbook__polaroid-wrap .hero-scrapbook__platform {
+    bottom: 12%;
+    right: 14%;
+    height: 1.5rem;
+    width: 1.5rem;
+    padding: 0.25rem;
+  }
+
+  .hero-polaroid-dashboard {
+    gap: 0.18rem;
+    padding: 0.2rem 0.15rem;
+    justify-content: flex-start;
   }
 
   .hero-polaroid-dashboard__title {
-    font-size: 0.72rem;
+    font-size: 0.5rem;
+    line-height: 1.1;
+  }
+
+  .hero-polaroid-dashboard__stats {
+    gap: 0.16rem;
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero-polaroid-dashboard__stat {
+    padding: 0.16rem 0.12rem;
   }
 
   .hero-polaroid-dashboard__label {
-    font-size: 0.56rem;
+    font-size: 0.38rem;
+    letter-spacing: 0.03em;
   }
 
   .hero-polaroid-dashboard__value {
-    font-size: 0.95rem;
+    margin-top: 0.06rem;
+    font-size: 0.58rem;
+    line-height: 1.05;
   }
 
   .hero-polaroid-dashboard__trend {
-    font-size: 0.58rem;
+    margin-top: 0.04rem;
+    font-size: 0.36rem;
+    line-height: 1.05;
   }
 
   .hero-scrapbook__cards-path,
