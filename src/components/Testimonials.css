@@ -225,15 +225,25 @@
   display: flex;
   height: 2.75rem;
   width: 2.75rem;
-  shrink: 0;
+  flex-shrink: 0;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
   border-radius: 9999px;
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 0.85rem;
-  letter-spacing: 0.04em;
-  color: #fff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background: #fff;
+  padding: 0.35rem;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.12),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.06);
+}
+
+.testimonials__avatar img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
 }
 
 .testimonials__card-name {

@@ -166,10 +166,23 @@
 }
 
 .featured-work__polaroid-browser-screen {
-  display: flex;
+  height: calc(100% - 1.75rem);
+  overflow: hidden;
+  background: #fff;
+}
+
+.featured-work__polaroid-shot {
+  display: block;
+  width: 100%;
   height: 100%;
-  align-items: center;
-  justify-content: center;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.featured-work__polaroid-phone-inner {
+  height: 100%;
+  overflow: hidden;
+  background: #fff;
 }
 
 .featured-work__polaroid-browser-label {
@@ -228,7 +241,7 @@
 
 .featured-work__polaroid-name {
   font-family: "Caveat", cursive;
-  font-size: 1.45rem;
+  font-size: clamp(1.15rem, 2.8vw, 1.45rem);
   font-weight: 700;
   line-height: 1.1;
   color: var(--scrapbook-ink);
@@ -236,19 +249,22 @@
 }
 
 .featured-work__polaroid-tag {
+  flex-shrink: 0;
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--scrapbook-red);
-  opacity: 0;
-  transform: translateY(4px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.featured-work__polaroid:hover .featured-work__polaroid-tag {
-  opacity: 1;
-  transform: translateY(0);
+.featured-work__card {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.featured-work__card:hover {
+  opacity: 0.92;
 }
 
 .featured-work__project-desc {

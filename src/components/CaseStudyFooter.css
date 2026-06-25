@@ -1,0 +1,54 @@
+.cs-footer {
+  display: grid;
+  gap: 1.25rem;
+  align-items: center;
+  padding: 1.35rem 1.5rem;
+  background: #161616;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+@media (min-width: 768px) {
+  .cs-footer {
+    grid-template-columns: 1fr auto 1fr;
+    padding: 1.35rem 2.5rem;
+  }
+
+  .cs-footer__logo {
+    justify-self: start;
+  }
+
+  .cs-footer__copy {
+    justify-self: center;
+  }
+
+  .cs-footer .flex {
+    justify-self: end;
+  }
+}
+
+.cs-footer__logo {
+  font-family: "Allura", cursive;
+  font-size: 2rem;
+  line-height: 1;
+  color: #fff;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.cs-footer__logo:hover {
+  opacity: 0.85;
+}
+
+.cs-footer__copy {
+  margin: 0;
+  text-align: center;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.cs-footer__copy span {
+  color: rgba(255, 255, 255, 0.82);
+}

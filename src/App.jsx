@@ -1,29 +1,14 @@
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import WhatIDo from "./components/WhatIDo";
-import WhyChooseMe from "./components/WhyChooseMe";
-import FeaturedWork from "./components/FeaturedWork";
-import WhatsInMyBag from "./components/WhatsInMyBag";
-import About from "./components/About";
-import Testimonials from "./components/Testimonials";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import CaseStudyPage from "./pages/CaseStudyPage";
 
 export default function App() {
   return (
-    <div className="relative min-h-screen bg-cream">
-      <Navbar />
-      <main>
-        <Hero />
-        <WhatIDo />
-        <About />
-        <WhyChooseMe />
-        <FeaturedWork />
-        <WhatsInMyBag />
-        <Testimonials />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/work/:slug" element={<CaseStudyPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }

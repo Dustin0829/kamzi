@@ -1,0 +1,333 @@
+.cs-creatives__title {
+  margin: 0;
+  font-family: "Fraunces", serif;
+  font-size: clamp(1.75rem, 3.5vw, 2.35rem);
+  font-weight: 600;
+  color: var(--scrapbook-red, #98030b);
+}
+
+.cs-creatives__desc {
+  margin: 0.65rem 0 0;
+  max-width: 36rem;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: #5a4338;
+}
+
+.cs-creatives__carousel {
+  position: relative;
+  margin-top: 1.75rem;
+}
+
+.cs-creatives__track {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  padding-block: 0.25rem;
+  padding-inline: 0.15rem;
+}
+
+.cs-creatives__track::-webkit-scrollbar {
+  display: none;
+}
+
+.cs-creatives__item {
+  flex: 0 0 auto;
+  width: clamp(10.5rem, 38vw, 13rem);
+  scroll-snap-align: start;
+}
+
+@media (min-width: 1024px) {
+  .cs-creatives__item {
+    width: calc((100% - 2rem) / 3);
+  }
+}
+
+.cs-creatives__nav {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  height: 2.5rem;
+  width: 2.5rem;
+  border: 1.5px solid rgba(152, 3, 11, 0.22);
+  border-radius: 9999px;
+  background: #fff;
+  color: #98030b;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  transform: translateY(-50%);
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.cs-creatives__nav--prev {
+  left: 0;
+}
+
+.cs-creatives__nav--next {
+  right: 0;
+}
+
+@media (min-width: 640px) {
+  .cs-creatives__nav {
+    height: 2.75rem;
+    width: 2.75rem;
+  }
+}
+
+.cs-creatives__nav:hover:not(:disabled) {
+  border-color: #98030b;
+  background: #fff;
+  transform: translateY(calc(-50% - 1px));
+}
+
+.cs-creatives__nav:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.cs-creatives__card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: none;
+  padding: 0;
+  background: #fff;
+  text-align: left;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 0.15rem;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cs-creatives__card:hover {
+  transform: translateY(-4px) rotate(var(--card-tilt, 0deg));
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.14);
+}
+
+.cs-creatives__card-media {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #f2f0ed;
+}
+
+.cs-creatives__card-media--natural {
+  aspect-ratio: auto;
+  height: auto;
+  line-height: 0;
+}
+
+.cs-creatives__card-media img,
+.cs-creatives__card-media video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.cs-creatives__card-media:not(.cs-creatives__card-media--natural) img,
+.cs-creatives__card-media:not(.cs-creatives__card-media--natural) video {
+  height: 100%;
+  object-fit: contain;
+}
+
+.cs-creatives__card-placeholder {
+  position: absolute;
+  inset: 0;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  text-align: center;
+}
+
+.cs-creatives__card-placeholder::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.35));
+}
+
+.cs-creatives__card-placeholder-label {
+  position: relative;
+  z-index: 1;
+  white-space: pre-line;
+  font-family: "Fraunces", serif;
+  font-size: clamp(1.1rem, 2.8vw, 1.45rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+.cs-creatives__card-type {
+  position: absolute;
+  top: 0.55rem;
+  left: 0.55rem;
+  z-index: 2;
+  border-radius: 9999px;
+  background: rgba(22, 22, 22, 0.72);
+  padding: 0.22rem 0.55rem;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.cs-creatives__card-play {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.cs-creatives__card:hover .cs-creatives__card-play {
+  opacity: 1;
+}
+
+.cs-creatives__card-play-icon {
+  display: flex;
+  height: 2.5rem;
+  width: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #98030b;
+}
+
+.cs-creatives__card-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.65rem 0.75rem;
+  background: #fff;
+}
+
+.cs-creatives__card-client {
+  font-family: "Caveat", cursive;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #2c2420;
+}
+
+.cs-creatives__card-tag {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #98030b;
+}
+
+.cs-creatives-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  background: rgba(22, 22, 22, 0.88);
+  backdrop-filter: blur(6px);
+}
+
+.cs-creatives-lightbox__panel {
+  position: relative;
+  width: min(100%, 24rem);
+  max-height: calc(100dvh - 2.5rem);
+  overflow: auto;
+  background: #fff;
+  padding: 0.65rem;
+}
+
+.cs-creatives-lightbox__close {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.65rem;
+  z-index: 3;
+  display: flex;
+  height: 2rem;
+  width: 2rem;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 9999px;
+  background: rgba(22, 22, 22, 0.75);
+  color: #fff;
+  cursor: pointer;
+}
+
+.cs-creatives-lightbox__media {
+  overflow: hidden;
+  background: #f2f0ed;
+}
+
+.cs-creatives-lightbox__media--natural {
+  aspect-ratio: auto;
+  height: auto;
+}
+
+.cs-creatives-lightbox__media img,
+.cs-creatives-lightbox__media video {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: min(85dvh, 900px);
+  object-fit: contain;
+}
+
+.cs-creatives-lightbox__placeholder {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  text-align: center;
+  font-family: "Fraunces", serif;
+  font-size: 1.5rem;
+  color: #fff;
+  white-space: pre-line;
+}
+
+.cs-creatives-lightbox__meta {
+  margin-top: 0.75rem;
+  padding-inline: 0.25rem;
+}
+
+.cs-creatives-lightbox__meta p {
+  margin: 0;
+  font-family: "Caveat", cursive;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.cs-creatives-lightbox__meta span {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #98030b;
+}

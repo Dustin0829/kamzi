@@ -1,35 +1,10 @@
 import { useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { Heart } from "./Doodles";
 import Reveal from "./Reveal";
 import SectionBgDecor from "./SectionBgDecor";
+import { projects } from "../data/projects";
 import "./FeaturedWork.css";
-
-const projects = [
-  {
-    name: "luxe manila",
-    tag: "performance marketing",
-    desc: "Improved ROAS and increased revenue through data-driven ad strategies.",
-    href: "#work",
-    accent: "#c8a98a",
-    label: "LUXE",
-  },
-  {
-    name: "bare skincare",
-    tag: "creative strategy",
-    desc: "Developed high-converting creatives that boosted customer acquisition.",
-    href: "#work",
-    accent: "#d7c4b3",
-    label: "bare.",
-  },
-  {
-    name: "ntrl apparel",
-    tag: "growth campaign",
-    desc: "Created full-funnel campaigns that drove brand awareness and sales.",
-    href: "#work",
-    accent: "#9aa0a6",
-    label: "Elevate\nYour Style",
-  },
-];
 
 function ExternalLinkIcon() {
   return (
@@ -50,7 +25,7 @@ function ExternalLinkIcon() {
 
 const POLAROID_ROTATIONS = [-2.5, 2, -1.25];
 
-function PolaroidPreview({ accent, label, name, tag, index }) {
+function PolaroidPreview({ browser, phone, name, tag, index }) {
   const ref = useRef(null);
   const baseRotate = POLAROID_ROTATIONS[index] ?? 0;
   const idleTransform = `perspective(800px) rotate(${baseRotate}deg) rotateX(0deg) rotateY(0deg)`;
@@ -90,14 +65,26 @@ function PolaroidPreview({ accent, label, name, tag, index }) {
             <span className="featured-work__polaroid-browser-dot bg-[#febc2e]" />
             <span className="featured-work__polaroid-browser-dot bg-[#28c840]" />
           </div>
-          <div className="featured-work__polaroid-browser-screen" style={{ backgroundColor: accent }}>
-            <span className="featured-work__polaroid-browser-label">{label}</span>
+          <div className="featured-work__polaroid-browser-screen">
+            <img
+              src={browser}
+              alt={`${name} Facebook page on desktop`}
+              className="featured-work__polaroid-shot featured-work__polaroid-shot--browser"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
         </div>
 
         <div className="featured-work__polaroid-phone">
-          <div className="h-full w-full" style={{ backgroundColor: accent }}>
-            <div className="featured-work__polaroid-phone-notch" />
+          <div className="featured-work__polaroid-phone-inner">
+            <img
+              src={phone}
+              alt={`${name} Facebook page on mobile`}
+              className="featured-work__polaroid-shot featured-work__polaroid-shot--phone"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
         </div>
       </div>
@@ -113,23 +100,23 @@ function PolaroidPreview({ accent, label, name, tag, index }) {
 function ProjectItem({ project, index }) {
   return (
     <Reveal delay={index * 80} direction={index % 2 === 0 ? "right" : "left"}>
-      <article className="group">
+      <Link to={`/work/${project.slug}`} className="featured-work__card group block">
         <PolaroidPreview
-          accent={project.accent}
-          label={project.label}
+          browser={project.browser}
+          phone={project.phone}
           name={project.name}
           tag={project.tag}
           index={index}
         />
 
         <div className="mt-4 flex justify-center">
-          <a href={project.href} className="featured-work__project-link group inline-flex items-center gap-2">
+          <span className="featured-work__project-link inline-flex items-center gap-2">
             <ExternalLinkIcon />
-          </a>
+          </span>
         </div>
 
         <p className="featured-work__project-desc">{project.desc}</p>
-      </article>
+      </Link>
     </Reveal>
   );
 }
@@ -171,13 +158,6 @@ export default function FeaturedWork() {
                   Real results for real brands. Explore how our strategies drive growth,
                   engagement, and measurable impact.
                 </p>
-
-                <a href="#work" className="featured-work__cta btn-interactive">
-                  view more works
-                  <span className="arrow-slide" aria-hidden="true">
-                    →
-                  </span>
-                </a>
               </div>
             </div>
           </Reveal>
@@ -185,7 +165,7 @@ export default function FeaturedWork() {
 
         <div className="flex flex-col gap-16 pb-8 md:gap-20">
           {projects.map((p, i) => (
-            <ProjectItem key={p.name} project={p} index={i} />
+            <ProjectItem key={p.slug} project={p} index={i} />
           ))}
         </div>
       </div>

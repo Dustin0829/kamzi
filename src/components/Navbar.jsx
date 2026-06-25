@@ -1,12 +1,13 @@
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import Reveal from "./Reveal";
-import { useScrollSpy, useScrolled } from "../hooks/useScrollSpy";
+import { useScrollSpy, useScrolled, useNavbarHidden } from "../hooks/useScrollSpy";
 
 const links = [
-  { label: "Services", href: "#services", id: "services" },
-  { label: "About me", href: "#about", id: "about" },
-  { label: "Portfolio", href: "#work", id: "work" },
-  { label: "Contact", href: "#contact", id: "contact" },
+  { label: "Services", href: "/#services", id: "services" },
+  { label: "About me", href: "/#about", id: "about" },
+  { label: "Work", href: "/#work", id: "work" },
+  { label: "Contact", href: "/#contact", id: "contact" },
 ];
 
 function HamburgerIcon({ open }) {
@@ -34,25 +35,29 @@ function HamburgerIcon({ open }) {
 }
 
 export default function Navbar() {
+  const location = useLocation();
+  const isCaseStudy = location.pathname.startsWith("/work/");
   const scrolled = useScrolled(80);
+  const scrollHidden = useNavbarHidden();
   const active = useScrollSpy(links.map((l) => l.id));
-  const onHero = !scrolled;
+  const onHero = !scrolled && !isCaseStudy;
   const [menuOpen, setMenuOpen] = useState(false);
+  const isHidden = scrollHidden && !menuOpen;
+
+  const headerBg = onHero
+    ? "bg-transparent py-6"
+    : "bg-cream/95 py-4 shadow-md backdrop-blur-md border-b border-ink/5";
 
   const linkClass = (isActive) =>
-    onHero
-      ? `hover:text-[#b91c1c] ${isActive ? "text-[#b91c1c]" : "text-ink"}`
-      : `link-underline hover:text-rose ${isActive ? "is-active text-rose" : "text-cream/80"}`;
+    `hover:text-[#b91c1c] ${isActive ? "text-[#b91c1c]" : "text-ink"}`;
 
-  const iconClass = onHero ? "text-[#b91c1c]" : "text-cream";
+  const iconClass = "text-[#b91c1c]";
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        onHero
-          ? "bg-transparent py-6"
-          : "bg-ink/85 py-4 shadow-lg backdrop-blur-md"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 will-change-transform ${
+        isHidden ? "-translate-y-full" : "translate-y-0"
+      } ${headerBg}`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 md:px-10">
         <button
@@ -66,14 +71,12 @@ export default function Navbar() {
         </button>
 
         <Reveal direction="down" delay={0}>
-          <a
-            href="#home"
-            className={`inline-flex font-['Allura',cursive] text-[2.35rem] leading-none tracking-[0.02em] transition-transform duration-300 hover:scale-[1.02] md:text-[3.15rem] ${
-              onHero ? "text-ink" : "text-cream"
-            }`}
+          <Link
+            to="/"
+            className={`inline-flex font-['Allura',cursive] text-[2.35rem] leading-none tracking-[0.02em] transition-transform duration-300 hover:scale-[1.02] md:text-[3.15rem] text-ink`}
           >
             Kamille
-          </a>
+          </Link>
         </Reveal>
 
         <Reveal as="ul" className="hidden items-center gap-8 md:flex lg:gap-10" direction="down" delay={100}>
@@ -94,11 +97,7 @@ export default function Navbar() {
       </nav>
 
       {menuOpen && (
-        <div
-          className={`md:hidden border-t ${
-            onHero ? "border-ink/10 bg-cream/95" : "border-cream/10 bg-ink/95 backdrop-blur-md"
-          }`}
-        >
+        <div className="md:hidden border-t border-ink/10 bg-cream/95">
           <ul className="mx-auto flex max-w-7xl flex-col gap-1 px-6 py-4">
             {links.map((l) => {
               const isActive = active === l.id;

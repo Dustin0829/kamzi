@@ -2,6 +2,7 @@ import CountUp from "./CountUp";
 import { Heart } from "./Doodles";
 import Reveal from "./Reveal";
 import SectionBgDecor from "./SectionBgDecor";
+import { partnerSrc } from "../data/partners";
 import "./Testimonials.css";
 
 const stats = [
@@ -12,36 +13,32 @@ const stats = [
 
 const testimonials = [
   {
-    name: "Luxe Manila",
-    role: "E-commerce Founder",
-    initials: "LM",
-    accent: "#c8a98a",
+    name: "Get Wheysted",
+    file: "GET WHEYSTED.jpg",
+    role: "Brand Partner",
     rating: 5,
     text: "Exceptional creativity and attention to detail! Kamille transformed our ad strategy and doubled our ROAS within the first month.",
   },
   {
-    name: "Bare Skincare",
-    role: "Brand Owner",
-    initials: "BS",
-    accent: "#d7c4b3",
+    name: "Muscle Depot",
+    file: "MUSCLE DEP0T.jpg",
+    role: "Brand Partner",
     rating: 5,
-    text: "Working with Kamille was a game-changer. Her campaigns brought in consistent new customers and our revenue grew over 178%.",
+    text: "Working with Kamille was a game-changer. Her campaigns brought in consistent new customers and our revenue kept climbing month after month.",
   },
   {
-    name: "NTRL Apparel",
-    role: "Marketing Director",
-    initials: "NA",
-    accent: "#9aa0a6",
+    name: "Sear Station PH",
+    file: "SEAR STATION PH.jpg",
+    role: "Brand Partner",
     rating: 5,
     text: "Professional, data-driven, and always on top of trends. She built full-funnel campaigns that actually converted — highly recommend!",
   },
   {
-    name: "Glow Co.",
-    role: "CEO",
-    initials: "GC",
-    accent: "#ed7fc2",
+    name: "Basilio Motorshop",
+    file: "BASILIO MOTORSHOP.jpg",
+    role: "Brand Partner",
     rating: 5,
-    text: "Kamille doesn't just run ads — she understands your brand. Our cost per acquisition dropped 42% while sales kept climbing.",
+    text: "Kamille doesn't just run ads — she understands your brand. Our cost per acquisition dropped while sales kept growing.",
   },
 ];
 
@@ -64,8 +61,8 @@ function TestimonialCard({ item, index }) {
 
       <div className="testimonials__card-paper">
         <div className="testimonials__card-header">
-          <div className="testimonials__avatar" style={{ backgroundColor: item.accent }}>
-            {item.initials}
+          <div className="testimonials__avatar">
+            <img src={partnerSrc(item.file)} alt={item.name} loading="lazy" decoding="async" />
           </div>
           <div>
             <p className="testimonials__card-name">{item.name}</p>

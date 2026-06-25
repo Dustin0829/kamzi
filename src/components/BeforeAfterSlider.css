@@ -1,0 +1,214 @@
+.ba-slider-wrap {
+  position: relative;
+}
+
+.ba-slider {
+  --ba-red: #98030b;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 0.65rem;
+  background: #fff;
+  box-shadow:
+    0 12px 36px rgba(0, 0, 0, 0.1),
+    inset -4px 0 24px rgba(152, 3, 11, 0.04);
+  cursor: ew-resize;
+  touch-action: none;
+  user-select: none;
+}
+
+.ba-slider__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+.ba-slider__image--after {
+  position: relative;
+  z-index: 0;
+}
+
+.ba-slider__before-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  clip-path: inset(0 calc(100% - var(--ba-position)) 0 0);
+  filter: saturate(0.6) brightness(0.9);
+  transition: filter 0.25s ease;
+}
+
+.ba-slider__image--before {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.ba-slider__handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--ba-position);
+  z-index: 3;
+  width: 0;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.ba-slider__handle--pulse .ba-slider__handle-knob {
+  animation: ba-handle-nudge 2.2s ease-in-out infinite;
+}
+
+@keyframes ba-handle-nudge {
+  0%,
+  100% {
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    transform: translate(calc(-50% + 6px), -50%);
+  }
+}
+
+.ba-slider__handle-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 3px;
+  transform: translateX(-50%);
+  background: #fff;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.12);
+}
+
+.ba-slider__handle-knob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  height: 2.75rem;
+  width: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: #fff;
+  color: var(--ba-red);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+  transform: translate(-50%, -50%);
+}
+
+.ba-slider__handle-knob svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.ba-slider__badge {
+  position: absolute;
+  top: 0.85rem;
+  z-index: 2;
+  border-radius: 9999px;
+  padding: 0.35rem 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.ba-slider__badge--before {
+  left: 0.85rem;
+  font-size: 0.58rem;
+  background: rgba(44, 36, 32, 0.65);
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.ba-slider__badge--after {
+  right: 0.85rem;
+  font-size: 0.68rem;
+  background: var(--ba-red);
+  color: #fff;
+  box-shadow: 0 0 14px rgba(152, 3, 11, 0.45);
+}
+
+.ba-slider__stats {
+  position: absolute;
+  right: 0.85rem;
+  bottom: 0.85rem;
+  z-index: 2;
+  display: grid;
+  gap: 0.45rem;
+  max-width: min(14rem, 42vw);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  pointer-events: none;
+}
+
+.ba-slider__stats.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ba-slider__stat {
+  padding: 0.45rem 0.65rem;
+  border-radius: 0.4rem;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(4px);
+}
+
+.ba-slider__stat-label {
+  display: block;
+  font-size: 0.52rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(44, 36, 32, 0.5);
+}
+
+.ba-slider__stat-values {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.15rem;
+  font-size: 0.78rem;
+  line-height: 1.2;
+}
+
+.ba-slider__stat-before {
+  color: rgba(44, 36, 32, 0.45);
+  text-decoration: line-through;
+  text-decoration-color: rgba(44, 36, 32, 0.3);
+}
+
+.ba-slider__stat-arrow {
+  color: rgba(44, 36, 32, 0.35);
+  font-size: 0.65rem;
+}
+
+.ba-slider__stat-after {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  color: var(--ba-red);
+}
+
+.ba-slider__input {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: ew-resize;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ba-slider__handle--pulse .ba-slider__handle-knob {
+    animation: none;
+  }
+
+  .ba-slider__stats {
+    opacity: 1;
+    transform: none;
+  }
+}

@@ -36,3 +36,33 @@ export function useScrolled(threshold = 80) {
 
   return scrolled;
 }
+
+export function useNavbarHidden(threshold = 10, topOffset = 80) {
+  const [hidden, setHidden] = useState(false);
+
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const update = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY <= topOffset) {
+        setHidden(false);
+        lastScrollY = currentScrollY;
+        return;
+      }
+
+      const delta = currentScrollY - lastScrollY;
+      if (Math.abs(delta) < threshold) return;
+
+      setHidden(delta > 0);
+      lastScrollY = currentScrollY;
+    };
+
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    return () => window.removeEventListener("scroll", update);
+  }, [threshold, topOffset]);
+
+  return hidden;
+}

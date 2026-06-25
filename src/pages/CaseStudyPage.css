@@ -1,0 +1,521 @@
+.case-study {
+  --scrapbook-red: #98030b;
+  --scrapbook-paper: #f6f3ef;
+  --scrapbook-pink: #ed7fc2;
+  --scrapbook-ink: #2c2420;
+  position: relative;
+  min-height: 100vh;
+  background: var(--scrapbook-paper);
+  color: var(--scrapbook-ink);
+}
+
+.case-study__bg {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.case-study__glow {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(80px);
+}
+
+.case-study__glow--hero {
+  top: 8%;
+  left: 28%;
+  width: min(42rem, 70vw);
+  height: 18rem;
+  background: rgba(237, 127, 194, 0.22);
+}
+
+.case-study__dots {
+  position: absolute;
+  width: 4.5rem;
+  height: 4.5rem;
+  background-image: radial-gradient(circle, rgba(152, 3, 11, 0.75) 1.5px, transparent 1.5px);
+  background-size: 10px 10px;
+  opacity: 0.55;
+}
+
+.case-study__dots--tr {
+  top: 7rem;
+  right: 2rem;
+}
+
+.case-study__dots--bl {
+  bottom: 28%;
+  left: 1.5rem;
+}
+
+.case-study__main {
+  position: relative;
+  z-index: 1;
+  margin-inline: auto;
+  max-width: 72rem;
+  padding: 7rem 1.25rem 4rem;
+}
+
+@media (min-width: 768px) {
+  .case-study__main {
+    padding: 8rem 2.5rem 5rem;
+  }
+}
+
+/* Hero */
+.case-study__hero {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+@media (min-width: 960px) {
+  .case-study__hero {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    gap: 3rem;
+  }
+}
+
+.case-study__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--scrapbook-red);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.case-study__back:hover {
+  opacity: 0.75;
+}
+
+.case-study__hero-head {
+  position: relative;
+  margin-top: 1.5rem;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.case-study__tag {
+  margin: 0;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--scrapbook-red);
+}
+
+.case-study__title {
+  margin: 0.65rem 0 0;
+  font-family: "Fraunces", serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 600;
+  line-height: 1.02;
+  text-transform: capitalize;
+  color: var(--scrapbook-red);
+}
+
+.case-study__heart {
+  position: absolute;
+  right: -1.75rem;
+  top: 2.25rem;
+  height: 1.5rem;
+  width: 1.5rem;
+  color: var(--scrapbook-pink);
+  filter: drop-shadow(0 2px 6px rgba(237, 127, 194, 0.45));
+}
+
+.case-study__overview {
+  margin-top: 1.25rem;
+  max-width: 34rem;
+}
+
+.case-study__overview p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: #5a4338;
+}
+
+.case-study__overview p + p {
+  margin-top: 0.85rem;
+}
+
+.case-study__hero-visual-wrap {
+  width: 100%;
+}
+
+.case-study__hero-visual {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  max-width: 34rem;
+  margin-inline: auto;
+}
+
+@media (min-width: 960px) {
+  .case-study__hero-visual {
+    margin-inline: 0 0 auto;
+    max-width: none;
+  }
+}
+
+.case-study__mockup {
+  margin: 0;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.16);
+}
+
+.case-study__mockup--browser {
+  position: absolute;
+  left: 0;
+  top: 8%;
+  width: 78%;
+  height: 76%;
+  border-radius: 0.5rem;
+}
+
+.case-study__mockup--phone {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 28%;
+  height: 72%;
+  border-radius: 0.75rem;
+  border: 2px solid #444;
+}
+
+.case-study__mockup-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  background: #ececec;
+  padding: 0.45rem 0.75rem;
+}
+
+.case-study__mockup-dot {
+  height: 0.45rem;
+  width: 0.45rem;
+  border-radius: 9999px;
+}
+
+.case-study__mockup-dot--red {
+  background: #ff5f57;
+}
+
+.case-study__mockup-dot--yellow {
+  background: #febc2e;
+}
+
+.case-study__mockup-dot--green {
+  background: #28c840;
+}
+
+.case-study__mockup-shot {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.case-study__mockup--browser .case-study__mockup-shot {
+  height: calc(100% - 1.75rem);
+}
+
+.case-study__mockup--phone .case-study__mockup-shot {
+  height: 100%;
+}
+
+/* Before / After */
+.case-study__compare {
+  position: relative;
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 4.5rem;
+}
+
+@media (min-width: 900px) {
+  .case-study__compare {
+    grid-template-columns: 1fr auto 1fr;
+    gap: 1.5rem;
+    align-items: stretch;
+  }
+}
+
+.case-study__compare-arrow {
+  display: none;
+  width: 4.5rem;
+  align-self: center;
+  flex-shrink: 0;
+}
+
+@media (min-width: 900px) {
+  .case-study__compare-arrow {
+    display: block;
+  }
+}
+
+.case-study__comparison {
+  padding: 1.5rem 1.5rem 1.35rem;
+  background: #fff;
+  border-radius: 0.65rem;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+}
+
+.case-study__comparison-head {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.case-study__card-icon {
+  width: 1.35rem;
+  height: 1.35rem;
+  flex-shrink: 0;
+  color: var(--scrapbook-red);
+}
+
+.case-study__comparison-label {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--scrapbook-red);
+}
+
+.case-study__comparison-summary {
+  margin: 0.85rem 0 0;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: #5a4338;
+}
+
+.case-study__comparison-list {
+  margin: 1.1rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.case-study__comparison-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: rgba(44, 36, 32, 0.82);
+}
+
+.case-study__point-icon {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 1.15rem;
+  height: 1.15rem;
+  margin-top: 0.1rem;
+  border-radius: 9999px;
+  font-size: 0.55rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.case-study__point-icon--before {
+  background: rgba(152, 3, 11, 0.08);
+  color: var(--scrapbook-red);
+}
+
+.case-study__point-icon--after {
+  background: rgba(152, 3, 11, 0.12);
+  color: var(--scrapbook-red);
+}
+
+.case-study__metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.55rem;
+  margin-top: 1.35rem;
+}
+
+.case-study__metric {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.7rem 0.4rem;
+  text-align: center;
+  border-radius: 0.35rem;
+}
+
+.case-study__metric--before {
+  background: #f0eeeb;
+}
+
+.case-study__metric--after {
+  background: rgba(237, 127, 194, 0.14);
+}
+
+.case-study__metric-value {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.55rem;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: var(--scrapbook-ink);
+}
+
+.case-study__metric--after .case-study__metric-value {
+  color: var(--scrapbook-red);
+}
+
+.case-study__metric-label {
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(44, 36, 32, 0.5);
+}
+
+/* Shopify comparison slider */
+.case-study__shopify {
+  margin-top: 4.5rem;
+}
+
+.case-study__shopify-title {
+  margin: 0;
+  font-family: "Fraunces", serif;
+  font-size: clamp(1.75rem, 3.5vw, 2.35rem);
+  font-weight: 600;
+  color: var(--scrapbook-red);
+}
+
+.case-study__shopify-desc {
+  margin: 0.65rem 0 0;
+  max-width: 40rem;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: #5a4338;
+}
+
+.case-study__shopify .ba-slider {
+  margin-top: 1.5rem;
+}
+
+.case-study__shopify-hint {
+  margin: 0.85rem 0 0;
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--scrapbook-red);
+  opacity: 0.75;
+}
+
+/* Creatives section spacing */
+.cs-creatives {
+  margin-top: 4.5rem;
+}
+
+/* What we did */
+.case-study__services {
+  margin-top: 4.5rem;
+}
+
+.case-study__services-title {
+  margin: 0;
+  font-family: "Fraunces", serif;
+  font-size: clamp(1.75rem, 3.5vw, 2.35rem);
+  font-weight: 600;
+  color: var(--scrapbook-red);
+}
+
+.case-study__services-grid {
+  display: grid;
+  gap: 0;
+  margin-top: 1.75rem;
+  border-top: 1px solid rgba(44, 36, 32, 0.08);
+}
+
+@media (min-width: 768px) {
+  .case-study__services-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+.case-study__service {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 1.35rem 0.85rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(44, 36, 32, 0.08);
+}
+
+@media (min-width: 768px) {
+  .case-study__service {
+    border-bottom: none;
+    border-right: 1px solid rgba(44, 36, 32, 0.08);
+  }
+
+  .case-study__service:last-child {
+    border-right: none;
+  }
+}
+
+.case-study__service-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  color: var(--scrapbook-red);
+}
+
+.case-study__service-icon svg {
+  width: 1.65rem;
+  height: 1.65rem;
+}
+
+.case-study__service p {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: rgba(44, 36, 32, 0.78);
+}
+
+/* CTA */
+.case-study__cta-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 3.5rem;
+}
+
+.case-study__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  border-radius: 9999px;
+  border: none;
+  padding: 0.95rem 2rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  color: #fff;
+  background: var(--scrapbook-red);
+  box-shadow: 0 8px 24px rgba(152, 3, 11, 0.28);
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.case-study__cta:hover {
+  background: #7a0208;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(152, 3, 11, 0.35);
+}
