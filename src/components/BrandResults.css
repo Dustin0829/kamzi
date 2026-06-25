@@ -132,6 +132,7 @@
   justify-content: center;
   gap: 0.45rem;
   flex-wrap: wrap;
+  margin-bottom: 0.85rem;
 }
 
 .brand-results__tab {

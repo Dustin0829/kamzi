@@ -167,13 +167,13 @@
 .partners-marquee__group {
   display: flex;
   align-items: center;
-  gap: 1.15rem;
+  gap: 1.35rem;
   padding-inline: 0.575rem;
 }
 
 @media (min-width: 768px) {
   .partners-marquee__group {
-    gap: 1.35rem;
+    gap: 1.65rem;
   }
 }
 
@@ -183,8 +183,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: clamp(6.5rem, 14vw, 8.5rem);
-  padding: 0.85rem 1.1rem 0.95rem;
+  min-width: clamp(7.5rem, 16vw, 9.5rem);
+  padding: 1rem 1.25rem 1.1rem;
   background: #fff;
   box-shadow:
     0 5px 16px rgba(0, 0, 0, 0.08),
@@ -217,7 +217,7 @@
 
 .partners-marquee__logo {
   display: block;
-  max-height: clamp(1.85rem, 4vw, 2.35rem);
+  max-height: clamp(2.35rem, 5vw, 3rem);
   max-width: 100%;
   width: auto;
   object-fit: contain;
@@ -257,21 +257,27 @@
 }
 
 .partners-marquee--compact .partners-marquee__group {
-  gap: 0.85rem;
+  gap: 1.1rem;
+}
+
+@media (min-width: 768px) {
+  .partners-marquee--compact .partners-marquee__group {
+    gap: 1.35rem;
+  }
 }
 
 .partners-marquee--compact .partners-marquee__sticker {
-  min-width: clamp(5rem, 12vw, 6.5rem);
-  padding: 0.65rem 0.85rem 0.75rem;
+  min-width: clamp(5.5rem, 13vw, 7rem);
+  padding: 0.75rem 1rem 0.85rem;
 }
 
 .partners-marquee--compact .partners-marquee__logo {
-  max-height: clamp(1.5rem, 3.5vw, 1.85rem);
+  max-height: clamp(2rem, 4.5vw, 2.5rem);
 }
 
 .partners-marquee__logo--only {
   display: block;
-  max-height: clamp(2.5rem, 5vw, 3rem);
+  max-height: clamp(3.5rem, 7.5vw, 4.75rem);
   max-width: 100%;
   width: auto;
   object-fit: contain;
@@ -284,5 +290,5 @@
 }
 
 .partners-marquee--compact .partners-marquee__logo--only {
-  max-height: clamp(2rem, 4vw, 2.5rem);
+  max-height: clamp(3.25rem, 7vw, 4.25rem);
 }
