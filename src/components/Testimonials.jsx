@@ -2,6 +2,7 @@ import CountUp from "./CountUp";
 import { Heart } from "./Doodles";
 import Reveal from "./Reveal";
 import SectionBgDecor from "./SectionBgDecor";
+import PartnersMarquee from "./PartnersMarquee";
 import { partnerSrc } from "../data/partners";
 import "./Testimonials.css";
 
@@ -90,7 +91,7 @@ export default function Testimonials() {
     <section id="testimonials" className="testimonials relative py-20 md:py-28">
       <SectionBgDecor variant="testimonials" />
 
-      <div className="relative z-10 mx-auto grid max-w-6xl items-start gap-12 px-6 md:grid-cols-2 md:gap-16 md:px-10">
+      <div className="relative z-10 mx-auto grid max-w-6xl items-start gap-12 px-4 md:px-6 md:grid-cols-2 md:gap-16 md:px-10">
         <div className="md:sticky md:top-28 md:self-start">
           <Reveal direction="up">
             <span className="testimonials__badge">
@@ -106,10 +107,12 @@ export default function Testimonials() {
             </div>
 
             <p className="testimonials__desc">
-              Trusted by 20+ happy clients, adding $500k+ in revenue through strategic ads and
+              Trusted by 20+ happy clients, adding PHP10M+ in revenue through strategic ads and
               creative campaigns.
             </p>
           </Reveal>
+
+          <PartnersMarquee compact logoOnly />
 
           <div className="testimonials__stats">
             {stats.map((s, i) => (

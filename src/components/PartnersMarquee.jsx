@@ -12,7 +12,20 @@ const TAPE_COLORS = [
   "rgba(243, 169, 196, 0.45)",
 ];
 
-function PartnerSticker({ partner, index }) {
+function PartnerSticker({ partner, index, logoOnly = false }) {
+  if (logoOnly) {
+    return (
+      <img
+        src={partnerSrc(partner.file)}
+        alt={partner.name}
+        className="partners-marquee__logo--only"
+        loading="lazy"
+        decoding="async"
+        draggable={false}
+      />
+    );
+  }
+
   return (
     <div
       className="partners-marquee__sticker"
@@ -34,7 +47,7 @@ function PartnerSticker({ partner, index }) {
   );
 }
 
-function PartnerGroup({ ariaHidden = false }) {
+function PartnerGroup({ ariaHidden = false, logoOnly = false }) {
   return (
     <div className="partners-marquee__group" aria-hidden={ariaHidden || undefined}>
       {partners.map((partner, index) => (
@@ -42,26 +55,38 @@ function PartnerGroup({ ariaHidden = false }) {
           key={`${ariaHidden ? "dup-" : ""}${partner.file}`}
           partner={partner}
           index={index}
+          logoOnly={logoOnly}
         />
       ))}
     </div>
   );
 }
 
-function PartnerCarousel() {
+function PartnerCarousel({ logoOnly = false }) {
   return (
     <div className="partners-marquee__viewport">
       <span className="partners-marquee__fade partners-marquee__fade--left" aria-hidden="true" />
       <div className="partners-marquee__track">
-        <PartnerGroup />
-        <PartnerGroup ariaHidden />
+        <PartnerGroup logoOnly={logoOnly} />
+        <PartnerGroup ariaHidden logoOnly={logoOnly} />
       </div>
       <span className="partners-marquee__fade partners-marquee__fade--right" aria-hidden="true" />
     </div>
   );
 }
 
-export default function PartnersMarquee() {
+export default function PartnersMarquee({ compact = false, logoOnly = false }) {
+  if (compact) {
+    return (
+      <div className="partners-marquee--compact">
+        <Reveal direction="up">
+          <p className="partners-marquee__compact-eyebrow">brands I&apos;ve worked with</p>
+        </Reveal>
+        <PartnerCarousel logoOnly={logoOnly} />
+      </div>
+    );
+  }
+
   return (
     <section className="partners-marquee" aria-label="Brand partners">
       <div className="pointer-events-none absolute inset-0 overflow-hidden">

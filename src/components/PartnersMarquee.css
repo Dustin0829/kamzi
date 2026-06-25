@@ -97,8 +97,14 @@
 .partners-marquee__viewport {
   position: relative;
   overflow: hidden;
-  margin-inline: -0.5rem;
+  margin-inline: -1rem;
   padding-block: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .partners-marquee__viewport {
+    margin-inline: -0.5rem;
+  }
 }
 
 .partners-marquee__fade {
@@ -221,4 +227,58 @@
 
 .partners-marquee__sticker:hover .partners-marquee__logo {
   filter: saturate(1);
+}
+
+.partners-marquee--compact {
+  margin-top: 1.5rem;
+}
+
+.partners-marquee__compact-eyebrow {
+  font-size: clamp(0.65rem, 1.2vw, 0.75rem);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--scrapbook-red);
+  margin-bottom: 0.75rem;
+}
+
+.partners-marquee--compact .partners-marquee__viewport {
+  margin-inline: -1rem;
+}
+
+@media (min-width: 768px) {
+  .partners-marquee--compact .partners-marquee__viewport {
+    margin-inline: -0.75rem;
+  }
+}
+
+.partners-marquee--compact .partners-marquee__group {
+  gap: 0.85rem;
+}
+
+.partners-marquee--compact .partners-marquee__sticker {
+  min-width: clamp(5rem, 12vw, 6.5rem);
+  padding: 0.65rem 0.85rem 0.75rem;
+}
+
+.partners-marquee--compact .partners-marquee__logo {
+  max-height: clamp(1.5rem, 3.5vw, 1.85rem);
+}
+
+.partners-marquee__logo--only {
+  display: block;
+  max-height: clamp(2.5rem, 5vw, 3rem);
+  max-width: 100%;
+  width: auto;
+  object-fit: contain;
+  filter: saturate(0.85);
+  transition: filter 0.25s ease;
+}
+
+.partners-marquee__logo--only:hover {
+  filter: saturate(1);
+}
+
+.partners-marquee--compact .partners-marquee__logo--only {
+  max-height: clamp(2rem, 4vw, 2.5rem);
 }
