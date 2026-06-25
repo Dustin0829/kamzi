@@ -125,6 +125,18 @@ export default function BeforeAfterSlider({
 
   const showHighlights = position >= 35;
 
+  const renderStats = (variant) =>
+    highlights.map((item) => (
+      <div key={`${variant}-${item.label}`} className="ba-slider__stat">
+        <span className="ba-slider__stat-label">{item.label}</span>
+        <span className="ba-slider__stat-values">
+          <span className="ba-slider__stat-before">{item.before}</span>
+          <span className="ba-slider__stat-arrow">→</span>
+          <span className="ba-slider__stat-after">{item.after}</span>
+        </span>
+      </div>
+    ));
+
   return (
     <div className="ba-slider-wrap">
       <div
@@ -133,10 +145,24 @@ export default function BeforeAfterSlider({
         onPointerDown={startDragging}
         style={{ "--ba-position": `${position}%` }}
       >
-        <img src={afterSrc} alt={afterAlt} className="ba-slider__image ba-slider__image--after" draggable={false} />
+        <img
+          src={afterSrc}
+          alt={afterAlt}
+          className="ba-slider__image ba-slider__image--after"
+          draggable={false}
+          loading="lazy"
+          decoding="async"
+        />
 
         <div className="ba-slider__before-wrap">
-          <img src={beforeSrc} alt={beforeAlt} className="ba-slider__image ba-slider__image--before" draggable={false} />
+          <img
+            src={beforeSrc}
+            alt={beforeAlt}
+            className="ba-slider__image ba-slider__image--before"
+            draggable={false}
+            loading="lazy"
+            decoding="async"
+          />
         </div>
 
         <div className={`ba-slider__handle ${!hasRevealed ? "ba-slider__handle--pulse" : ""}`} aria-hidden="true">
@@ -152,17 +178,11 @@ export default function BeforeAfterSlider({
         <span className="ba-slider__badge ba-slider__badge--after">{afterLabel}</span>
 
         {highlights.length > 0 && (
-          <div className={`ba-slider__stats ${showHighlights ? "is-visible" : ""}`} aria-hidden={!showHighlights}>
-            {highlights.map((item) => (
-              <div key={item.label} className="ba-slider__stat">
-                <span className="ba-slider__stat-label">{item.label}</span>
-                <span className="ba-slider__stat-values">
-                  <span className="ba-slider__stat-before">{item.before}</span>
-                  <span className="ba-slider__stat-arrow">→</span>
-                  <span className="ba-slider__stat-after">{item.after}</span>
-                </span>
-              </div>
-            ))}
+          <div
+            className={`ba-slider__stats ba-slider__stats--overlay ${showHighlights ? "is-visible" : ""}`}
+            aria-hidden={!showHighlights}
+          >
+            {renderStats("overlay")}
           </div>
         )}
 
@@ -180,6 +200,15 @@ export default function BeforeAfterSlider({
           aria-label="Compare before and after Shopify analytics"
         />
       </div>
+
+      {highlights.length > 0 && (
+        <div
+          className={`ba-slider__stats ba-slider__stats--stacked ${showHighlights ? "is-visible" : ""}`}
+          aria-hidden={!showHighlights}
+        >
+          {renderStats("stacked")}
+        </div>
+      )}
     </div>
   );
 }

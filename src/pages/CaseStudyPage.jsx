@@ -168,6 +168,9 @@ export default function CaseStudyPage() {
                   src={project.browser}
                   alt={`${project.name} Facebook page on desktop`}
                   className="case-study__mockup-shot"
+                  loading="eager"
+                  decoding="async"
+                  fetchPriority="high"
                 />
               </figure>
 
@@ -176,6 +179,8 @@ export default function CaseStudyPage() {
                   src={project.phone}
                   alt={`${project.name} Facebook page on mobile`}
                   className="case-study__mockup-shot"
+                  loading="lazy"
+                  decoding="async"
                 />
               </figure>
             </div>

@@ -231,6 +231,10 @@
 
 .partners-marquee--compact {
   margin-top: 1.5rem;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .partners-marquee__compact-eyebrow {

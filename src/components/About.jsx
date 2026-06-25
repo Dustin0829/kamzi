@@ -15,6 +15,8 @@ export default function About() {
                 src="/KAMZ_NEW-removebg-preview.png"
                 alt="Kamille"
                 className="w-full object-cover transition-transform duration-500 hover:scale-105"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>

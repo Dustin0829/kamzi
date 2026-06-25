@@ -97,7 +97,7 @@ function ServiceBentoCard({ service }) {
       <div className="magic-bento-card__header">
         <div className={`magic-bento-card__icon ${service.iconBg} ${service.iconColor}`}>
           {service.iconSrc ? (
-            <img src={service.iconSrc} alt={service.iconAlt ?? ""} />
+            <img src={service.iconSrc} alt={service.iconAlt ?? ""} loading="lazy" decoding="async" />
           ) : (
             service.icon
           )}

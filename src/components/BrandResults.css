@@ -91,7 +91,7 @@
 .brand-results__scatter {
   position: relative;
   margin-top: 1.75rem;
-  min-height: 36rem;
+  min-height: 0;
 }
 
 @media (min-width: 768px) {
@@ -276,7 +276,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.35rem;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   padding-inline: 0.25rem;
 }
 

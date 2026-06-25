@@ -12,18 +12,16 @@ const brandResults = getProjectsWithShopifyResults();
 const homeCreatives = getHomeCreatives();
 
 const PINNED_SLOTS = [
-  { creativeIndex: 0, top: "0%", side: "left", rotate: -10, z: 3 },
-  { creativeIndex: 5, top: "8%", side: "right", rotate: 9, z: 3 },
-  { creativeIndex: 2, top: "38%", side: "left", rotate: 6, z: 4 },
-  { creativeIndex: 8, top: "42%", side: "right", rotate: -8, z: 4 },
-  { creativeIndex: 4, top: "76%", side: "left", rotate: -5, z: 3 },
+  { id: "wokbang-static-01", top: "0%", side: "left", rotate: -10, z: 3 },
+  { id: "kco-static-01", top: "8%", side: "right", rotate: 9, z: 3 },
+  { id: "wokbang-static-02", top: "38%", side: "left", rotate: 6, z: 4 },
+  { id: "kco-static-05", top: "42%", side: "right", rotate: -8, z: 4 },
+  { id: "ninuno-static-01", top: "76%", side: "left", rotate: -5, z: 3 },
 ];
-
-const MOBILE_PIN_INDICES = [0, 5, 2, 8, 4];
 
 const pinnedCreatives = PINNED_SLOTS.map((slot) => ({
   ...slot,
-  item: homeCreatives[slot.creativeIndex],
+  item: homeCreatives.find((creative) => creative.id === slot.id),
 })).filter((entry) => entry.item);
 
 function Pushpin() {
@@ -165,27 +163,22 @@ export default function BrandResults() {
               )}
             </div>
           </Reveal>
-        </div>
 
-        <div className="brand-results__mobile-pins">
-          {MOBILE_PIN_INDICES.map((creativeIndex, index) => {
-            const item = homeCreatives[creativeIndex];
-            if (!item) return null;
-            const slot = PINNED_SLOTS.find((s) => s.creativeIndex === creativeIndex) ?? PINNED_SLOTS[index];
-            return (
+          <div className="brand-results__mobile-pins">
+            {pinnedCreatives.map((entry, index) => (
               <button
-                key={`mobile-${item.id}`}
+                key={`mobile-${entry.item.id}`}
                 type="button"
                 className="brand-results__mobile-pin"
-                style={{ "--pin-rotate": `${slot?.rotate ?? index * 5 - 10}deg` }}
-                onClick={() => setLightboxItem(item)}
-                aria-label={`View ${item.client} ${item.tag}`}
+                style={{ "--pin-rotate": `${entry.rotate ?? index * 5 - 10}deg` }}
+                onClick={() => setLightboxItem(entry.item)}
+                aria-label={`View ${entry.item.client} ${entry.item.tag}`}
               >
                 <Pushpin />
-                <img src={item.src} alt="" loading="lazy" referrerPolicy="no-referrer" />
+                <img src={entry.item.src} alt="" loading="lazy" decoding="async" referrerPolicy="no-referrer" />
               </button>
-            );
-          })}
+            ))}
+          </div>
         </div>
       </div>
 

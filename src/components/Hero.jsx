@@ -120,6 +120,7 @@ function PolaroidCard({ caption, badge, dashboard, className = "" }) {
           alt=""
           className="hero-scrapbook__polaroid-frame"
           aria-hidden="true"
+          decoding="async"
         />
         <div className="hero-scrapbook__polaroid-window">
           <div className="hero-scrapbook__dashboard-scale">{dashboard}</div>
@@ -213,6 +214,8 @@ export default function Hero() {
               alt="Kamille, performance marketing strategist"
               className="hero-scrapbook__portrait"
               loading="eager"
+              decoding="async"
+              fetchPriority="high"
             />
           </div>
         </div>

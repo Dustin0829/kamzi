@@ -11,7 +11,19 @@
   background-repeat: no-repeat, no-repeat, repeat;
   background-size: auto, auto, 760px auto;
   color: var(--scrapbook-ink);
-  overflow: visible;
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
+.testimonials__layout {
+  width: 100%;
+  min-width: 0;
+}
+
+.testimonials__intro,
+.testimonials__cards {
+  min-width: 0;
+  width: 100%;
 }
 
 .testimonials__badge {
@@ -79,6 +91,15 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.625rem;
   margin-top: 2rem;
+}
+
+.testimonials__stats > .reveal {
+  min-width: 0;
+}
+
+.testimonials__cards > .reveal {
+  min-width: 0;
+  width: 100%;
 }
 
 @media (min-width: 640px) {
@@ -172,6 +193,9 @@
 
 .testimonials__card {
   position: relative;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   background: #fff;
   padding: 0.75rem 0.75rem 1.35rem;
   box-shadow:
@@ -302,6 +326,7 @@
   font-size: 0.875rem;
   line-height: 1.65;
   color: #4a3d36;
+  overflow-wrap: anywhere;
 }
 
 .testimonials__quote-mark {
@@ -325,6 +350,15 @@
 
 @media (max-width: 767px) {
   .testimonials__stats {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .testimonials__card-header {
+    flex-wrap: wrap;
+  }
+
+  .testimonials__rating {
+    margin-left: 0;
+    margin-top: 0.35rem;
   }
 }

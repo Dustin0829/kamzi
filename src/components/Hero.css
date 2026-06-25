@@ -58,13 +58,8 @@
   cursor: default;
   transform: translate3d(0, 0, 0);
   transform-origin: center center;
-  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   contain: layout style paint;
   backface-visibility: hidden;
-}
-
-.hero-scrapbook__portrait-collage:hover {
-  transform: translate3d(0, 0, 0) rotate(-3deg) scale(1.012);
 }
 
 .hero-scrapbook__portrait {
@@ -598,14 +593,12 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-scrapbook__portrait-collage,
   .hero-scrapbook__polaroid-item,
   .hero-scrapbook__polaroid-wrap,
   .hero-scrapbook__notebook {
     transition: none;
   }
 
-  .hero-scrapbook__portrait-collage:hover,
   .hero-scrapbook__polaroid-item--top:hover,
   .hero-scrapbook__polaroid-item--bottom:hover,
   .hero-scrapbook__notebook:hover {
@@ -755,10 +748,6 @@
 
   .hero-scrapbook__portrait-collage {
     pointer-events: auto;
-  }
-
-  .hero-scrapbook__portrait-collage:hover {
-    transform: translate3d(0, 0, 0) rotate(-2deg) scale(1.01);
   }
 
   .hero-scrapbook__portrait {
