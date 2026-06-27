@@ -5,6 +5,7 @@ import WhyChooseMe from "../components/WhyChooseMe";
 import FeaturedWork from "../components/FeaturedWork";
 import BrandResults from "../components/BrandResults";
 import About from "../components/About";
+import WhatsInMyBag from "../components/WhatsInMyBag";
 import Testimonials from "../components/Testimonials";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
@@ -17,6 +18,7 @@ export default function HomePage() {
         <Hero />
         <WhatIDo />
         <About />
+        <WhatsInMyBag />
         <WhyChooseMe />
         <FeaturedWork />
         <BrandResults />
