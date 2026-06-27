@@ -227,10 +227,10 @@
 }
 
 .cs-creatives__card-client {
-  font-family: "Caveat", cursive;
-  font-size: 1.05rem;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1.25;
   color: #2c2420;
 }
 
@@ -319,8 +319,8 @@
 
 .cs-creatives-lightbox__meta p {
   margin: 0;
-  font-family: "Caveat", cursive;
-  font-size: 1.35rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
   font-weight: 700;
 }
 

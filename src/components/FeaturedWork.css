@@ -240,10 +240,10 @@
 }
 
 .featured-work__polaroid-name {
-  font-family: "Caveat", cursive;
-  font-size: clamp(1.15rem, 2.8vw, 1.45rem);
+  font-family: var(--font-sans);
+  font-size: clamp(0.95rem, 2.2vw, 1.15rem);
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1.2;
   color: var(--scrapbook-ink);
   text-transform: capitalize;
 }

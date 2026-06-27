@@ -202,14 +202,37 @@
   padding: 0.35rem 0.3rem;
 }
 
-.hero-polaroid-dashboard--meta {
-  background: #f0f2f5;
-  color: #1c1e21;
+.hero-polaroid-dashboard--tiktok-before,
+.hero-polaroid-dashboard--tiktok-after {
+  background: #fff;
+  color: #161616;
 }
 
-.hero-polaroid-dashboard--google {
-  background: #f8f9fb;
-  color: #3c4043;
+.hero-polaroid-dashboard--tiktok-before .hero-polaroid-dashboard__title {
+  color: #161616;
+}
+
+.hero-polaroid-dashboard--tiktok-after .hero-polaroid-dashboard__title {
+  color: #0f766e;
+}
+
+.hero-polaroid-dashboard--tiktok-before .hero-polaroid-dashboard__label,
+.hero-polaroid-dashboard--tiktok-after .hero-polaroid-dashboard__label {
+  color: #667085;
+}
+
+.hero-polaroid-dashboard--tiktok-before .hero-polaroid-dashboard__value,
+.hero-polaroid-dashboard--tiktok-after .hero-polaroid-dashboard__value {
+  color: #161616;
+}
+
+.hero-polaroid-dashboard--tiktok-after .hero-polaroid-dashboard__stat:last-child {
+  background: rgba(15, 118, 110, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(15, 118, 110, 0.18);
+}
+
+.hero-polaroid-dashboard--tiktok-after .hero-polaroid-dashboard__stat:last-child .hero-polaroid-dashboard__value {
+  color: #0f766e;
 }
 
 .hero-polaroid-dashboard__title {
@@ -340,12 +363,9 @@
   padding: 0.35rem;
 }
 
-.hero-scrapbook__platform--fb {
-  background: #1877f2;
-}
-
-.hero-scrapbook__platform--google {
-  background: #fff;
+.hero-scrapbook__platform--tiktok {
+  background: #000;
+  color: #fff;
 }
 
 .hero-scrapbook__brown-heart {

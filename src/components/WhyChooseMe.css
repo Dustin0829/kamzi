@@ -205,10 +205,11 @@
 
 .why-choose-me__card-title {
   margin-top: 0.85rem;
-  font-family: "Caveat", cursive;
-  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  font-family: var(--font-sans);
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
   font-weight: 700;
-  line-height: 1.15;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
   color: var(--scrapbook-ink);
 }
 

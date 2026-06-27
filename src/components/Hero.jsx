@@ -1,6 +1,5 @@
 import { Heart, Star4 } from "./Doodles";
-import GoogleAdsDashboardPreview from "./GoogleAdsDashboardPreview";
-import MetaAdsDashboardPreview from "./MetaAdsDashboardPreview";
+import TikTokGmvDashboardPreview from "./TikTokGmvDashboardPreview";
 import Reveal from "./Reveal";
 import SectionBgDecor from "./SectionBgDecor";
 import "./Hero.css";
@@ -89,23 +88,11 @@ function HandArrow({ className = "" }) {
   );
 }
 
-function FacebookBadge() {
+function TikTokBadge() {
   return (
-    <span className="hero-scrapbook__platform hero-scrapbook__platform--fb" aria-hidden="true">
-      <svg viewBox="0 0 24 24" className="h-full w-full" fill="#fff">
-        <path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.5-1.5h1.6V3.6c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.3H7.6V13h2.8v8h3.1z" />
-      </svg>
-    </span>
-  );
-}
-
-function GoogleAdsBadge() {
-  return (
-    <span className="hero-scrapbook__platform hero-scrapbook__platform--google" aria-hidden="true">
-      <svg viewBox="0 0 24 24" className="h-full w-full">
-        <path fill="#FBBC04" d="M3.6 17.3 9.3 7.4a2.4 2.4 0 1 1 4.2 2.4l-5.7 9.9a2.4 2.4 0 1 1-4.2-2.4z" />
-        <path fill="#4285F4" d="M14.7 17.3 9 7.4a2.4 2.4 0 1 1 4.2-2.4l5.7 9.9a2.4 2.4 0 1 1-4.2 2.4z" />
-        <circle cx="6" cy="17.3" r="2.4" fill="#34A853" />
+    <span className="hero-scrapbook__platform hero-scrapbook__platform--tiktok" aria-hidden="true">
+      <svg viewBox="0 0 24 24" className="h-full w-full" fill="currentColor">
+        <path d="M16.6 5.82s.51.5 0 0A4.28 4.28 0 0115.54 3h-3.09v12.4a2.59 2.59 0 01-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66a5.25 5.25 0 00-5.25 5.2 5.25 5.25 0 0010.5 0V8.57a7.28 7.28 0 004.3 1.38V6.85a4.18 4.18 0 01-1.18-.03z" />
       </svg>
     </span>
   );
@@ -191,18 +178,18 @@ export default function Hero() {
 
             <PolaroidCard
               className="hero-scrapbook__polaroid-item--top"
-              caption="Content Performance"
-              badge={<FacebookBadge />}
-              dashboard={<MetaAdsDashboardPreview variant="polaroid" />}
+              caption="Campaign Overview"
+              badge={<TikTokBadge />}
+              dashboard={<TikTokGmvDashboardPreview variant="before" />}
             />
 
             <Heart className="hero-scrapbook__brown-heart" filled />
 
             <PolaroidCard
               className="hero-scrapbook__polaroid-item--bottom"
-              caption="Content Strategy"
-              badge={<GoogleAdsBadge />}
-              dashboard={<GoogleAdsDashboardPreview variant="polaroid" />}
+              caption="Optimized Results"
+              badge={<TikTokBadge />}
+              dashboard={<TikTokGmvDashboardPreview variant="after" />}
             />
           </Reveal>
         </div>
