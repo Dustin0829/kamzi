@@ -29,6 +29,8 @@
   --brand-red: #98030b;
   --brand-pink: #ed7fc2;
   --brand-kraft: #c89a6a;
+  --btn-primary: #98040c;
+  --btn-primary-hover: #7a0309;
   --paper: #f2f0ed;
   --paper-warm: #f6ede7;
   --paper-cool: #f7f3ee;
@@ -135,7 +137,7 @@ body {
 
 .btn-interactive:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px -8px rgba(236, 91, 114, 0.35);
+  box-shadow: 0 8px 24px -8px rgba(152, 4, 12, 0.35);
 }
 
 .btn-interactive:active {

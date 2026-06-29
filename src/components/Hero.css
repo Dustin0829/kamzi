@@ -579,21 +579,22 @@
   gap: 0.4rem;
   margin-top: 1.1rem;
   border-radius: 9999px;
-  background: var(--scrapbook-pink);
+  background: var(--btn-primary);
   padding: 0.6rem 1.5rem;
   font-family: var(--font-sans);
   font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: 0.02em;
-  color: #5d1546;
-  box-shadow: 0 4px 14px rgba(243, 169, 196, 0.5);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(152, 4, 12, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
   text-decoration: none;
 }
 
 .hero-scrapbook__cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(243, 169, 196, 0.65);
+  background: var(--btn-primary-hover);
+  box-shadow: 0 8px 20px rgba(152, 4, 12, 0.45);
 }
 
 .hero-scrapbook__cta-arrow {

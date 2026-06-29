@@ -82,15 +82,15 @@
   letter-spacing: 0.16em;
   text-transform: lowercase;
   color: #fff;
-  background: var(--scrapbook-pink);
-  box-shadow: 0 6px 20px rgba(237, 127, 194, 0.45);
+  background: var(--btn-primary);
+  box-shadow: 0 6px 20px rgba(152, 4, 12, 0.35);
   transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .featured-work__cta:hover {
-  background: #e56bb5;
+  background: var(--btn-primary-hover);
   transform: translateY(-2px);
-  box-shadow: 0 10px 26px rgba(237, 127, 194, 0.55);
+  box-shadow: 0 10px 26px rgba(152, 4, 12, 0.4);
 }
 
 .featured-work__rule {
@@ -409,16 +409,16 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: #fff;
-  background: var(--scrapbook-pink);
-  box-shadow: 0 6px 20px rgba(237, 127, 194, 0.45);
+  background: var(--btn-primary);
+  box-shadow: 0 6px 20px rgba(152, 4, 12, 0.35);
   transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .featured-work__card:hover .featured-work__cta,
 .featured-work__card:focus-visible .featured-work__cta {
-  background: #e56bb5;
+  background: var(--btn-primary-hover);
   transform: translateY(-2px);
-  box-shadow: 0 10px 26px rgba(237, 127, 194, 0.55);
+  box-shadow: 0 10px 26px rgba(152, 4, 12, 0.4);
 }
 
 .featured-work__cta-arrow {

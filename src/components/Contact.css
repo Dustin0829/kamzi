@@ -119,13 +119,13 @@
   font-weight: 700;
   letter-spacing: 0.06em;
   color: #fff;
-  background: var(--scrapbook-pink);
-  box-shadow: 0 6px 20px rgba(237, 127, 194, 0.4);
+  background: var(--btn-primary);
+  box-shadow: 0 6px 20px rgba(152, 4, 12, 0.35);
   transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .contact__btn-mobile:hover {
-  background: #e56bb5;
+  background: var(--btn-primary-hover);
   transform: translateY(-2px);
 }
 

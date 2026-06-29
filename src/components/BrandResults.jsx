@@ -8,6 +8,8 @@ import { getHomeCreatives } from "../data/creatives";
 import { getProjectsWithShopifyResults } from "../data/projects";
 import "./BrandResults.css";
 
+const CALENDLY_URL = "https://calendly.com/adsbykamzi";
+
 const brandResults = getProjectsWithShopifyResults();
 const homeCreatives = getHomeCreatives();
 
@@ -17,6 +19,7 @@ const PINNED_SLOTS = [
   { id: "wokbang-static-02", top: "38%", side: "left", rotate: 6, z: 4 },
   { id: "kco-static-05", top: "42%", side: "right", rotate: -8, z: 4 },
   { id: "ninuno-static-01", top: "76%", side: "left", rotate: -5, z: 3 },
+  { id: "kco-static-06", top: "78%", side: "right", rotate: 8, z: 3 },
 ];
 
 const pinnedCreatives = PINNED_SLOTS.map((slot) => ({
@@ -120,6 +123,18 @@ export default function BrandResults() {
             />
           ))}
 
+          <a
+            href={CALENDLY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="brand-results__book-call brand-results__book-call--scatter"
+          >
+            Get the same Result
+            <span className="brand-results__book-call-arrow" aria-hidden="true">
+              →
+            </span>
+          </a>
+
           <Reveal direction="up" delay={80} className="brand-results__stage-wrap">
             <div className="brand-results__stage">
               <div className="brand-results__tabs" role="tablist" aria-label="Brand results">
@@ -158,6 +173,20 @@ export default function BrandResults() {
                     <Link to={`/work/${project.slug}`} className="brand-results__case-link">
                       Full case study
                     </Link>
+                  </div>
+
+                  <div className="brand-results__book-call-mobile-wrap">
+                    <a
+                      href={CALENDLY_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="brand-results__book-call brand-results__book-call--mobile"
+                    >
+                      Get the same Result
+                      <span className="brand-results__book-call-arrow" aria-hidden="true">
+                        →
+                      </span>
+                    </a>
                   </div>
                 </article>
               )}
