@@ -19,7 +19,7 @@ function MailIcon() {
 
 export default function Contact() {
   return (
-    <section id="contact" className="contact relative overflow-hidden py-20 md:py-28">
+    <section id="contact" className="contact section-band section-band--cta relative overflow-hidden py-24 md:py-32">
       <SectionBgDecor variant="contact" />
 
       <div className="relative z-10 mx-auto grid max-w-6xl items-start gap-10 px-6 md:grid-cols-2 md:gap-12 md:px-10">

@@ -88,7 +88,7 @@ function TestimonialCard({ item, index }) {
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="testimonials relative py-20 md:py-28">
+    <section id="testimonials" className="testimonials section-band section-band--blush relative py-24 md:py-32">
       <SectionBgDecor variant="testimonials" />
 
       <div className="testimonials__layout relative z-10 mx-auto grid max-w-6xl items-start gap-12 px-4 md:px-6 md:grid-cols-2 md:gap-16 md:px-10">

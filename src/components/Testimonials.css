@@ -1,15 +1,13 @@
 .testimonials {
   --scrapbook-red: #98030b;
-  --scrapbook-paper: #f2f0ed;
+  --scrapbook-paper: #fdf0f3;
   --scrapbook-pink: #ed7fc2;
   --scrapbook-ink: #2c2420;
-  background-color: var(--scrapbook-paper);
   background-image:
-    radial-gradient(ellipse 120% 80% at 80% 15%, rgba(255, 255, 255, 0.45), transparent 52%),
-    radial-gradient(ellipse 100% 70% at 15% 90%, rgba(160, 130, 120, 0.08), transparent 48%),
-    url("/bg-paper.jpg");
-  background-repeat: no-repeat, no-repeat, repeat;
-  background-size: auto, auto, 760px auto;
+    radial-gradient(ellipse 120% 80% at 80% 15%, rgba(255, 255, 255, 0.6), transparent 52%),
+    radial-gradient(ellipse 100% 70% at 15% 90%, rgba(237, 127, 194, 0.12), transparent 48%);
+  background-repeat: no-repeat;
+  background-size: auto;
   color: var(--scrapbook-ink);
   overflow-x: clip;
   overflow-y: visible;

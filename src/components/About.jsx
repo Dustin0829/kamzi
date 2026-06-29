@@ -3,7 +3,7 @@ import SectionBgDecor from "./SectionBgDecor";
 
 export default function About() {
   return (
-    <section id="about" className="relative overflow-hidden bg-cream py-20">
+    <section id="about" className="section-band section-band--clean relative overflow-hidden py-24 md:py-32">
       <SectionBgDecor variant="about" />
 
       <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 px-6 md:grid-cols-[0.9fr_1.1fr] md:px-10">

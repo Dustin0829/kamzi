@@ -125,7 +125,7 @@ export default function WhatIDo() {
   }));
 
   return (
-    <section id="services" className="relative overflow-hidden bg-[#faf7f4] py-20 md:py-28">
+    <section id="services" className="section-band section-band--warm relative overflow-hidden py-24 md:py-32">
       <SectionBgDecor variant="services" />
 
       <div

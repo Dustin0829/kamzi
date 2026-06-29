@@ -4,6 +4,19 @@
   --scrapbook-pink: #ed7fc2;
   --scrapbook-ink: #2c2420;
   height: 420vh;
+  position: relative;
+}
+
+.why-choose-me::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  height: 4px;
+  background: var(--scrapbook-red);
+  opacity: 0.9;
 }
 
 .why-choose-me__sticky {

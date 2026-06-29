@@ -11,7 +11,7 @@ const AD_CHANNELS = [
     label: "Meta Ads",
     src: "/meta-12368_1024.png",
     top: "11%",
-    left: "24%",
+    left: "32%",
     rotate: -9,
     delay: 0,
   },
@@ -38,7 +38,7 @@ const AD_CHANNELS = [
     label: "Snapchat Ads",
     src: "/snapchat-logo-2437_1024.png",
     top: "11%",
-    left: "76%",
+    left: "68%",
     rotate: 9,
     delay: 210,
   },
@@ -104,7 +104,7 @@ export default function WhatsInMyBag() {
   const reducedMotion = useReducedMotion();
 
   return (
-    <section id="channels" className="whats-in-my-bag">
+    <section id="channels" className="whats-in-my-bag section-band section-band--cool">
       <SectionBgDecor variant="bag" />
 
       <div className="whats-in-my-bag__inner">

@@ -4,6 +4,8 @@ export const projects = [
     name: "ang ninuno",
     tag: "performance marketing",
     desc: "Improved ROAS and increased revenue through data-driven ad strategies.",
+    preview:
+      "We rebuilt Ang Ninuno's paid media from scattered campaigns into a structured funnel across vlog, horror, and merch audiences. Followers became measurable revenue with stronger ROAS and lower CPA.",
     browser: "/featured-work/ang-ninuno-browser.png",
     phone: "/featured-work/ang-ninuno-phone.png",
     overview: [
@@ -65,6 +67,8 @@ export const projects = [
     name: "kangkong chips original",
     tag: "creative strategy",
     desc: "Developed high-converting creatives that boosted customer acquisition.",
+    preview:
+      "We built a repeatable creative engine for Kangkong Chips Original — motion-first batches, seasonal promo templates, and faster testing pipelines. Fresher ads drove stronger acquisition at a lower cost per customer.",
     browser: "/featured-work/kco-browser.png",
     phone: "/featured-work/kco-phone.png",
     overview: [
@@ -110,6 +114,8 @@ export const projects = [
     name: "wokbang",
     tag: "growth campaign",
     desc: "Created full-funnel campaigns that drove brand awareness and sales.",
+    preview:
+      "We launched full-funnel campaigns for Wok Bang — top-of-funnel Reels, promo landing flows, and retargeting across Shopee and web. Monthly reach scaled past a million while ROAS and add-to-cart rate climbed.",
     browser: "/featured-work/wokbang-browser.png",
     phone: "/featured-work/wokbang-phone.png",
     overview: [
@@ -124,7 +130,7 @@ export const projects = [
         "Mobile-first shoppers weren't being met with native-feeling creatives",
       ],
       metrics: [
-        { label: "Reach / month", value: "180K" },
+        { label: "Reach / month", value: "420K" },
         { label: "Add-to-cart rate", value: "2.1%" },
         { label: "Blended ROAS", value: "1.8x" },
       ],
@@ -137,7 +143,7 @@ export const projects = [
         "Retargeting sequences built around product viewers and cart abandoners",
       ],
       metrics: [
-        { label: "Reach / month", value: "520K" },
+        { label: "Reach / month", value: "1.9M" },
         { label: "Add-to-cart rate", value: "4.6%" },
         { label: "Blended ROAS", value: "3.5x" },
       ],

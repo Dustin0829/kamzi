@@ -14,12 +14,12 @@
   background-size: cover, auto, auto;
   background-position: center, center, center;
   color: var(--scrapbook-ink);
-  padding: 4rem 1rem 4.5rem;
+  padding: var(--section-pad-y) 1rem;
 }
 
 @media (min-width: 768px) {
   .whats-in-my-bag {
-    padding: 5rem 2rem 5.5rem;
+    padding-inline: 2rem;
   }
 }
 
