@@ -1,8 +1,8 @@
 .section-bg-decor {
   --decor-kraft: #c89a6a;
-  --decor-pink: #f3a9c4;
-  --decor-red: #c11722;
-  --decor-rose: #ec5b72;
+  --decor-pink: #ed7fc2;
+  --decor-red: #98040c;
+  --decor-rose: #98040c;
 
   position: absolute;
   inset: 0;

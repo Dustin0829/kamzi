@@ -3,7 +3,7 @@
   font-family: "Fraunces", serif;
   font-size: clamp(1.75rem, 3.5vw, 2.35rem);
   font-weight: 600;
-  color: var(--scrapbook-red, #98030b);
+  color: var(--scrapbook-red, #98040c);
 }
 
 .cs-creatives__desc {
@@ -61,7 +61,7 @@
   border: 1.5px solid rgba(152, 3, 11, 0.22);
   border-radius: 9999px;
   background: #fff;
-  color: #98030b;
+  color: #98040c;
   cursor: pointer;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
   transform: translateY(-50%);
@@ -88,7 +88,7 @@
 }
 
 .cs-creatives__nav:hover:not(:disabled) {
-  border-color: #98030b;
+  border-color: #98040c;
   background: #fff;
   transform: translateY(calc(-50% - 1px));
 }
@@ -215,7 +215,7 @@
   justify-content: center;
   border-radius: 9999px;
   background: rgba(255, 255, 255, 0.92);
-  color: #98030b;
+  color: #98040c;
 }
 
 .cs-creatives__card-footer {
@@ -239,7 +239,7 @@
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #98030b;
+  color: #98040c;
 }
 
 .cs-creatives-lightbox {
@@ -329,5 +329,5 @@
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #98030b;
+  color: #98040c;
 }

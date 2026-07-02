@@ -9,15 +9,6 @@ import WhatsInMyBag from "../components/WhatsInMyBag";
 import Testimonials from "../components/Testimonials";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
-import SectionDivider from "../components/SectionDivider";
-
-function DividerWrap({ fill, children }) {
-  return (
-    <div style={{ "--divider-fill": fill }}>
-      {children}
-    </div>
-  );
-}
 
 export default function HomePage() {
   return (
@@ -25,37 +16,13 @@ export default function HomePage() {
       <Navbar />
       <main>
         <Hero />
-
-        <DividerWrap fill="#faf7f4">
-          <SectionDivider variant="wave" />
-        </DividerWrap>
         <WhatIDo />
-
-        <SectionDivider variant="tape" />
         <About />
-
-        <DividerWrap fill="#f7f3ee">
-          <SectionDivider variant="wave" />
-        </DividerWrap>
         <WhatsInMyBag />
-
-        <SectionDivider variant="dots" />
         <WhyChooseMe />
-
-        <DividerWrap fill="#f2f0ed">
-          <SectionDivider variant="wave" />
-        </DividerWrap>
         <FeaturedWork />
-
-        <SectionDivider variant="tape" />
         <BrandResults />
-
-        <DividerWrap fill="#fdf0f3">
-          <SectionDivider variant="wave" />
-        </DividerWrap>
         <Testimonials />
-
-        <SectionDivider variant="dots" />
         <Contact />
       </main>
       <Footer />

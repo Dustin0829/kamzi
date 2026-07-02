@@ -167,6 +167,8 @@ export default function CaseStudyCreatives({
 
   const closeLightbox = useCallback(() => setActiveItem(null), []);
 
+  if (!items.length) return null;
+
   return (
     <section className={`cs-creatives ${className}`.trim()}>
       <h2 className="cs-creatives__title">{title}</h2>

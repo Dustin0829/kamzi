@@ -1,8 +1,8 @@
 .hero-scrapbook {
-  --scrapbook-red: #98030b;
-  --scrapbook-red-bright: #c11722;
-  --scrapbook-paper: #f3efe8;
-  --scrapbook-pink: #f3a9c4;
+  --scrapbook-red: #98040c;
+  --scrapbook-red-bright: #98040c;
+  --scrapbook-paper: #f6ede7;
+  --scrapbook-pink: #ed7fc2;
   --scrapbook-pink-soft: #f7d2e0;
   --scrapbook-kraft: #c89a6a;
   position: relative;
@@ -422,12 +422,13 @@
 }
 
 .hero-scrapbook__script {
-  font-family: "Dancing Script", cursive;
-  font-weight: 700;
-  color: var(--scrapbook-red-bright);
-  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  color: var(--scrapbook-red);
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
   line-height: 1.02;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .hero-scrapbook__display {
@@ -536,9 +537,10 @@
 
 .hero-scrapbook__handwritten {
   position: relative;
-  font-family: "Caveat", cursive;
-  font-weight: 600;
-  font-size: clamp(1.25rem, 2.4vw, 1.6rem);
+  font-family: var(--font-sans);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
   line-height: 1.2;
   color: #2a2a2a;
   max-width: 13rem;

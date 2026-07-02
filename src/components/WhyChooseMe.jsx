@@ -294,7 +294,7 @@ export default function WhyChooseMe() {
   const scaleValues = [card1Scale, card2Scale, card3Scale];
 
   return (
-    <section id="why-me" ref={containerRef} className="why-choose-me relative">
+    <section id="why-me" ref={containerRef} className="why-choose-me section-band section-band--paper relative">
       <div className="why-choose-me__sticky sticky top-0 flex h-[100dvh] flex-col md:h-screen md:overflow-hidden">
         <SectionBackground />
 

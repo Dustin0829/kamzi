@@ -23,8 +23,10 @@ export default function About() {
         </Reveal>
 
         <Reveal direction="right" delay={120}>
-          <h2 className="font-serif text-4xl font-semibold md:text-5xl">about <span className="text-rose">me</span></h2>
-          <span className="mt-3 block h-[3px] w-40 rounded-full bg-rose" />
+          <h2 className="font-serif text-4xl font-semibold md:text-5xl">
+            about <span className="text-brand-red">me</span>
+          </h2>
+          <span className="mt-3 block h-[3px] w-40 rounded-full bg-brand-red" />
 
           <p className="mt-6 max-w-lg text-[15px] leading-relaxed text-ink/70">
             I'm passionate about helping businesses grow through smart strategies,
@@ -35,7 +37,7 @@ export default function About() {
             campaigns that deliver real results.
           </p>
 
-          <p className="mt-8 font-script text-4xl text-ink transition-transform duration-300 hover:scale-105">
+          <p className="mt-8 font-serif text-3xl italic text-ink-warm transition-transform duration-300 hover:scale-105">
             Kamille
           </p>
         </Reveal>

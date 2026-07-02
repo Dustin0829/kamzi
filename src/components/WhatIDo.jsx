@@ -37,7 +37,7 @@ const services = [
     title: "Meta Ads",
     body: "High-converting campaigns that drive leads, sales, and scale your brand profitably.",
     iconBg: "bg-[#fce4ec]",
-    iconColor: "text-[#ec5b72]",
+    iconColor: "text-brand-red",
     numColor: "text-[#fce4ec]",
     iconSrc: "/meta-12368_1024.png",
     iconAlt: "Meta",
@@ -138,20 +138,22 @@ export default function WhatIDo() {
 
       <div
         className="pointer-events-none absolute -right-20 -top-20 h-80 w-80 rounded-full blur-3xl"
-        style={{ background: "radial-gradient(circle, rgba(236,91,114,0.25), transparent 70%)" }}
+        style={{ background: "radial-gradient(circle, rgba(152, 4, 12, 0.1), transparent 70%)" }}
       />
 
       <div className="relative mx-auto max-w-6xl px-6 md:px-10">
         <Reveal className="text-center" direction="up">
-          <span className="inline-block rounded-full bg-rose/10 px-4 py-1.5 text-[11px] font-semibold tracking-[0.15em] text-rose">
+          <span className="inline-block rounded-full bg-brand-red/10 px-4 py-1.5 text-[11px] font-semibold tracking-[0.15em] text-brand-red">
             ✦ WHAT I DO
           </span>
 
           <h2 className="mt-5 font-serif text-4xl font-semibold leading-tight text-ink md:text-5xl lg:text-[3.25rem]">
             Marketing that{" "}
             <span className="relative inline-block">
-              <span className="font-script text-5xl font-bold text-rose md:text-6xl">drives</span>
-              <svg viewBox="0 0 120 12" className="absolute -bottom-1 left-0 w-full text-rose/60" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round">
+              <span className="font-['Bebas_Neue',sans-serif] text-5xl font-normal tracking-wide text-brand-red md:text-6xl">
+                drives
+              </span>
+              <svg viewBox="0 0 120 12" className="absolute -bottom-1 left-0 w-full text-brand-red/50" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round">
                 <path className="draw-underline-path" d="M4 8C20 2 40 10 60 6s40-4 56 2" />
               </svg>
             </span>

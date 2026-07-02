@@ -73,7 +73,7 @@ export default function Navbar() {
         <Reveal direction="down" delay={0}>
           <Link
             to="/"
-            className={`inline-flex font-['Allura',cursive] text-[2.35rem] leading-none tracking-[0.02em] transition-transform duration-300 hover:scale-[1.02] md:text-[3.15rem] text-ink`}
+            className="inline-flex font-sans text-2xl font-semibold leading-none tracking-tight text-ink-warm transition-transform duration-300 hover:scale-[1.02] md:text-3xl"
           >
             Kamille
           </Link>

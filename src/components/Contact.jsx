@@ -6,7 +6,7 @@ import SectionBgDecor from "./SectionBgDecor";
 import "./Contact.css";
 
 const CALENDLY_URL = "https://calendly.com/adsbykamzi";
-const CALENDLY_EMBED = `${CALENDLY_URL}?hide_gdpr_banner=1&background_color=f2f0ed&text_color=2c2420&primary_color=98030b`;
+const CALENDLY_EMBED = `${CALENDLY_URL}?hide_gdpr_banner=1&background_color=f2f0ed&text_color=2c2420&primary_color=98040c`;
 
 function MailIcon() {
   return (

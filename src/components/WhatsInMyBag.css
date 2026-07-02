@@ -1,15 +1,13 @@
 .whats-in-my-bag {
-  --scrapbook-red: #98030b;
+  --scrapbook-red: #98040c;
   --scrapbook-ink: #2c2420;
   --scrapbook-pink: #ed7fc2;
-  --scrapbook-paper: #f7f3ee;
   position: relative;
   overflow: hidden;
-  background-color: var(--scrapbook-paper);
   background-image:
     url("/bag-bg.png"),
     radial-gradient(ellipse 100% 70% at 20% 10%, rgba(255, 255, 255, 0.55), transparent 52%),
-    radial-gradient(ellipse 90% 60% at 85% 90%, rgba(152, 3, 11, 0.05), transparent 48%);
+    radial-gradient(ellipse 90% 60% at 85% 90%, rgba(152, 4, 12, 0.05), transparent 48%);
   background-repeat: no-repeat, no-repeat, no-repeat;
   background-size: cover, auto, auto;
   background-position: center, center, center;
@@ -51,10 +49,12 @@
 
 .whats-in-my-bag__title-script {
   display: block;
-  font-family: "Dancing Script", cursive;
-  font-weight: 700;
-  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
   line-height: 0.95;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   color: var(--scrapbook-red);
 }
 

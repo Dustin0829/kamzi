@@ -14,9 +14,9 @@ const brandResults = getProjectsWithShopifyResults();
 const homeCreatives = getHomeCreatives();
 
 const PINNED_SLOTS = [
-  { id: "wokbang-static-01", top: "0%", side: "left", rotate: -10, z: 3 },
+  { id: "ninuno-static-02", top: "0%", side: "left", rotate: -10, z: 3 },
   { id: "kco-static-01", top: "8%", side: "right", rotate: 9, z: 3 },
-  { id: "wokbang-static-02", top: "38%", side: "left", rotate: 6, z: 4 },
+  { id: "ninuno-static-03", top: "38%", side: "left", rotate: 6, z: 4 },
   { id: "kco-static-05", top: "42%", side: "right", rotate: -8, z: 4 },
   { id: "ninuno-static-01", top: "76%", side: "left", rotate: -5, z: 3 },
   { id: "kco-static-06", top: "78%", side: "right", rotate: 8, z: 3 },
@@ -97,7 +97,7 @@ export default function BrandResults() {
   const project = brandResults[activeBrand];
 
   return (
-    <section id="results" className="brand-results">
+    <section id="results" className="brand-results section-band section-band--paper">
       <SectionBgDecor variant="work" />
 
       <div className="brand-results__inner">

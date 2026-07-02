@@ -93,12 +93,12 @@ function CompareArrow() {
     <svg className="case-study__compare-arrow" viewBox="0 0 120 80" fill="none" aria-hidden="true">
       <path
         d="M8 40 C35 8, 55 72, 112 40"
-        stroke="#98030b"
+        stroke="#98040c"
         strokeWidth="2"
         strokeLinecap="round"
         strokeDasharray="4 6"
       />
-      <path d="M104 34l8 6-8 6" stroke="#98030b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M104 34l8 6-8 6" stroke="#98040c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }

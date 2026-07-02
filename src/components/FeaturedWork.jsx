@@ -166,7 +166,7 @@ function ProjectItem({ project, index }) {
 
 export default function FeaturedWork() {
   return (
-    <section id="work" className="featured-work section-band section-band--paper relative py-24 md:py-32">
+    <section id="work" className="featured-work section-band section-band--paper-kraft relative py-24 md:py-32">
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute left-8 top-16 hidden grid-cols-4 gap-2 md:grid md:left-14">
           {Array.from({ length: 16 }).map((_, i) => (
