@@ -1,5 +1,6 @@
+import { useEffect, useState } from "react";
 import { Heart, Star4 } from "./Doodles";
-import TikTokGmvDashboardPreview from "./TikTokGmvDashboardPreview";
+import TikTokGmvDashboardPreview, { GMV_SHOTS } from "./TikTokGmvDashboardPreview";
 import Reveal from "./Reveal";
 import SectionBgDecor from "./SectionBgDecor";
 import "./Hero.css";
@@ -98,20 +99,29 @@ function TikTokBadge() {
   );
 }
 
-function PolaroidCard({ caption, badge, dashboard, className = "" }) {
+function PolaroidCard({ caption, badge, dashboard, className = "", onOpen, gmv = false }) {
   return (
-    <figure className={`hero-scrapbook__polaroid-item ${className}`.trim()}>
-      <div className="hero-scrapbook__polaroid-wrap">
-        <img
-          src={POLAROID_SINGLE}
-          alt=""
-          className="hero-scrapbook__polaroid-frame"
-          aria-hidden="true"
-          decoding="async"
-        />
-        <div className="hero-scrapbook__polaroid-window">
+    <figure
+      className={`hero-scrapbook__polaroid-item ${gmv ? "hero-scrapbook__polaroid-item--gmv" : ""} ${className}`.trim()}
+    >
+      <div className={`hero-scrapbook__polaroid-wrap ${gmv ? "hero-scrapbook__polaroid-wrap--gmv" : ""}`.trim()}>
+        {!gmv && (
+          <img
+            src={POLAROID_SINGLE}
+            alt=""
+            className="hero-scrapbook__polaroid-frame"
+            aria-hidden="true"
+            decoding="async"
+          />
+        )}
+        <button
+          type="button"
+          className={`hero-scrapbook__polaroid-window ${gmv ? "hero-scrapbook__polaroid-window--gmv" : ""}`.trim()}
+          onClick={gmv ? onOpen : undefined}
+          aria-label={gmv ? `View full ${caption} dashboard` : undefined}
+        >
           <div className="hero-scrapbook__dashboard-scale">{dashboard}</div>
-        </div>
+        </button>
         <p className="hero-scrapbook__polaroid-caption">{caption}</p>
         <Pushpin />
         {badge}
@@ -120,7 +130,43 @@ function PolaroidCard({ caption, badge, dashboard, className = "" }) {
   );
 }
 
+function GmvLightbox({ shot, onClose }) {
+  useEffect(() => {
+    const handleKey = (event) => {
+      if (event.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", handleKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", handleKey);
+      document.body.style.overflow = "";
+    };
+  }, [onClose]);
+
+  if (!shot) return null;
+
+  return (
+    <div
+      className="hero-gmv-lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-label={shot.caption}
+      onClick={(event) => event.target === event.currentTarget && onClose()}
+    >
+      <div className="hero-gmv-lightbox__panel">
+        <button type="button" className="hero-gmv-lightbox__close" onClick={onClose} aria-label="Close">
+          ×
+        </button>
+        <img src={shot.src} alt={shot.alt} className="hero-gmv-lightbox__image" />
+        <p className="hero-gmv-lightbox__caption">{shot.caption}</p>
+      </div>
+    </div>
+  );
+}
+
 export default function Hero() {
+  const [gmvLightbox, setGmvLightbox] = useState(null);
+
   return (
     <section id="home" className="hero-scrapbook">
       <SectionBgDecor variant="hero" />
@@ -178,18 +224,22 @@ export default function Hero() {
 
             <PolaroidCard
               className="hero-scrapbook__polaroid-item--top"
-              caption="Campaign Overview"
+              caption={GMV_SHOTS.before.caption}
               badge={<TikTokBadge />}
               dashboard={<TikTokGmvDashboardPreview variant="before" />}
+              gmv
+              onOpen={() => setGmvLightbox(GMV_SHOTS.before)}
             />
 
             <Heart className="hero-scrapbook__brown-heart" filled />
 
             <PolaroidCard
               className="hero-scrapbook__polaroid-item--bottom"
-              caption="Optimized Results"
+              caption={GMV_SHOTS.after.caption}
               badge={<TikTokBadge />}
               dashboard={<TikTokGmvDashboardPreview variant="after" />}
+              gmv
+              onOpen={() => setGmvLightbox(GMV_SHOTS.after)}
             />
           </Reveal>
         </div>
@@ -207,6 +257,8 @@ export default function Hero() {
           </div>
         </div>
       </div>
+
+      <GmvLightbox shot={gmvLightbox} onClose={() => setGmvLightbox(null)} />
     </section>
   );
 }

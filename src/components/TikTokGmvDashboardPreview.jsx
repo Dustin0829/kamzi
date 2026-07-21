@@ -1,43 +1,28 @@
-const BEFORE_STATS = [
-  { label: "Cost", value: "₱205K" },
-  { label: "Orders", value: "4,757" },
-  { label: "Cost/order", value: "₱43.09" },
-  { label: "ROI", value: "17.06" },
-];
-
-const AFTER_STATS = [
-  { label: "Cost", value: "₱130K", trend: "↓ 37%", trendDown: true },
-  { label: "Orders", value: "3,606" },
-  { label: "Cost/order", value: "₱36.05", trend: "↓ 16%", trendDown: true },
-  { label: "ROI", value: "18.86", trend: "↑ 11%" },
-];
+export const GMV_SHOTS = {
+  before: {
+    src: "/portfolio/ang-ninuno/46d0337b-4d7f-47d8-9961-9e4c2e853ac0.jpeg",
+    alt: "Likha Merchandise TikTok GMV Max — Sep to Dec 2025: 22M gross revenue, 43,677 orders, 7.36 ROI",
+    caption: "GMV Max · Q4 2025",
+  },
+  after: {
+    src: "/portfolio/ang-ninuno/e05252c8-792e-48fd-9e00-38f812bf15b3.jpeg",
+    alt: "Likha Merchandise TikTok GMV Max — Jan to Mar 2026: 18.4M gross revenue, 44,082 orders, 5.22 ROI",
+    caption: "GMV Max · Q1 2026",
+  },
+};
 
 export default function TikTokGmvDashboardPreview({ variant = "before" }) {
-  const isAfter = variant === "after";
-  const stats = isAfter ? AFTER_STATS : BEFORE_STATS;
-  const title = isAfter ? "GMV Max · Jun 2026" : "GMV Max · May 2026";
-  const modifier = isAfter ? "tiktok-after" : "tiktok-before";
+  const shot = GMV_SHOTS[variant] ?? GMV_SHOTS.before;
 
   return (
-    <div className={`hero-polaroid-dashboard hero-polaroid-dashboard--${modifier}`}>
-      <p className="hero-polaroid-dashboard__title">{title}</p>
-      <div className="hero-polaroid-dashboard__stats">
-        {stats.map((stat) => (
-          <div key={stat.label} className="hero-polaroid-dashboard__stat">
-            <p className="hero-polaroid-dashboard__label">{stat.label}</p>
-            <p className="hero-polaroid-dashboard__value">{stat.value}</p>
-            {stat.trend ? (
-              <p
-                className={`hero-polaroid-dashboard__trend ${
-                  stat.trendDown ? "hero-polaroid-dashboard__trend--down" : "hero-polaroid-dashboard__trend--up"
-                }`}
-              >
-                {stat.trend}
-              </p>
-            ) : null}
-          </div>
-        ))}
-      </div>
-    </div>
+    <img
+      src={shot.src}
+      alt={shot.alt}
+      className="hero-polaroid-dashboard__shot"
+      width={968}
+      height={717}
+      loading={variant === "before" ? "eager" : "lazy"}
+      decoding="async"
+    />
   );
 }

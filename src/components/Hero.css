@@ -91,7 +91,7 @@
   bottom: 0;
   z-index: 12;
   display: flex;
-  width: clamp(17rem, 36vw, 26rem);
+  width: clamp(19rem, 40vw, 30rem);
   align-items: center;
   justify-content: center;
   padding: 7rem 1rem 2rem;
@@ -101,9 +101,10 @@
 .hero-scrapbook__cards-stack {
   position: relative;
   display: flex;
-  width: clamp(14rem, 100%, 20rem);
+  width: clamp(17rem, 100%, 25rem);
   flex-direction: column;
   align-items: center;
+  gap: 0.65rem;
   pointer-events: auto;
 }
 
@@ -131,6 +132,29 @@
   backface-visibility: hidden;
 }
 
+.hero-scrapbook__polaroid-item--gmv {
+  contain: none;
+}
+
+.hero-scrapbook__polaroid-item--gmv.hero-scrapbook__polaroid-item--top {
+  transform: translate3d(0, 0, 0) rotate(2deg);
+  margin-bottom: 0;
+}
+
+.hero-scrapbook__polaroid-item--gmv.hero-scrapbook__polaroid-item--top:hover {
+  transform: translate3d(0, -2px, 0) rotate(3deg);
+}
+
+.hero-scrapbook__polaroid-item--gmv.hero-scrapbook__polaroid-item--bottom {
+  transform: translate3d(0, 0, 0) rotate(-2deg);
+  margin-left: 1rem;
+  margin-bottom: 0;
+}
+
+.hero-scrapbook__polaroid-item--gmv.hero-scrapbook__polaroid-item--bottom:hover {
+  transform: translate3d(0, -2px, 0) rotate(-3deg);
+}
+
 .hero-scrapbook__polaroid-item--top {
   z-index: 3;
   transform: translate3d(0, 0, 0) rotate(3deg);
@@ -156,12 +180,16 @@
   position: relative;
   width: 100%;
   border-radius: 0.15rem;
-  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.14);
+  box-shadow:
+    0 12px 22px rgba(0, 0, 0, 0.14),
+    0 0 0 1px rgba(152, 4, 12, 0.08);
   transition: box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .hero-scrapbook__polaroid-item:hover .hero-scrapbook__polaroid-wrap {
-  box-shadow: 0 18px 32px rgba(0, 0, 0, 0.2);
+  box-shadow:
+    0 18px 32px rgba(152, 4, 12, 0.14),
+    0 0 0 1px rgba(152, 4, 12, 0.16);
 }
 
 .hero-scrapbook__polaroid-frame {
@@ -181,17 +209,153 @@
 
 .hero-scrapbook__polaroid-window {
   z-index: 2;
-  top: 13.5%;
-  left: 13.5%;
-  right: 13.5%;
-  bottom: 31.5%;
+  top: 11.5%;
+  left: 12%;
+  right: 12%;
+  bottom: 27%;
   overflow: hidden;
-  background: #f0f2f5;
+  background: #fff;
+  box-shadow: inset 0 0 0 1px rgba(152, 4, 12, 0.1);
 }
 
 .hero-scrapbook__dashboard-scale {
   width: 100%;
   height: 100%;
+}
+
+/* GMV cards — landscape window, full screenshot visible */
+.hero-scrapbook__polaroid-wrap--gmv {
+  background: #fff;
+  padding: 0.5rem 0.5rem 0;
+  box-shadow:
+    0 12px 22px rgba(0, 0, 0, 0.14),
+    0 0 0 1px rgba(152, 4, 12, 0.08);
+}
+
+.hero-scrapbook__polaroid-wrap--gmv .hero-scrapbook__pin {
+  top: 0.35rem;
+}
+
+.hero-scrapbook__polaroid-wrap--gmv .hero-scrapbook__platform {
+  bottom: 2.35rem;
+  right: 0.65rem;
+}
+
+.hero-scrapbook__polaroid-window--gmv {
+  position: relative;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  left: auto;
+  display: block;
+  width: 100%;
+  aspect-ratio: 968 / 620;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: none;
+  border-radius: 2px;
+  background: #f7f8fa;
+  cursor: zoom-in;
+  box-shadow: inset 0 0 0 1px rgba(152, 4, 12, 0.08);
+  transition: box-shadow 0.2s ease;
+}
+
+.hero-scrapbook__polaroid-window--gmv:hover {
+  box-shadow:
+    inset 0 0 0 1px rgba(152, 4, 12, 0.18),
+    0 0 0 3px rgba(152, 4, 12, 0.06);
+}
+
+.hero-scrapbook__polaroid-wrap--gmv .hero-scrapbook__dashboard-scale {
+  transform: none;
+}
+
+.hero-scrapbook__polaroid-wrap--gmv .hero-polaroid-dashboard__shot {
+  object-fit: cover;
+  object-position: top center;
+  image-rendering: auto;
+  transform: translateZ(0);
+}
+
+.hero-scrapbook__polaroid-wrap--gmv .hero-scrapbook__polaroid-caption {
+  position: relative;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  margin: 0;
+  padding: 0.45rem 0.25rem 0.6rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.hero-gmv-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  background: rgba(44, 36, 32, 0.72);
+  backdrop-filter: blur(4px);
+}
+
+.hero-gmv-lightbox__panel {
+  position: relative;
+  width: min(56rem, 100%);
+  max-height: min(90vh, 48rem);
+  overflow: auto;
+  border-radius: 0.75rem;
+  background: #fff;
+  padding: 0.75rem;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.28);
+}
+
+.hero-gmv-lightbox__close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 2;
+  display: flex;
+  height: 2rem;
+  width: 2rem;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 9999px;
+  background: rgba(44, 36, 32, 0.08);
+  color: #2c2420;
+  font-size: 1.35rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.hero-gmv-lightbox__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.35rem;
+}
+
+.hero-gmv-lightbox__caption {
+  margin: 0.65rem 0 0.15rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-align: center;
+  text-transform: uppercase;
+  color: #98040c;
+}
+
+.hero-polaroid-dashboard__shot {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  background: #fff;
 }
 
 .hero-polaroid-dashboard {
@@ -321,8 +485,8 @@
   bottom: 17%;
   margin: 0;
   font-family: var(--font-sans);
-  font-size: 0.62rem;
-  font-weight: 600;
+  font-size: 0.65rem;
+  font-weight: 700;
   line-height: 1.2;
   text-align: center;
   color: #2a2a2a;
@@ -371,8 +535,8 @@
 .hero-scrapbook__brown-heart {
   position: relative;
   z-index: 4;
-  align-self: flex-end;
-  margin: -0.5rem 1.5rem 0.5rem 0;
+  align-self: center;
+  margin: 0;
   height: 1.35rem;
   width: 1.35rem;
   color: var(--scrapbook-kraft);
@@ -744,7 +908,7 @@
     position: relative;
     z-index: 10;
     width: 100%;
-    min-height: clamp(36rem, 112vw, 48rem);
+    min-height: clamp(44rem, 128vw, 58rem);
     margin-top: 0.5rem;
     overflow: visible;
     pointer-events: none;
@@ -781,7 +945,7 @@
 
   .hero-scrapbook__polaroid-item {
     position: absolute;
-    width: clamp(11.5rem, 54vw, 16rem);
+    width: clamp(12rem, 55vw, 17rem);
     pointer-events: auto;
   }
 
@@ -813,6 +977,26 @@
 
   .hero-scrapbook__polaroid-item--bottom:hover {
     transform: translate3d(0, -2px, 0) rotate(-12deg);
+  }
+
+  .hero-scrapbook__polaroid-item--gmv.hero-scrapbook__polaroid-item--top {
+    top: 0;
+    right: -2%;
+  }
+
+  .hero-scrapbook__polaroid-item--gmv.hero-scrapbook__polaroid-item--bottom {
+    bottom: 4%;
+    left: -2%;
+    right: auto;
+  }
+
+  .hero-scrapbook__polaroid-wrap--gmv .hero-scrapbook__polaroid-caption {
+    display: block;
+  }
+
+  .hero-scrapbook__polaroid-wrap--gmv .hero-scrapbook__platform {
+    bottom: 2.1rem;
+    right: 0.5rem;
   }
 
   .hero-scrapbook__polaroid-window {

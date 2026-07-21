@@ -123,22 +123,23 @@ export default function BeforeAfterSlider({
     }
   };
 
-  const showHighlights = position >= 35;
-
   const renderStats = (variant) =>
-    highlights.map((item) => (
-      <div key={`${variant}-${item.label}`} className="ba-slider__stat">
+    highlights.map((item, index) => (
+      <div
+        key={`${variant}-${item.label}`}
+        className="ba-slider__stat"
+        style={{ "--stat-tilt": `${index % 2 === 0 ? -1.25 : 1.25}deg` }}
+      >
         <span className="ba-slider__stat-label">{item.label}</span>
-        <span className="ba-slider__stat-values">
-          <span className="ba-slider__stat-before">{item.before}</span>
-          <span className="ba-slider__stat-arrow">→</span>
-          <span className="ba-slider__stat-after">{item.after}</span>
+        <span className="ba-slider__stat-after">{item.after}</span>
+        <span className="ba-slider__stat-before-line">
+          from <span>{item.before}</span>
         </span>
       </div>
     ));
 
   return (
-    <div className="ba-slider-wrap">
+    <div className={`ba-slider-wrap ${highlights.length > 0 ? "ba-slider-wrap--has-highlights" : ""}`}>
       <div
         ref={containerRef}
         className="ba-slider"
@@ -177,15 +178,6 @@ export default function BeforeAfterSlider({
         <span className="ba-slider__badge ba-slider__badge--before">{beforeLabel}</span>
         <span className="ba-slider__badge ba-slider__badge--after">{afterLabel}</span>
 
-        {highlights.length > 0 && (
-          <div
-            className={`ba-slider__stats ba-slider__stats--overlay ${showHighlights ? "is-visible" : ""}`}
-            aria-hidden={!showHighlights}
-          >
-            {renderStats("overlay")}
-          </div>
-        )}
-
         <input
           type="range"
           min="0"
@@ -202,11 +194,8 @@ export default function BeforeAfterSlider({
       </div>
 
       {highlights.length > 0 && (
-        <div
-          className={`ba-slider__stats ba-slider__stats--stacked ${showHighlights ? "is-visible" : ""}`}
-          aria-hidden={!showHighlights}
-        >
-          {renderStats("stacked")}
+        <div className="ba-slider__stats ba-slider__stats--external">
+          {renderStats("external")}
         </div>
       )}
     </div>

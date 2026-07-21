@@ -39,12 +39,12 @@ export default function Contact() {
             amazing together.
           </p>
 
-          <a href="mailto:hello@adsbykamzi.com" className="contact__email group">
+          <a href="mailto:hello@kamillepaus.com" className="contact__email group">
             <span className="contact__email-icon">
               <MailIcon />
             </span>
             <span className="transition-all duration-300 group-hover:tracking-wide">
-              hello@adsbykamzi.com
+              hello@kamillepaus.com
             </span>
           </a>
 

@@ -180,6 +180,11 @@
   margin-top: 0;
 }
 
+.brand-results__slider-wrap .ba-slider-wrap--has-highlights {
+  position: relative;
+  z-index: 7;
+}
+
 .brand-results__slider-wrap .ba-slider-wrap {
   margin-top: 0;
 }
