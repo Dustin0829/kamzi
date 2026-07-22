@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Reveal from "./Reveal";
 import { useScrollSpy, useScrolled, useNavbarHidden } from "../hooks/useScrollSpy";
 
@@ -71,12 +71,12 @@ export default function Navbar() {
         </button>
 
         <Reveal direction="down" delay={0}>
-          <Link
-            to="/"
-            className="inline-flex font-sans text-2xl font-semibold leading-none tracking-tight text-ink-warm transition-transform duration-300 hover:scale-[1.02] md:text-3xl"
+          <a
+            href="mailto:hello@kamillepaus.com"
+            className="inline-flex font-sans text-sm font-semibold leading-none tracking-tight text-ink-warm transition-transform duration-300 hover:scale-[1.02] sm:text-base md:text-lg"
           >
-            Kamille
-          </Link>
+            hello@kamillepaus.com
+          </a>
         </Reveal>
 
         <Reveal as="ul" className="hidden items-center gap-8 md:flex lg:gap-10" direction="down" delay={100}>
