@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Heart } from "./Doodles";
 import Reveal from "./Reveal";
 import SectionBgDecor from "./SectionBgDecor";
+import { usePinnedIntro } from "../hooks/usePinnedIntro";
 import { projects } from "../data/projects";
 import "./FeaturedWork.css";
 
@@ -165,8 +166,22 @@ function ProjectItem({ project, index }) {
 }
 
 export default function FeaturedWork() {
+  const sectionRef = useRef(null);
+  const sidebarColRef = useRef(null);
+  const introRef = useRef(null);
+  const { pinState, pinnedWidth, pinnedLeft, introHeight } = usePinnedIntro(
+    sectionRef,
+    sidebarColRef,
+    introRef,
+    { topOffset: 112 },
+  );
+
   return (
-    <section id="work" className="featured-work section-band section-band--paper-kraft relative py-24 md:py-32">
+    <section
+      id="work"
+      ref={sectionRef}
+      className="featured-work section-band section-band--paper-kraft relative py-24 md:py-32"
+    >
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute left-8 top-16 hidden grid-cols-4 gap-2 md:grid md:left-14">
           {Array.from({ length: 16 }).map((_, i) => (
@@ -178,32 +193,47 @@ export default function FeaturedWork() {
       </div>
 
       <div className="relative z-10 mx-auto grid max-w-6xl items-start gap-12 px-6 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.4fr)] md:gap-16 md:px-10 lg:gap-20">
-        <div className="md:sticky md:top-28 md:self-start">
-          <Reveal direction="left">
-            <div className="flex items-stretch gap-6 md:gap-8">
-              <div className="hidden flex-col items-center md:flex">
-                <span className="featured-work__rule h-20" />
-                <span className="featured-work__rule mt-5 h-20" />
-              </div>
-
-              <div className="featured-work__intro">
-                <p className="featured-work__eyebrow">MY WORKS</p>
-
-                <div className="featured-work__headline">
-                  <h2>
-                    <span className="featured-work__title-script">featured</span>
-                    <span className="featured-work__title-display">work</span>
-                  </h2>
-                  <Heart className="featured-work__heart animate-float-delay-1" filled />
+        <div ref={sidebarColRef} className="featured-work__sidebar-col">
+          <div
+            className="featured-work__intro-spacer"
+            style={{ height: pinState === "fixed" ? introHeight : 0 }}
+            aria-hidden="true"
+          />
+          <div
+            ref={introRef}
+            className={`featured-work__intro-pin featured-work__intro-pin--${pinState}`}
+            style={
+              pinState === "fixed" && pinnedWidth != null && pinnedLeft != null
+                ? { width: pinnedWidth, left: pinnedLeft }
+                : undefined
+            }
+          >
+            <Reveal direction="left">
+              <div className="flex items-stretch gap-6 md:gap-8">
+                <div className="hidden flex-col items-center md:flex">
+                  <span className="featured-work__rule h-20" />
+                  <span className="featured-work__rule mt-5 h-20" />
                 </div>
 
-                <p className="featured-work__desc">
-                  Real results for real brands. Explore how our strategies drive growth,
-                  engagement, and measurable impact.
-                </p>
+                <div className="featured-work__intro">
+                  <p className="featured-work__eyebrow">MY WORKS</p>
+
+                  <div className="featured-work__headline">
+                    <h2>
+                      <span className="featured-work__title-script">featured</span>
+                      <span className="featured-work__title-display">work</span>
+                    </h2>
+                    <Heart className="featured-work__heart animate-float-delay-1" filled />
+                  </div>
+
+                  <p className="featured-work__desc">
+                    Real results for real brands. Explore how our strategies drive growth,
+                    engagement, and measurable impact.
+                  </p>
+                </div>
               </div>
-            </div>
-          </Reveal>
+            </Reveal>
+          </div>
         </div>
 
         <div className="flex flex-col gap-16 pb-8 md:gap-20">

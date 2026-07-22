@@ -8,6 +8,7 @@
 }
 
 .why-choose-me__sticky {
+  width: 100%;
   background-color: var(--scrapbook-paper);
   background-image:
     radial-gradient(ellipse 120% 80% at 15% 20%, rgba(255, 255, 255, 0.45), transparent 52%),
@@ -16,6 +17,26 @@
   background-repeat: no-repeat, no-repeat, repeat;
   background-size: auto, auto, 760px auto;
   color: var(--scrapbook-ink);
+  overflow: hidden;
+}
+
+.why-choose-me__sticky--before {
+  position: relative;
+}
+
+.why-choose-me__sticky--fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+}
+
+.why-choose-me__sticky--after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .why-choose-me__badge {

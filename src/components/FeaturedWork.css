@@ -15,6 +15,32 @@
   max-width: 22rem;
 }
 
+.featured-work__sidebar-col {
+  position: relative;
+}
+
+.featured-work__intro-spacer {
+  width: 100%;
+  pointer-events: none;
+}
+
+.featured-work__intro-pin--before {
+  position: relative;
+}
+
+.featured-work__intro-pin--fixed {
+  position: fixed;
+  top: 7rem;
+  z-index: 5;
+}
+
+.featured-work__intro-pin--after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
 .featured-work__eyebrow {
   font-size: clamp(0.75rem, 1.2vw, 0.875rem);
   font-weight: 700;

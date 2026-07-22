@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { useScrollPin } from "../hooks/useScrollPin";
 import SectionBgDecor from "./SectionBgDecor";
 import "./WhyChooseMe.css";
 
@@ -224,6 +225,7 @@ export default function WhyChooseMe() {
   const containerRef = useRef(null);
   const [activeStep, setActiveStep] = useState(0);
   const isMobile = useIsMobile();
+  const pinState = useScrollPin(containerRef);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -295,7 +297,9 @@ export default function WhyChooseMe() {
 
   return (
     <section id="why-me" ref={containerRef} className="why-choose-me section-band section-band--paper relative">
-      <div className="why-choose-me__sticky sticky top-0 flex h-[100dvh] flex-col md:h-screen md:overflow-hidden">
+      <div
+        className={`why-choose-me__sticky why-choose-me__sticky--${pinState} flex h-[100dvh] flex-col md:h-screen`}
+      >
         <SectionBackground />
 
         <div className="why-choose-me__inner relative mx-auto flex h-full w-full max-w-5xl flex-col px-4 pb-14 pt-16 sm:px-6 sm:pb-10 sm:pt-20 md:px-10 md:pb-16 md:pt-24">
