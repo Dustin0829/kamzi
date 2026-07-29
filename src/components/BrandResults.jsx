@@ -15,10 +15,10 @@ const homeCreatives = getHomeCreatives();
 
 const PINNED_SLOTS = [
   { id: "ninuno-static-02", top: "0%", side: "left", rotate: -10, z: 3 },
-  { id: "kco-static-01", top: "8%", side: "right", rotate: 9, z: 3 },
-  { id: "ninuno-static-03", top: "38%", side: "left", rotate: 6, z: 4 },
-  { id: "kco-static-05", top: "42%", side: "right", rotate: -8, z: 4 },
-  { id: "ninuno-static-01", top: "76%", side: "left", rotate: -5, z: 3 },
+  { id: "corekit-glow-01", top: "8%", side: "right", rotate: 9, z: 3 },
+  { id: "woofgang-soldout-01", top: "38%", side: "left", rotate: 6, z: 4 },
+  { id: "huddl-specs-01", top: "42%", side: "right", rotate: -8, z: 4 },
+  { id: "sear-station-cravings-01", top: "76%", side: "left", rotate: -5, z: 3 },
   { id: "kco-static-06", top: "78%", side: "right", rotate: 8, z: 3 },
 ];
 

@@ -4,6 +4,56 @@ import "./BeforeAfterSlider.css";
 const DEFAULT_POSITION = 28;
 const REVEAL_TARGET = 62;
 
+const SalesIcon = (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
+    <path d="M4 19V5M4 19h16" strokeLinecap="round" />
+    <path d="M8 15l4-5 3 3 5-7" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+const OrdersIcon = (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
+    <path
+      d="M4 5h1.6l1.7 10.2a1.5 1.5 0 001.5 1.3h8.4a1.5 1.5 0 001.5-1.2L20 8H8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <circle cx="10" cy="19.5" r="1.3" />
+    <circle cx="17" cy="19.5" r="1.3" />
+  </svg>
+);
+
+const ConversionIcon = (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
+    <circle cx="12" cy="12" r="8" />
+    <circle cx="12" cy="12" r="3.4" />
+    <path d="M12 4v3M12 17v3M4 12h3M17 12h3" strokeLinecap="round" />
+  </svg>
+);
+
+const SessionsIcon = (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
+    <circle cx="9" cy="8" r="3.2" />
+    <path d="M3.5 19c.8-3.2 2.8-5 5.5-5s4.7 1.8 5.5 5" strokeLinecap="round" />
+    <circle cx="17" cy="9" r="2.4" />
+    <path d="M14.8 19c.5-2.2 1.8-3.5 3.7-3.5.7 0 1.4.2 2 .5" strokeLinecap="round" />
+  </svg>
+);
+
+const STAT_ICONS = {
+  sales: SalesIcon,
+  revenue: SalesIcon,
+  orders: OrdersIcon,
+  conversion: ConversionIcon,
+  sessions: SessionsIcon,
+  traffic: SessionsIcon,
+};
+
+function statIcon(label) {
+  const key = Object.keys(STAT_ICONS).find((word) => label.toLowerCase().includes(word));
+  return key ? STAT_ICONS[key] : SalesIcon;
+}
+
 export default function BeforeAfterSlider({
   beforeSrc,
   afterSrc,
@@ -130,6 +180,9 @@ export default function BeforeAfterSlider({
         className="ba-slider__stat"
         style={{ "--stat-tilt": `${index % 2 === 0 ? -1.25 : 1.25}deg` }}
       >
+        <span className="ba-slider__stat-icon" aria-hidden="true">
+          {statIcon(item.label)}
+        </span>
         <span className="ba-slider__stat-label">{item.label}</span>
         <span className="ba-slider__stat-after">{item.after}</span>
         <span className="ba-slider__stat-before-line">

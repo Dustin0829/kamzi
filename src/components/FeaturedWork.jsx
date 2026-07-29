@@ -74,7 +74,7 @@ export default function FeaturedWork() {
     <section id="work" className="featured-work section-band section-band--paper-kraft">
       <div className="featured-work__inner">
         <div className="featured-work__layout">
-          <Reveal direction="left" className="featured-work__copy">
+          <Reveal direction="left" className="featured-work__header">
             <p className="featured-work__eyebrow">My work</p>
 
             <div className="featured-work__headline">
@@ -90,7 +90,13 @@ export default function FeaturedWork() {
               Real results for real brands. Explore how our strategies drive growth, engagement, and
               measurable impact.
             </p>
+          </Reveal>
 
+          <Reveal direction="right" delay={80} className="featured-work__visual">
+            <CaseStudyCard key={project.slug} project={project} />
+          </Reveal>
+
+          <Reveal direction="left" delay={120} className="featured-work__panel">
             <div className="featured-work__stats" key={project.slug}>
               {stats.map((stat, index) => (
                 <div key={stat.label} className="featured-work__stat">
@@ -139,10 +145,6 @@ export default function FeaturedWork() {
                 →
               </button>
             </div>
-          </Reveal>
-
-          <Reveal direction="right" delay={80} className="featured-work__visual">
-            <CaseStudyCard key={project.slug} project={project} />
           </Reveal>
         </div>
       </div>
