@@ -23,7 +23,7 @@ export default function About() {
         </Reveal>
 
         <Reveal direction="right" delay={120}>
-          <h2 className="font-serif text-4xl font-semibold md:text-5xl">
+          <h2 className="font-display text-5xl font-normal uppercase tracking-wide md:text-6xl">
             about <span className="text-brand-red">me</span>
           </h2>
           <span className="mt-3 block h-[3px] w-40 rounded-full bg-brand-red" />
@@ -37,7 +37,7 @@ export default function About() {
             campaigns that deliver real results.
           </p>
 
-          <p className="mt-8 font-serif text-3xl italic text-ink-warm transition-transform duration-300 hover:scale-105">
+          <p className="mt-8 font-display text-4xl uppercase tracking-wide text-ink-warm transition-transform duration-300 hover:scale-105">
             Kamille
           </p>
         </Reveal>

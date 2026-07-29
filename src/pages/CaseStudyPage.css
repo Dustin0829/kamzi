@@ -111,11 +111,12 @@
 
 .case-study__title {
   margin: 0.65rem 0 0;
-  font-family: "Fraunces", serif;
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  font-weight: 600;
-  line-height: 1.02;
-  text-transform: capitalize;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(2.9rem, 7vw, 4.6rem);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
   color: var(--scrapbook-red);
 }
 
@@ -388,9 +389,12 @@
 
 .case-study__shopify-title {
   margin: 0;
-  font-family: "Fraunces", serif;
-  font-size: clamp(1.75rem, 3.5vw, 2.35rem);
-  font-weight: 600;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
   color: var(--scrapbook-red);
 }
 
@@ -429,9 +433,12 @@
 
 .case-study__services-title {
   margin: 0;
-  font-family: "Fraunces", serif;
-  font-size: clamp(1.75rem, 3.5vw, 2.35rem);
-  font-weight: 600;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
   color: var(--scrapbook-red);
 }
 

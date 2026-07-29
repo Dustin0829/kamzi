@@ -1,8 +1,11 @@
 .cs-creatives__title {
   margin: 0;
-  font-family: "Fraunces", serif;
-  font-size: clamp(1.75rem, 3.5vw, 2.35rem);
-  font-weight: 600;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
   color: var(--scrapbook-red, #98040c);
 }
 
@@ -166,11 +169,12 @@
   position: relative;
   z-index: 1;
   white-space: pre-line;
-  font-family: "Fraunces", serif;
-  font-size: clamp(1.1rem, 2.8vw, 1.45rem);
-  font-weight: 600;
-  line-height: 1.15;
-  letter-spacing: 0.02em;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(1.3rem, 3.2vw, 1.7rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
   color: rgba(255, 255, 255, 0.95);
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
 }
@@ -306,8 +310,10 @@
   justify-content: center;
   padding: 1rem;
   text-align: center;
-  font-family: "Fraunces", serif;
-  font-size: 1.5rem;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.75rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
   color: #fff;
   white-space: pre-line;
 }

@@ -125,6 +125,30 @@
   opacity: 0;
 }
 
+.whats-in-my-bag__shadow {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 14%;
+  z-index: 10;
+  margin-inline: auto;
+  height: 2.25rem;
+  width: min(64%, 17rem);
+  border-radius: 9999px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(44, 36, 32, 0.45) 0%,
+    rgba(44, 36, 32, 0.24) 45%,
+    rgba(44, 36, 32, 0) 72%
+  );
+  filter: blur(0.6rem);
+  transition: transform 0.45s ease, opacity 0.45s ease;
+}
+
+.whats-in-my-bag__shadow--lifted {
+  transform: scale(0.88);
+  opacity: 0.65;
+}
+
 .whats-in-my-bag__bag-btn {
   position: absolute;
   inset: 0;
@@ -134,7 +158,7 @@
   justify-content: center;
   margin: 0 auto;
   width: 100%;
-  max-width: 28rem;
+  max-width: 25rem;
   border: none;
   background: none;
   padding: 0;
@@ -149,11 +173,11 @@
 
 .whats-in-my-bag__bag-img {
   display: block;
-  height: 126%;
+  height: 118%;
   width: 100%;
   object-fit: contain;
-  object-position: center 38%;
-  filter: drop-shadow(0 18px 36px rgba(0, 0, 0, 0.14));
+  object-position: center 42%;
+  filter: drop-shadow(0 18px 36px rgba(0, 0, 0, 0.22));
   pointer-events: none;
 }
 
@@ -193,6 +217,10 @@
   .whats-in-my-bag__hint--pulse {
     animation: none;
     opacity: 0.85;
+  }
+
+  .whats-in-my-bag__shadow {
+    transition: none;
   }
 }
 

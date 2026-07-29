@@ -13,18 +13,6 @@
   color: var(--scrapbook-ink);
 }
 
-.brand-results::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 4;
-  height: 4px;
-  background: var(--section-accent);
-  opacity: 0.9;
-}
-
 .brand-results__inner {
   position: relative;
   z-index: 1;

@@ -28,8 +28,8 @@ const AD_CHANNELS = [
     id: "pinterest",
     label: "Pinterest Ads",
     src: "/pinterest.png",
-    top: "79%",
-    left: "13%",
+    top: "72%",
+    left: "9%",
     rotate: -5,
     delay: 140,
   },
@@ -55,8 +55,8 @@ const AD_CHANNELS = [
     id: "google",
     label: "Google Ads",
     src: "/google-ads-logo-24212_1024.png",
-    top: "79%",
-    left: "87%",
+    top: "72%",
+    left: "91%",
     rotate: 5,
     delay: 350,
   },
@@ -130,6 +130,11 @@ export default function WhatsInMyBag() {
             aria-hidden="true"
           />
 
+          <div
+            className={`whats-in-my-bag__shadow ${open ? "whats-in-my-bag__shadow--lifted" : ""}`}
+            aria-hidden="true"
+          />
+
           {AD_CHANNELS.map((channel) => (
             <ChannelIcon key={channel.id} channel={channel} open={open} reducedMotion={reducedMotion} />
           ))}
@@ -146,7 +151,7 @@ export default function WhatsInMyBag() {
             transition={{ type: "spring", stiffness: 260, damping: 22 }}
           >
             <img
-              src="/bag.png"
+              src="/chanel.png"
               alt=""
               className="whats-in-my-bag__bag-img"
               draggable={false}

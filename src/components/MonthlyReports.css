@@ -1,0 +1,352 @@
+.monthly-reports {
+  --scrapbook-red: #98040c;
+  --scrapbook-ink: #2c2420;
+  --scrapbook-pink: #ed7fc2;
+  --scrapbook-kraft: #c89a6a;
+  position: relative;
+  overflow-x: clip;
+  color: var(--scrapbook-ink);
+  background-color: #f3eee6;
+  background-image: url("/bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+}
+
+.monthly-reports__inner {
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+  max-width: 78rem;
+  padding: var(--section-pad-y) 1rem;
+}
+
+@media (min-width: 768px) {
+  .monthly-reports__inner {
+    padding-inline: 2.5rem;
+  }
+}
+
+.monthly-reports__header {
+  max-width: min(28rem, 58%);
+  margin-bottom: clamp(2rem, 5vw, 3.25rem);
+}
+
+@media (max-width: 899px) {
+  .monthly-reports__header {
+    max-width: 28rem;
+  }
+}
+
+.monthly-reports__eyebrow {
+  margin: 0 0 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--scrapbook-red);
+}
+
+.monthly-reports__title {
+  margin: 0;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-size: clamp(3.1rem, 8vw, 5.25rem);
+  line-height: 0.88;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--scrapbook-red);
+}
+
+.monthly-reports__desc {
+  margin: 1rem 0 0;
+  max-width: 26rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #5a4338;
+}
+
+.monthly-reports__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.75rem, 4vw, 2.25rem);
+  justify-items: center;
+}
+
+@media (min-width: 640px) {
+  .monthly-reports__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 960px) {
+  .monthly-reports__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
+  }
+}
+
+.receipt-card {
+  --receipt-rotate: 0deg;
+  position: relative;
+  width: min(100%, 18.5rem);
+  min-height: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  transform: rotate(var(--receipt-rotate));
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 16px 28px rgba(44, 36, 32, 0.16));
+}
+
+.receipt-card:hover,
+.receipt-card:focus-visible {
+  outline: none;
+  transform: rotate(0deg) translateY(-0.45rem);
+  filter: drop-shadow(0 22px 34px rgba(44, 36, 32, 0.22));
+  z-index: 2;
+}
+
+.receipt-card__backing {
+  position: absolute;
+  inset: 0.85rem 0.35rem -0.35rem 0.55rem;
+  z-index: 0;
+  border-radius: 0.2rem;
+  background: linear-gradient(165deg, #e7d6bf 0%, #d8c2a4 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.receipt-card__clip {
+  position: absolute;
+  top: -0.55rem;
+  left: 50%;
+  z-index: 4;
+  width: 1.35rem;
+  height: 2.7rem;
+  color: #9aa0a6;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.18));
+}
+
+.receipt-card__sheet {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  padding: 0.85rem 0.85rem 1.1rem;
+  border-radius: 0.15rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.55), transparent 18%),
+    #fffdf9;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.8),
+    0 10px 24px rgba(44, 36, 32, 0.08);
+}
+
+.receipt-card__thumb {
+  display: block;
+  overflow: hidden;
+  margin: 0 0 0.85rem;
+  border-radius: 0.2rem;
+  background: #1c1917;
+  box-shadow: 0 6px 14px rgba(44, 36, 32, 0.12);
+}
+
+.receipt-card__thumb img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.35s ease;
+}
+
+.receipt-card:hover .receipt-card__thumb img,
+.receipt-card:focus-visible .receipt-card__thumb img {
+  transform: scale(1.03);
+}
+
+.receipt-card__meta {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--scrapbook-red);
+}
+
+.receipt-card__title {
+  display: block;
+  margin-top: 0.55rem;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-size: clamp(1.55rem, 2.9vw, 1.85rem);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--scrapbook-red);
+}
+
+.receipt-card__desc {
+  display: block;
+  flex: 1 1 auto;
+  margin-top: 0.55rem;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: #5a4338;
+}
+
+.receipt-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1.15rem;
+}
+
+.receipt-card__tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.28rem 0.55rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(152, 4, 12, 0.22);
+  background: rgba(152, 4, 12, 0.04);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--scrapbook-red);
+}
+
+.receipt-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(152, 4, 12, 0.22);
+  width: 100%;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--scrapbook-red);
+  transition: gap 0.25s ease;
+}
+
+.receipt-card:hover .receipt-card__cta,
+.receipt-card:focus-visible .receipt-card__cta {
+  gap: 0.45rem;
+}
+
+.report-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 110;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(20, 16, 14, 0.78);
+  backdrop-filter: blur(5px);
+}
+
+.report-modal__panel {
+  display: flex;
+  flex-direction: column;
+  width: min(56rem, 96vw);
+  height: min(90vh, 52rem);
+  overflow: hidden;
+  border-radius: 0.75rem;
+  background: #f7f3ee;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+
+.report-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid rgba(44, 36, 32, 0.1);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.report-modal__eyebrow {
+  margin: 0;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--scrapbook-red, #98040c);
+}
+
+.report-modal__title {
+  margin: 0.15rem 0 0;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(1.35rem, 2.8vw, 1.8rem);
+  letter-spacing: 0.02em;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #2c2420;
+}
+
+.report-modal__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex-shrink: 0;
+}
+
+.report-modal__open {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.8rem;
+  border-radius: 9999px;
+  background: #98040c;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.report-modal__open:hover {
+  opacity: 0.88;
+}
+
+.report-modal__close {
+  display: grid;
+  place-items: center;
+  height: 2.15rem;
+  width: 2.15rem;
+  border: none;
+  border-radius: 9999px;
+  background: rgba(44, 36, 32, 0.08);
+  font-size: 1.35rem;
+  line-height: 1;
+  color: #2c2420;
+  cursor: pointer;
+}
+
+.report-modal__frame {
+  flex: 1;
+  min-height: 0;
+  background: #2c2420;
+}
+
+.report-modal__frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .receipt-card,
+  .receipt-card__cta,
+  .receipt-card__thumb img {
+    transition: none;
+  }
+}

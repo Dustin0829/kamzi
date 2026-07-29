@@ -4,6 +4,7 @@ import WhatIDo from "../components/WhatIDo";
 import WhyChooseMe from "../components/WhyChooseMe";
 import FeaturedWork from "../components/FeaturedWork";
 import BrandResults from "../components/BrandResults";
+import MonthlyReports from "../components/MonthlyReports";
 import About from "../components/About";
 import WhatsInMyBag from "../components/WhatsInMyBag";
 import Testimonials from "../components/Testimonials";
@@ -22,6 +23,7 @@ export default function HomePage() {
         <WhyChooseMe />
         <FeaturedWork />
         <BrandResults />
+        <MonthlyReports />
         <Testimonials />
         <Contact />
       </main>

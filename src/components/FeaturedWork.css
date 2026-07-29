@@ -1,466 +1,340 @@
 .featured-work {
   --scrapbook-red: #98040c;
-  --scrapbook-paper: #f2f0ed;
   --scrapbook-pink: #ed7fc2;
   --scrapbook-ink: #2c2420;
-  background-image:
-    radial-gradient(ellipse 120% 80% at 20% 10%, rgba(255, 255, 255, 0.55), transparent 52%),
-    radial-gradient(ellipse 100% 70% at 70% 85%, rgba(160, 130, 120, 0.1), transparent 48%);
-  background-repeat: no-repeat;
-  background-size: auto;
+  position: relative;
+  overflow-x: clip;
   color: var(--scrapbook-ink);
+  background-image:
+    radial-gradient(ellipse 90% 60% at 12% 15%, rgba(255, 255, 255, 0.55), transparent 52%),
+    radial-gradient(ellipse 80% 55% at 88% 85%, rgba(200, 154, 106, 0.1), transparent 50%);
 }
 
-.featured-work__intro {
-  max-width: 22rem;
-}
-
-.featured-work__sidebar-col {
+.featured-work__inner {
   position: relative;
+  z-index: 1;
+  margin: 0 auto;
+  max-width: 78rem;
+  padding: var(--section-pad-y) 1rem;
 }
 
-.featured-work__intro-spacer {
-  width: 100%;
-  pointer-events: none;
+@media (min-width: 768px) {
+  .featured-work__inner {
+    padding-inline: 2.5rem;
+  }
 }
 
-.featured-work__intro-pin--before {
-  position: relative;
+.featured-work__layout {
+  display: grid;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  align-items: center;
 }
 
-.featured-work__intro-pin--fixed {
-  position: fixed;
-  top: 7rem;
-  z-index: 5;
+@media (min-width: 960px) {
+  .featured-work__layout {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.15fr);
+    gap: clamp(2rem, 4vw, 4rem);
+  }
 }
 
-.featured-work__intro-pin--after {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+.featured-work__copy {
+  max-width: 28rem;
 }
 
 .featured-work__eyebrow {
-  font-size: clamp(0.75rem, 1.2vw, 0.875rem);
+  margin: 0;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.28em;
+  text-transform: uppercase;
   color: var(--scrapbook-red);
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
 .featured-work__headline {
   position: relative;
-  margin-top: 1rem;
+  margin-top: 0.75rem;
   width: fit-content;
 }
 
-.featured-work__title-script {
-  display: block;
+.featured-work__title {
+  margin: 0;
   font-family: "Bebas Neue", sans-serif;
   font-weight: 400;
-  font-size: clamp(1.75rem, 4vw, 2.75rem);
-  line-height: 0.95;
-  letter-spacing: 0.06em;
+  font-size: clamp(3rem, 7.5vw, 5rem);
+  line-height: 0.88;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
   color: var(--scrapbook-red);
-  text-shadow: 0 2px 10px rgba(152, 4, 12, 0.12);
-}
-
-.featured-work__title-display {
-  display: block;
-  margin-top: -0.15rem;
-  font-family: "Bebas Neue", sans-serif;
-  font-weight: 400;
-  font-size: clamp(4.75rem, 12vw, 8.5rem);
-  line-height: 0.82;
-  letter-spacing: 0.02em;
-  color: var(--scrapbook-red);
-  text-shadow: 0 4px 14px rgba(152, 3, 11, 0.14);
 }
 
 .featured-work__heart {
   position: absolute;
-  right: -2.25rem;
-  top: 0.25rem;
-  height: clamp(1.75rem, 3vw, 2.25rem);
-  width: clamp(1.75rem, 3vw, 2.25rem);
-  color: var(--scrapbook-pink);
-  filter: drop-shadow(0 2px 6px rgba(237, 127, 194, 0.45));
+  right: -1.6rem;
+  top: 0.35rem;
+  width: 1.45rem;
+  height: 1.45rem;
+  color: var(--scrapbook-red);
 }
 
 .featured-work__desc {
-  margin-top: 1.75rem;
-  max-width: 20rem;
-  font-size: clamp(0.95rem, 1.5vw, 1.125rem);
-  line-height: 1.7;
+  margin: 1.1rem 0 0;
+  max-width: 24rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
   color: #5a4338;
+}
+
+.featured-work__stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin-top: 1.75rem;
+}
+
+.featured-work__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+}
+
+.featured-work__stat-icon {
+  display: grid;
+  place-items: center;
+  width: 2.15rem;
+  height: 2.15rem;
+  border-radius: 9999px;
+  border: 1.5px solid rgba(152, 4, 12, 0.35);
+  color: var(--scrapbook-red);
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.featured-work__stat-icon svg {
+  width: 1.05rem;
+  height: 1.05rem;
+}
+
+.featured-work__stat-value {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-size: clamp(1.75rem, 3.6vw, 2.35rem);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: var(--scrapbook-red);
+}
+
+.featured-work__stat-label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #6b564a;
 }
 
 .featured-work__cta {
   display: inline-flex;
   align-items: center;
-  gap: 0.625rem;
-  margin-top: 2rem;
-  border-radius: 9999px;
-  border: none;
-  padding: 0.85rem 1.65rem;
-  font-size: clamp(0.7rem, 1.1vw, 0.8rem);
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: lowercase;
-  color: #fff;
-  background: var(--btn-primary);
-  box-shadow: 0 6px 20px rgba(152, 4, 12, 0.35);
-  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.featured-work__cta:hover {
-  background: var(--btn-primary-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 26px rgba(152, 4, 12, 0.4);
-}
-
-.featured-work__rule {
-  width: 2px;
-  background: linear-gradient(to bottom, transparent, rgba(152, 3, 11, 0.55), transparent);
-}
-
-.featured-work__polaroid-wrap {
-  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.featured-work__card:hover .featured-work__polaroid-wrap,
-.featured-work__card:focus-visible .featured-work__polaroid-wrap {
-  transform: translateY(-6px);
-}
-
-.featured-work__polaroid {
-  position: relative;
-  width: 100%;
-  max-width: 28rem;
-  margin-inline: auto;
-  background: #fff;
-  padding: 0.7rem 0.7rem 3.25rem;
-  box-shadow:
-    0 16px 40px rgba(0, 0, 0, 0.16),
-    0 2px 0 rgba(255, 255, 255, 0.85) inset;
-  transform-origin: center bottom;
-  transition: box-shadow 0.3s ease;
-}
-
-.featured-work__card:hover .featured-work__polaroid,
-.featured-work__card:focus-visible .featured-work__polaroid {
-  box-shadow:
-    0 24px 52px rgba(0, 0, 0, 0.22),
-    0 2px 0 rgba(255, 255, 255, 0.85) inset;
-}
-
-.featured-work__polaroid-badge {
-  position: absolute;
-  top: 1.1rem;
-  right: 1rem;
-  z-index: 5;
-  border-radius: 9999px;
-  background: var(--scrapbook-red);
-  padding: 0.3rem 0.7rem;
-  font-size: 0.58rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #fff;
-  box-shadow: 0 4px 12px rgba(152, 3, 11, 0.35);
-}
-
-.featured-work__polaroid-hover-hint {
-  position: absolute;
-  inset: 0;
-  z-index: 4;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(44, 36, 32, 0.45);
-  font-size: 0.72rem;
+  gap: 0.35rem;
+  margin-top: 1.75rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1.5px solid var(--scrapbook-red);
+  font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #fff;
-  opacity: 0;
-  transition: opacity 0.25s ease;
+  text-decoration: none;
+  color: var(--scrapbook-red);
+  transition: gap 0.25s ease, opacity 0.2s ease;
 }
 
-.featured-work__card:hover .featured-work__polaroid-hover-hint,
-.featured-work__card:focus-visible .featured-work__polaroid-hover-hint {
-  opacity: 1;
+.featured-work__cta:hover {
+  gap: 0.55rem;
+  opacity: 0.85;
 }
 
-.featured-work__polaroid-preview {
-  position: relative;
-  aspect-ratio: 4 / 3;
-  width: 100%;
-  overflow: hidden;
-  background: #1a1a1a;
-}
-
-.featured-work__polaroid-preview-inner {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.04), transparent);
-}
-
-.featured-work__polaroid-browser {
-  position: absolute;
-  left: 6%;
-  top: 10%;
-  height: 72%;
-  width: 68%;
-  overflow: hidden;
-  border-radius: 0.4rem;
-  background: #fff;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
-  transition: transform 0.5s ease;
-}
-
-.featured-work__polaroid:hover .featured-work__polaroid-browser {
-  transform: scale(1.03);
-}
-
-.featured-work__polaroid-browser-bar {
+.featured-work__nav {
   display: flex;
   align-items: center;
-  gap: 0.375rem;
-  background: #ececec;
-  padding: 0.45rem 0.75rem;
+  gap: 0.85rem;
+  margin-top: 1.5rem;
 }
 
-.featured-work__polaroid-browser-dot {
-  height: 0.45rem;
-  width: 0.45rem;
+.featured-work__nav-btn {
+  display: grid;
+  place-items: center;
+  width: 2.15rem;
+  height: 2.15rem;
+  border: 1px solid rgba(152, 4, 12, 0.28);
   border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--scrapbook-red);
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.featured-work__polaroid-browser-screen {
-  height: calc(100% - 1.75rem);
-  overflow: hidden;
+.featured-work__nav-btn:hover {
   background: #fff;
+  transform: translateY(-1px);
 }
 
-.featured-work__polaroid-shot {
+.featured-work__dots {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.featured-work__dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  padding: 0;
+  border: none;
+  border-radius: 9999px;
+  background: rgba(152, 4, 12, 0.25);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.featured-work__dot.is-active {
+  background: var(--scrapbook-red);
+  transform: scale(1.2);
+}
+
+.featured-work__visual {
+  display: flex;
+  justify-content: center;
+}
+
+.featured-work__case-card {
+  width: min(100%, 34rem);
+  padding: 1.15rem 1.15rem 1.35rem;
+  border-radius: 0.2rem;
+  background: #fffdf9;
+  box-shadow:
+    0 18px 40px rgba(44, 36, 32, 0.14),
+    0 2px 0 rgba(255, 255, 255, 0.8) inset;
+  transform: rotate(2.5deg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featured-work__case-card:hover {
+  transform: rotate(0deg) translateY(-0.25rem);
+  box-shadow:
+    0 24px 48px rgba(44, 36, 32, 0.18),
+    0 2px 0 rgba(255, 255, 255, 0.8) inset;
+}
+
+.featured-work__mockups {
+  position: relative;
+  margin-bottom: 1.15rem;
+}
+
+.featured-work__browser {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 0.55rem;
+  background: #1c1917;
+  box-shadow: 0 12px 28px rgba(44, 36, 32, 0.18);
+}
+
+.featured-work__browser-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.65rem;
+  background: #2a2420;
+}
+
+.featured-work__browser-bar span {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 9999px;
+  background: #ff5f57;
+}
+
+.featured-work__browser-bar span:nth-child(2) {
+  background: #febc2e;
+}
+
+.featured-work__browser-bar span:nth-child(3) {
+  background: #28c840;
+}
+
+.featured-work__browser img {
   display: block;
   width: 100%;
-  height: 100%;
+  aspect-ratio: 16 / 10;
   object-fit: cover;
   object-position: top center;
 }
 
-.featured-work__polaroid-phone-inner {
-  height: 100%;
-  overflow: hidden;
-  background: #fff;
-}
-
-.featured-work__polaroid-browser-label {
-  margin-top: -1.25rem;
-  white-space: pre-line;
-  text-align: center;
-  font-family: "Fraunces", serif;
-  font-size: 1.35rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  color: rgba(255, 255, 255, 0.92);
-}
-
-@media (min-width: 768px) {
-  .featured-work__polaroid-browser-label {
-    font-size: 1.65rem;
-  }
-}
-
-.featured-work__polaroid-phone {
+.featured-work__phone {
   position: absolute;
-  bottom: 8%;
-  right: 6%;
-  height: 62%;
-  width: 22%;
-  overflow: hidden;
-  border-radius: 0.65rem;
-  border: 2px solid #444;
-  background: #fff;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
-  transition: transform 0.5s ease;
-}
-
-.featured-work__polaroid:hover .featured-work__polaroid-phone {
-  transform: scale(1.05);
-}
-
-.featured-work__polaroid-phone-notch {
-  margin: 0.65rem auto 0;
-  height: 0.2rem;
-  width: 1.75rem;
-  border-radius: 9999px;
-  background: rgba(0, 0, 0, 0.2);
-}
-
-.featured-work__polaroid-caption {
-  position: absolute;
-  left: 0.85rem;
-  right: 0.85rem;
-  bottom: 0.85rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-}
-
-.featured-work__polaroid-name {
-  font-family: var(--font-sans);
-  font-size: clamp(0.95rem, 2.2vw, 1.15rem);
-  font-weight: 700;
-  line-height: 1.2;
-  color: var(--scrapbook-ink);
-  text-transform: capitalize;
-}
-
-.featured-work__polaroid-tag {
-  flex-shrink: 0;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--scrapbook-red);
-}
-
-.featured-work__card {
-  color: inherit;
-  text-decoration: none;
-}
-
-.featured-work__card-body {
-  margin-top: 1.5rem;
-  max-width: 28rem;
-  margin-inline: auto;
-  text-align: center;
-}
-
-.featured-work__project-desc {
+  right: 0.55rem;
+  bottom: -1.1rem;
   margin: 0;
-  font-size: 0.92rem;
-  line-height: 1.7;
-  color: rgba(44, 36, 32, 0.78);
+  width: min(32%, 7.5rem);
+  padding: 0.35rem;
+  border-radius: 1rem;
+  background: #1c1917;
+  box-shadow: 0 16px 32px rgba(44, 36, 32, 0.28);
 }
 
-.featured-work__highlights {
-  margin: 1.15rem 0 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 0.5rem 0;
+.featured-work__phone img {
+  display: block;
+  width: 100%;
+  border-radius: 0.7rem;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  object-position: top center;
 }
 
-.featured-work__highlight {
-  display: flex;
-  flex: 1 1 0;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.25rem;
-  min-width: 5.5rem;
-  max-width: 9rem;
-  padding: 0 0.85rem;
-  text-align: center;
-  border: none;
-  background: none;
+.featured-work__case-copy {
+  padding: 0.85rem 0.35rem 0.15rem;
 }
 
-.featured-work__highlight:not(:last-child) {
-  border-right: 1px solid rgba(152, 3, 11, 0.12);
-}
-
-.featured-work__highlight-label {
-  font-size: 0.58rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+.featured-work__case-title {
+  margin: 0;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-size: clamp(1.85rem, 3.6vw, 2.4rem);
+  line-height: 0.95;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
-  color: rgba(44, 36, 32, 0.5);
-  line-height: 1.3;
+  color: var(--scrapbook-ink);
 }
 
-.featured-work__highlight-values {
-  display: inline-flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 0.3rem;
-  font-size: 0.82rem;
+.featured-work__case-tag {
+  margin: 0.45rem 0 0;
+  font-size: 0.68rem;
   font-weight: 700;
-}
-
-@media (max-width: 380px) {
-  .featured-work__highlight {
-    min-width: 4.75rem;
-    padding: 0 0.5rem;
-  }
-
-  .featured-work__highlight-values {
-    font-size: 0.75rem;
-  }
-}
-
-.featured-work__highlight-before {
-  color: rgba(44, 36, 32, 0.5);
-}
-
-.featured-work__highlight-arrow {
-  color: var(--scrapbook-pink);
-  font-size: 0.8rem;
-}
-
-.featured-work__highlight-after {
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
   color: var(--scrapbook-red);
 }
 
-.featured-work__cta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-top: 1.35rem;
-  border-radius: 9999px;
-  border: none;
-  padding: 0.8rem 1.5rem;
-  font-size: clamp(0.7rem, 1.1vw, 0.78rem);
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #fff;
-  background: var(--btn-primary);
-  box-shadow: 0 6px 20px rgba(152, 4, 12, 0.35);
-  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+.featured-work__case-desc {
+  margin: 0.7rem 0 0;
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: #5a4338;
 }
 
-.featured-work__card:hover .featured-work__cta,
-.featured-work__card:focus-visible .featured-work__cta {
-  background: var(--btn-primary-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 26px rgba(152, 4, 12, 0.4);
+@media (max-width: 959px) {
+  .featured-work__case-card {
+    transform: none;
+  }
+
+  .featured-work__case-card:hover {
+    transform: translateY(-0.2rem);
+  }
 }
 
-.featured-work__cta-arrow {
-  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.featured-work__card:hover .featured-work__cta-arrow,
-.featured-work__card:focus-visible .featured-work__cta-arrow {
-  transform: translateX(4px);
-}
-
-.featured-work__dot {
-  height: 0.5rem;
-  width: 0.5rem;
-  border-radius: 9999px;
-  background: rgba(152, 3, 11, 0.75);
+@media (prefers-reduced-motion: reduce) {
+  .featured-work__case-card,
+  .featured-work__cta,
+  .featured-work__nav-btn,
+  .featured-work__dot {
+    transition: none;
+  }
 }

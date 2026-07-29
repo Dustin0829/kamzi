@@ -147,7 +147,7 @@ export default function WhatIDo() {
             ✦ WHAT I DO
           </span>
 
-          <h2 className="mt-5 font-serif text-4xl font-semibold leading-tight text-ink md:text-5xl lg:text-[3.25rem]">
+          <h2 className="mt-5 font-display text-5xl font-normal uppercase leading-tight tracking-wide text-ink md:text-6xl lg:text-[4rem]">
             Marketing that{" "}
             <span className="relative inline-block">
               <span className="font-['Bebas_Neue',sans-serif] text-5xl font-normal tracking-wide text-brand-red md:text-6xl">

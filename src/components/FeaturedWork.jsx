@@ -1,245 +1,149 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Heart } from "./Doodles";
 import Reveal from "./Reveal";
-import SectionBgDecor from "./SectionBgDecor";
-import { usePinnedIntro } from "../hooks/usePinnedIntro";
 import { projects } from "../data/projects";
 import "./FeaturedWork.css";
 
-function ArrowIcon() {
+const STAT_ICONS = [
+  <svg key="reach" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
+    <circle cx="9" cy="8" r="3.2" />
+    <path d="M3.5 19c.8-3.2 2.8-5 5.5-5s4.7 1.8 5.5 5" strokeLinecap="round" />
+    <circle cx="17" cy="9" r="2.4" />
+    <path d="M14.8 19c.5-2.2 1.8-3.5 3.7-3.5.7 0 1.4.2 2 .5" strokeLinecap="round" />
+  </svg>,
+  <svg key="cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
+    <path d="M4 5h1.6l1.7 10.2a1.5 1.5 0 001.5 1.3h8.4a1.5 1.5 0 001.5-1.2L20 8H8" strokeLinecap="round" strokeLinejoin="round" />
+    <circle cx="10" cy="19.5" r="1.3" />
+    <circle cx="17" cy="19.5" r="1.3" />
+  </svg>,
+  <svg key="growth" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
+    <path d="M4 19V5M4 19h16" strokeLinecap="round" />
+    <path d="M8 15l4-5 3 3 5-7" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>,
+];
+
+function CaseStudyCard({ project }) {
   return (
-    <svg
-      viewBox="0 0 24 24"
-      className="featured-work__cta-arrow arrow-slide h-4 w-4 shrink-0"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <path d="M5 12h14M13 6l6 6-6 6" />
-    </svg>
-  );
-}
-
-const POLAROID_ROTATIONS = [-2.5, 2, -1.25];
-
-function getCardHighlights(project) {
-  const beforeMetrics = project.before?.metrics ?? [];
-  const afterMetrics = project.after?.metrics ?? [];
-
-  return afterMetrics
-    .map((after) => {
-      const before = beforeMetrics.find((metric) => metric.label === after.label);
-      if (!before) return null;
-      return { label: after.label, before: before.value, after: after.value };
-    })
-    .filter(Boolean);
-}
-
-function PolaroidPreview({ browser, phone, name, tag, index }) {
-  const ref = useRef(null);
-  const baseRotate = POLAROID_ROTATIONS[index] ?? 0;
-  const idleTransform = `perspective(800px) rotate(${baseRotate}deg) rotateX(0deg) rotateY(0deg)`;
-  const [transform, setTransform] = useState(idleTransform);
-
-  const handleMove = (e) => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const el = ref.current;
-    if (!el) return;
-
-    const rect = el.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-    setTransform(
-      `perspective(800px) rotate(${baseRotate}deg) rotateY(${x * 10}deg) rotateX(${-y * 10}deg) scale3d(1.02, 1.02, 1.02)`,
-    );
-  };
-
-  const handleLeave = () => {
-    setTransform(idleTransform);
-  };
-
-  return (
-    <figure
-      ref={ref}
-      onMouseMove={handleMove}
-      onMouseLeave={handleLeave}
-      style={{ transform, transition: "transform 0.15s ease-out" }}
-      className="featured-work__polaroid"
-    >
-      <span className="featured-work__polaroid-badge">Case study</span>
-
-      <div className="featured-work__polaroid-preview">
-        <div className="featured-work__polaroid-preview-inner" />
-        <span className="featured-work__polaroid-hover-hint">View case study</span>
-
-        <div className="featured-work__polaroid-browser">
-          <div className="featured-work__polaroid-browser-bar">
-            <span className="featured-work__polaroid-browser-dot bg-[#ff5f57]" />
-            <span className="featured-work__polaroid-browser-dot bg-[#febc2e]" />
-            <span className="featured-work__polaroid-browser-dot bg-[#28c840]" />
+    <article className="featured-work__case-card">
+      <div className="featured-work__mockups">
+        <figure className="featured-work__browser">
+          <div className="featured-work__browser-bar" aria-hidden="true">
+            <span />
+            <span />
+            <span />
           </div>
-          <div className="featured-work__polaroid-browser-screen">
-            <img
-              src={browser}
-              alt={`${name} Facebook page on desktop`}
-              className="featured-work__polaroid-shot featured-work__polaroid-shot--browser"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-        </div>
+          <img
+            src={project.browser}
+            alt={`${project.name} desktop preview`}
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
 
-        <div className="featured-work__polaroid-phone">
-          <div className="featured-work__polaroid-phone-inner">
-            <img
-              src={phone}
-              alt={`${name} Facebook page on mobile`}
-              className="featured-work__polaroid-shot featured-work__polaroid-shot--phone"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-        </div>
+        <figure className="featured-work__phone">
+          <img
+            src={project.phone}
+            alt={`${project.name} mobile preview`}
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
       </div>
 
-      <figcaption className="featured-work__polaroid-caption">
-        <span className="featured-work__polaroid-name">{name}</span>
-        <span className="featured-work__polaroid-tag">{tag}</span>
-      </figcaption>
-    </figure>
-  );
-}
-
-function ProjectItem({ project, index }) {
-  const highlights = getCardHighlights(project);
-  const preview = project.preview ?? project.desc;
-
-  return (
-    <Reveal delay={index * 80} direction={index % 2 === 0 ? "right" : "left"}>
-      <Link
-        to={`/work/${project.slug}`}
-        className="featured-work__card group block cursor-pointer rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-red"
-        aria-label={`View ${project.name} case study`}
-      >
-        <div className="featured-work__polaroid-wrap">
-          <PolaroidPreview
-            browser={project.browser}
-            phone={project.phone}
-            name={project.name}
-            tag={project.tag}
-            index={index}
-          />
-        </div>
-
-        <div className="featured-work__card-body">
-          <p className="featured-work__project-desc">{preview}</p>
-
-          {highlights.length > 0 && (
-            <ul className="featured-work__highlights">
-              {highlights.map((item) => (
-                <li key={item.label} className="featured-work__highlight">
-                  <span className="featured-work__highlight-label">{item.label}</span>
-                  <span className="featured-work__highlight-values">
-                    <span className="featured-work__highlight-before">{item.before}</span>
-                    <span className="featured-work__highlight-arrow" aria-hidden="true">
-                      →
-                    </span>
-                    <span className="featured-work__highlight-after">{item.after}</span>
-                  </span>
-                </li>
-              ))}
-            </ul>
-          )}
-
-          <span className="featured-work__cta btn-interactive">
-            View case study
-            <ArrowIcon />
-          </span>
-        </div>
-      </Link>
-    </Reveal>
+      <div className="featured-work__case-copy">
+        <h3 className="featured-work__case-title">{project.name}</h3>
+        <p className="featured-work__case-tag">{project.tag}</p>
+        <p className="featured-work__case-desc">{project.preview ?? project.desc}</p>
+      </div>
+    </article>
   );
 }
 
 export default function FeaturedWork() {
-  const sectionRef = useRef(null);
-  const sidebarColRef = useRef(null);
-  const introRef = useRef(null);
-  const { pinState, pinnedWidth, pinnedLeft, introHeight } = usePinnedIntro(
-    sectionRef,
-    sidebarColRef,
-    introRef,
-    { topOffset: 112 },
-  );
+  const [activeIndex, setActiveIndex] = useState(0);
+  const project = projects[activeIndex];
+  const stats = project?.after?.metrics?.slice(0, 3) ?? [];
+
+  const goPrev = () => setActiveIndex((i) => (i - 1 + projects.length) % projects.length);
+  const goNext = () => setActiveIndex((i) => (i + 1) % projects.length);
+
+  if (!project) return null;
 
   return (
-    <section
-      id="work"
-      ref={sectionRef}
-      className="featured-work section-band section-band--paper-kraft relative py-24 md:py-32"
-    >
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute left-8 top-16 hidden grid-cols-4 gap-2 md:grid md:left-14">
-          {Array.from({ length: 16 }).map((_, i) => (
-            <span key={i} className="featured-work__dot" />
-          ))}
-        </div>
+    <section id="work" className="featured-work section-band section-band--paper-kraft">
+      <div className="featured-work__inner">
+        <div className="featured-work__layout">
+          <Reveal direction="left" className="featured-work__copy">
+            <p className="featured-work__eyebrow">My work</p>
 
-        <SectionBgDecor variant="work" />
-      </div>
+            <div className="featured-work__headline">
+              <h2 className="featured-work__title">
+                Featured
+                <br />
+                Case Study
+              </h2>
+              <Heart className="featured-work__heart animate-float-delay-1" filled={false} />
+            </div>
 
-      <div className="relative z-10 mx-auto grid max-w-6xl items-start gap-12 px-6 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.4fr)] md:gap-16 md:px-10 lg:gap-20">
-        <div ref={sidebarColRef} className="featured-work__sidebar-col">
-          <div
-            className="featured-work__intro-spacer"
-            style={{ height: pinState === "fixed" ? introHeight : 0 }}
-            aria-hidden="true"
-          />
-          <div
-            ref={introRef}
-            className={`featured-work__intro-pin featured-work__intro-pin--${pinState}`}
-            style={
-              pinState === "fixed" && pinnedWidth != null && pinnedLeft != null
-                ? { width: pinnedWidth, left: pinnedLeft }
-                : undefined
-            }
-          >
-            <Reveal direction="left">
-              <div className="flex items-stretch gap-6 md:gap-8">
-                <div className="hidden flex-col items-center md:flex">
-                  <span className="featured-work__rule h-20" />
-                  <span className="featured-work__rule mt-5 h-20" />
+            <p className="featured-work__desc">
+              Real results for real brands. Explore how our strategies drive growth, engagement, and
+              measurable impact.
+            </p>
+
+            <div className="featured-work__stats" key={project.slug}>
+              {stats.map((stat, index) => (
+                <div key={stat.label} className="featured-work__stat">
+                  <span className="featured-work__stat-icon">{STAT_ICONS[index % STAT_ICONS.length]}</span>
+                  <span className="featured-work__stat-value">{stat.value}</span>
+                  <span className="featured-work__stat-label">{stat.label}</span>
                 </div>
+              ))}
+            </div>
 
-                <div className="featured-work__intro">
-                  <p className="featured-work__eyebrow">MY WORKS</p>
+            <Link to={`/work/${project.slug}`} className="featured-work__cta">
+              View full case study
+              <span aria-hidden="true"> →</span>
+            </Link>
 
-                  <div className="featured-work__headline">
-                    <h2>
-                      <span className="featured-work__title-script">featured</span>
-                      <span className="featured-work__title-display">work</span>
-                    </h2>
-                    <Heart className="featured-work__heart animate-float-delay-1" filled />
-                  </div>
+            <div className="featured-work__nav" role="tablist" aria-label="Featured projects">
+              <button
+                type="button"
+                className="featured-work__nav-btn"
+                onClick={goPrev}
+                aria-label="Previous project"
+              >
+                ←
+              </button>
 
-                  <p className="featured-work__desc">
-                    Real results for real brands. Explore how our strategies drive growth,
-                    engagement, and measurable impact.
-                  </p>
-                </div>
+              <div className="featured-work__dots">
+                {projects.map((item, index) => (
+                  <button
+                    key={item.slug}
+                    type="button"
+                    role="tab"
+                    aria-selected={activeIndex === index}
+                    aria-label={`Show ${item.name}`}
+                    className={`featured-work__dot ${activeIndex === index ? "is-active" : ""}`}
+                    onClick={() => setActiveIndex(index)}
+                  />
+                ))}
               </div>
-            </Reveal>
-          </div>
-        </div>
 
-        <div className="flex flex-col gap-16 pb-8 md:gap-20">
-          {projects.map((p, i) => (
-            <ProjectItem key={p.slug} project={p} index={i} />
-          ))}
+              <button
+                type="button"
+                className="featured-work__nav-btn"
+                onClick={goNext}
+                aria-label="Next project"
+              >
+                →
+              </button>
+            </div>
+          </Reveal>
+
+          <Reveal direction="right" delay={80} className="featured-work__visual">
+            <CaseStudyCard key={project.slug} project={project} />
+          </Reveal>
         </div>
       </div>
     </section>

@@ -20,7 +20,7 @@
   --color-brand-pink: #ed7fc2;
   --color-brand-kraft: #c89a6a;
 
-  --font-serif: "Fraunces", ui-serif, Georgia, serif;
+  --font-serif: ui-serif, Georgia, serif;
   --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Bebas Neue", ui-sans-serif, system-ui, sans-serif;
 }
